@@ -1,0 +1,27 @@
+{
+    "cordova-plugin-nativeaudio": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sidneys/cordova-plugin-nativeaudio",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-image-picker": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-image-picker"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "ionic-plugin-keyboard": {
+        "source": {
+            "type": "registry",
+            "id": "ionic-plugin-keyboard"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}

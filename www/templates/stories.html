@@ -1,0 +1,23 @@
+<ion-view view-title="<img class='title-image'  src='img/logo.png' /> Stories">
+  <ion-content>
+
+    <ion-list ng-repeat="story in stories">
+
+      <a ui-sref="app.storySingle({ singleID: '22' })">
+        <ion-item class="item item-avatar story">
+          <img src="img/user.png">
+          <span class="storyTitle">{{ story.title }}</span><br>
+          <span class="storyName">{{ story.name }}</span>
+          <span class="item-note">
+            <div class="thumbsUp"> <i class="icon ion-thumbsup"></i> 33</div>
+            {{ story.date }}
+          </span>
+
+
+        </ion-item>
+      </a>
+
+    </ion-list>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,114 @@
+<ion-view view-title="<img class='title-image'  src='img/logo.png' /> Home">
+  <ion-content padding="false">
+
+    <div class="row">
+      <div class="col col-25">
+        <div class="avatar">
+          <i class="icon userLarge ion-person"></i>
+        </div>
+      </div>
+      <div class="col col-75 profileName">John Smith</div>
+
+    </div>
+
+    <!--<h1 count-up id="lead" ng-model="badges.lead"></h1>-->
+
+
+    <h5>Your Badges</h5>
+    <div class="row badges">
+
+      <div class="col lead">
+        <div class="insideCircle rotate">
+          <i class="icon ion-ios-star"></i>
+        </div>
+
+        <div class="sektor1"></div>
+
+        <span class="statnum" count-up id="lead" ng-model="badges.lead"></span>
+      </div>
+
+
+      <div class="col convertedLead">
+        <div class="insideCircle">
+          <i class="icon ion-ios-star rotate"></i>
+        </div>
+
+        <div class="sektor2"></div>
+
+        <span class="statnum" count-up id="convertedLead" ng-model="badges.convertedLead"></span>
+      </div>
+
+      <div class="col Story">
+        <div class="insideCircle">
+          <i class="icon ion-ios-star rotate"></i>
+        </div>
+        <div class="sektor3"></div>
+
+        <span class="statnum" count-up id="story" ng-model="badges.story "></span>
+      </div>
+
+    </div>
+
+    <div class="row badgeTitle">
+      <div class="col-33">
+        <span class="statname">Lead</span>
+      </div>
+      <div class="col-33">
+        <span class="statname">Converted Lead</span>
+      </div>
+      <div class="col-33">
+        <span class="statname">Story</span>
+      </div>
+    </div>
+
+    <h5>Most Recent Leads <span class="right">Status</span></h5>
+
+
+
+    <div class="card">
+
+      <div class="item item-text-wrap">
+        Company name
+        <span class="item-note">
+          New
+        </span>
+      </div>
+
+      <div class="item item-divider">
+        3 Jan 2016
+      </div>
+    </div>
+
+    <div class="card">
+
+      <div class="item item-text-wrap">
+        Company name
+        <span class="item-note">
+          Won
+        </span>
+      </div>
+
+      <div class="item item-divider">
+        3 Jan 2016
+      </div>
+    </div>
+
+    <div class="card">
+
+      <div class="item item-text-wrap">
+        Company name
+        <span class="item-note">
+          Oportunity
+        </span>
+      </div>
+
+      <div class="item item-divider">
+        3 Jan 2016
+      </div>
+    </div>
+
+    <button class="button button-balanced middleButton" ui-sref="app.newlead">New Lead</button>
+
+
+  </ion-content>
+</ion-view>

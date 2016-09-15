@@ -1,0 +1,496 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+$phsColor: #11A8A5;
+$phsYellow: #FFD300;
+$lightGreen: #8DC73F;
+$balanced: $phsColor;
+$bar-balanced-bg: $phsColor;
+$gray: #E8E8E8;
+$dark: #2a2a2a;
+$darkGray: #44575E;
+$darkGray2: #495A61;
+
+$pageBg: #F7F7F7;
+
+$base-background-color: $pageBg !important;
+
+@font-face {
+  font-family: 'calibri';
+  src:  url('../fonts/calibri.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'calibri_bold';
+  src:  url('../fonts/calibrib.ttf') format('truetype');
+}
+
+$font-family-base: "calibri", sans-serif !default;
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+.list.list-inset{
+  background-color: $pageBg;
+}
+
+ion-content{
+  //background-color: $pageBg;
+}
+.button-balanced{
+  background-color: $lightGreen !important;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.popup-contacts > .label, .popup-contacts > .contactsContent{
+  display: inline !important;
+}
+
+input{
+  margin-bottom: 0.5rem;
+}
+.bar-phs{
+}
+.badges{
+  text-align: center;
+}
+.badges .icon.ion-ios-star{
+  font-size: 2.7rem;
+  color: #FFD503;
+}
+.userLarge{
+  font-size: 4rem;
+  color: #bcbdcf;
+}
+.userSmall{
+  font-size: 3rem;
+  color: #bcbdcf;
+}
+ion-side-menu ion-item{
+  border-color: #66848d !important;
+}
+.sideProfile{
+  height: 50px;
+  padding-top: 20px;
+  text-align: center;
+}
+.profileName{
+  text-align: left;
+  padding-top: 2rem;
+  padding-left: 1rem;
+  font-size: 1.2rem;
+  color: $dark;
+}
+ion-side-menu.menu-left{
+  background-color: $darkGray;
+}
+ion-side-menu.menu-left ion-item, ion-side-menu.menu-left ion-item > a{
+  background-color: $darkGray !important;
+  //background: $darkGray;
+  color: $light;
+}
+.sideNavList{
+  margin-top: 110px;
+}
+.sideName{
+  color: $light;
+  margin-top: 1rem;
+}
+.sideAvatar i{
+  border: 1px solid $light;
+  padding: 0.5rem;
+  background: $light;
+}
+.title-image {
+  margin-top: 0px;
+  height: 27px;
+  vertical-align:middle;
+}
+.avatar{
+  display: inline-block;
+  border: 3px solid $gray;
+  padding: 1rem;
+  background-color: #eeeeee;
+}
+h5{
+  border-top: 1px solid $gray;
+  border-bottom: 1px solid $gray;
+  padding: 0.33rem;
+  font-family: 'calibri_bold';
+  color: $dark;
+}
+span.right{
+  float: right;
+}
+.item .date{
+  max-width: 25%;
+  float: left;
+}
+.item .name{
+  max-width: 75%;
+  float: left;
+  text-align: center;
+}
+.center{
+  text-align: center;
+}
+.middleButton{
+  display: block;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+.button{
+  border-radius: 0;
+}
+
+.smallModal{
+  min-height: 300px;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid $gray;
+  margin-left: 10%;
+  margin-top: 50%;
+  text-align: center;
+}
+.smallModal span{
+  font-size: 0.7rem !important;
+}
+.smallModal h6{
+  font-size: 0.9rem;
+}
+.noLocation{
+  font-size: 0.7rem;
+  color: #d70000;
+  text-align: left;
+  padding-left: 0.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.uploadImage .col-25{
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.uploadImage .col-25 span{
+  display: block;
+  font-size: 0.7rem;
+}
+.uplContainer .icon{
+  font-size: 1.3rem;
+  color: $darkGray;
+}
+.uplContainer{
+  padding: 1rem;
+  background: $gray;
+  margin-right: 0.5rem;
+}
+.uploadImage .col-25:last-child .uplContainer{
+  margin-right: 0rem;
+}
+
+/* Lead Status */
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+span.number{
+  background-color: $phsColor;
+  border-radius: 50%;
+  color: $light;
+  padding: 0.1rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+ion-item.item-accordion{
+  padding-top: 0.3rem !important;
+  padding-bottom: 0.3rem !important;
+}
+.item-accordion span{
+  font-size: 0.8rem;
+  display: block;
+  line-height: 1.3rem;
+}
+.ion-chevron-up, .ion-chevron-down{
+  font-size: 1rem !important;
+  padding-left: 0.18rem;
+  padding-right: 0.18rem;
+  border: 2px solid $phsColor;
+  border-radius: 50%;
+  height: 2rem !important;
+  width: 2rem;
+  margin-top: 1rem;
+}
+
+.league-table{
+  background-color: $darkGray2;
+}
+ion-content.league-table ion-item{
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+
+ion-item .position{
+  padding-right: 1rem !important;
+}
+.top-togg > div{
+  float: left;
+  width: 50%;
+  text-align: center;
+  color: $light;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-family: 'calibri_bold';
+}
+.top-togg > div > span{
+  padding: 0.5rem;
+  border: 1px solid #ffffff;
+  padding: 0.5rem;
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+
+}
+
+.actv > span{
+  background-color: $phsYellow !important;
+  color: $darkGray;
+}
+.leagueTitle > div{
+  color: $light;
+  font-family: 'calibri_bold';
+}
+.smallThumb,.stars{
+  display: inline;
+}
+.smallThumb .ion-person{
+  font-size: 2rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  background-color: $light;
+  border: 2px solid $gray;
+}
+.stars{
+  text-align: center;
+}
+.middleTitle{
+  font-size: 1rem !important;
+  color: $light;
+  text-align: center;
+}
+.storyTitle, .storyName{
+  display: inline-block;
+}
+.storyName{
+  float: left;
+}
+.storyDate{
+  float: right;
+}
+.storyTitle{
+  font-size: 1.2rem;
+}
+.story .item-note{
+  margin-top: -19px;
+}
+.thumbsUp{
+  color: $phsColor;
+}
+.postTitle{
+  display: inline-block;
+}
+.storyUpvote{
+  display: inline;
+  float: right;
+  font-size: 1.4rem;
+}
+.storyDetails{
+  clear: both;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid $gray;
+  color: $darkGray;
+}
+
+/* SVG circle */
+.progress>li {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: #93A2AC;
+  font-family: Lato;
+  font-weight: 100;
+  margin: 2rem;
+}
+
+.progress>li:before {
+  content: attr(data-name);
+  position: absolute;
+  width: 100%;
+  bottom: -2rem;
+  font-weight: 400;
+}
+
+.progress>li:after {
+  content: attr(data-percent);
+  position: absolute;
+  width: 100%;
+  top: 3.7rem;
+  left: 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.progress svg {
+  width: 10rem;
+  height: 10rem;
+}
+
+.progress svg:nth-child(2) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+}
+
+.progress svg:nth-child(2) path {
+  fill: none;
+  stroke-width: 25;
+  stroke-dasharray: 629;
+  stroke: rgba(255, 255, 255, 0.9);
+  -webkit-animation: load 10s;
+  -moz-animation: load 10s;
+  -o-animation: load 10s;
+  animation: load 10s;
+}
+
+@-webkit-keyframes
+load { 0% {
+  stroke-dashoffset:0
+}
+}
+@-moz-keyframes
+load { 0% {
+  stroke-dashoffset:0
+}
+}
+@keyframes
+load { 0% {
+  stroke-dashoffset:0
+}
+}
+.sektor{
+  clear: both;
+}
+.insideCircle{
+  display: inherit;
+  position: relative;
+  z-index: 9999;
+  margin-bottom: -29px;
+}
+.insideCircle > i{
+  /*
+  background-color: $pageBg;
+  */
+  font-size: 3.6rem;
+}
+.statnum{
+  display: inherit;
+  margin-top: -4.5rem;
+  font-size: 2.4rem;
+  color: $darkGray;
+}
+.statname{
+
+}
+.badges .col{
+  clear: both;
+  min-height: 135px;
+}
+.badgeTitle{
+  text-align: center;
+  padding-top: 0.5rem !important;
+}
+.numberStars{
+  font-size: 2.8rem;
+}
+.stars > span{
+  color: white;
+  z-index: 99999;
+  position: absolute;
+  height: 3rem;
+  width: 2.5rem;
+  font-size: 0.7rem;
+  padding-top: 0.79rem;
+}
+.stars .yellow{
+  color: $phsYellow;
+}
+.stars .gray{
+  color: $darkGray;
+}
+.stars .bronze{
+  color: #CD7F32;
+}
+span.name{
+  padding-top: 0.5rem;
+}
+
+label.item.item-input{
+  margin-bottom: 1rem;
+  padding-top: 0.05rem;
+  padding-bottom: 0.05rem;
+}
+label.item.item-input > input, label.item.item-input > textarea{
+  font-size: 0.73rem;
+
+}
+
+@keyframes rotation {
+  from {
+    transform: rotateY(170deg);
+  }
+
+  to {
+    transform: rotateY(0deg);
+  }
+}
+.rotate{
+  animation-duration: 1s;
+  animation-name: rotation;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
