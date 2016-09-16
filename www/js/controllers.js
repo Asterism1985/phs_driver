@@ -62,9 +62,17 @@ angular.module('starter.controllers', [])
     });
   })
 
-  .controller('HomeCtrl', function ($scope, $ionicPlatform, $timeout) {
+  .controller('HomeCtrl', function ($scope, $ionicPlatform, $timeout, $window) {
 
     $ionicPlatform.ready(function(){
+
+      $scope.dev_width = $window.innerWidth;
+      $scope.center_badges = $scope.dev_width/5;
+
+
+      $scope.myStat = {
+        "margin-top" : "-"+$scope.center_badges+"px"
+      };
 
       $scope.badges = {};
 
