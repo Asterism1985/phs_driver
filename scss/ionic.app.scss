@@ -49,6 +49,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "customs/footer";
 @import "pages/home";
 @import "pages/leadstatus";
+@import "pages/stories";
 
 .list.list-inset{
   background-color: $pageBg;
@@ -284,9 +285,6 @@ ion-item .position{
 }
 .story .item-note{
   margin-top: -19px;
-}
-.thumbsUp{
-  color: $phsColor;
 }
 .postTitle{
   display: inline-block;
