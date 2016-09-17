@@ -45,6 +45,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+@import "commons/control";
+@import "customs/footer";
+@import "pages/home";
 
 .list.list-inset{
   background-color: $pageBg;
@@ -52,15 +55,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 ion-content{
   //background-color: $pageBg;
-}
-.button-balanced{
-  background-color: $lightGreen !important;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.popup-contacts > .label, .popup-contacts > .contactsContent{
-  display: inline !important;
 }
 
 input{
@@ -147,6 +141,7 @@ span.right{
   max-width: 75%;
   float: left;
   text-align: center;
+  margin-left:2px;
 }
 .center{
   text-align: center;
@@ -263,6 +258,8 @@ ion-content.league-table ion-item{
 
 ion-item .position{
   padding-right: 1rem !important;
+  padding-top: 10px;
+  width: 28px;
 }
 .top-togg > div{
   float: left;
@@ -277,9 +274,6 @@ ion-item .position{
   padding: 0.5rem;
   border: 1px solid #ffffff;
   padding: 0.5rem;
-  padding-left: 1.1rem;
-  padding-right: 1.1rem;
-
 }
 
 .actv > span{
@@ -299,9 +293,14 @@ ion-item .position{
   padding-right: 0.3rem;
   background-color: $light;
   border: 2px solid $gray;
+  padding-top: 5px;
+  &:before{
+    margin-top: 4px;
+  }
 }
 .stars{
   text-align: center;
+  padding-right: 22px;
 }
 .middleTitle{
   font-size: 1rem !important;
@@ -439,6 +438,7 @@ load { 0% {
 .badges .col{
   clear: both;
   min-height: 135px;
+  width: 33.33%;
 }
 .badgeTitle{
   text-align: center;
@@ -466,7 +466,7 @@ load { 0% {
   color: #CD7F32;
 }
 span.name{
-  padding-top: 0.5rem;
+  padding-top: 0.6rem;
 }
 
 label.item.item-input{

@@ -1,0 +1,17 @@
+.button-balanced{
+  background-color: $lightGreen !important;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.popup-contacts > .label,
+.popup-contacts > .contactsContent {
+  display: inline !important;
+}
+
+.popup-contacts {
+  .contactsContent {
+    margin-bottom: 15px;
+  }
+}
+
