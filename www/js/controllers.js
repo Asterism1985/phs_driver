@@ -66,10 +66,14 @@ angular.module('starter.controllers', [])
 
     $ionicPlatform.ready(function(){
 
-      $scope.dev_width = $window.innerWidth;
-      $scope.center_badges = $scope.dev_width/5;
-
-
+      $scope.item_width = Math.round($window.innerWidth/3);
+      if ($scope.item_width > 150) {
+        $scope.center_badges = 88;
+      }
+      else {
+        $scope.center_badges = Math.round($scope.item_width/2) + 6;
+      }
+      
       $scope.myStat = {
         "margin-top" : "-"+$scope.center_badges+"px"
       };

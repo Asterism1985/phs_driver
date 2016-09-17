@@ -18,11 +18,11 @@
     "cordova-plugin-crosswalk-webview"
   ],
   "cordovaPlatforms": [
-    "android",
     {
       "platform": "ios",
       "version": "3.9.2",
       "locator": "ios@3.9.2"
-    }
+    },
+    "android"
   ]
 }
