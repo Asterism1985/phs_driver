@@ -18,9 +18,27 @@
 .Sektor {
 	max-width: 150px !important;
 }
-
+.row + .row {
+    margin-top: -17px;
+    padding-top: 0;
+}
 @media (min-width: 480px) {
   .row + .row {
     margin-top: 30px;
 	}
+}
+
+/*confirm(options)*/
+.confirm-title {
+	font-size: 16px;
+	text-align: center;
+}
+.ok-btn-selected {
+	background-color: $lightGreen;
+	color: white;
+}
+.cancel-btn {
+	border-color: $lightGreen !important;
+	color: $lightGreen !important;
+	background-color: white;
 }

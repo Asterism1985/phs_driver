@@ -50,6 +50,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "pages/home";
 @import "pages/leadstatus";
 @import "pages/stories";
+@import "pages/newlead";
 
 .list.list-inset{
   background-color: $pageBg;
@@ -155,53 +156,6 @@ span.right{
 }
 .button{
   border-radius: 0;
-}
-
-.smallModal{
-  min-height: 300px;
-  width: 80%;
-  margin: 0 auto;
-  border: 1px solid $gray;
-  margin-left: 10%;
-  margin-top: 50%;
-  text-align: center;
-}
-.smallModal span{
-  font-size: 0.7rem !important;
-}
-.smallModal h6{
-  font-size: 0.9rem;
-}
-.noLocation{
-  font-size: 0.7rem;
-  color: #d70000;
-  text-align: left;
-  padding-left: 0.5rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-}
-
-.uploadImage .col-25{
-  text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.uploadImage .col-25 span{
-  display: block;
-  font-size: 0.7rem;
-}
-.uplContainer .icon{
-  font-size: 1.3rem;
-  color: $darkGray;
-}
-.uplContainer{
-  padding: 1rem;
-  background: $gray;
-  margin-right: 0.5rem;
-}
-.uploadImage .col-25:last-child .uplContainer{
-  margin-right: 0rem;
 }
 
 .league-table{
