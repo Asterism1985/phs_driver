@@ -48,6 +48,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "commons/control";
 @import "customs/footer";
 @import "pages/home";
+@import "pages/leadstatus";
 
 .list.list-inset{
   background-color: $pageBg;
@@ -200,50 +201,6 @@ span.right{
 }
 .uploadImage .col-25:last-child .uplContainer{
   margin-right: 0rem;
-}
-
-/* Lead Status */
-
-.list .item.item-accordion {
-  line-height: 38px;
-  padding-top: 0;
-  padding-bottom: 0;
-  transition: 0.09s all linear;
-}
-.list .item.item-accordion.ng-hide {
-  line-height: 0px;
-}
-.list .item.item-accordion.ng-hide-add,
-.list .item.item-accordion.ng-hide-remove {
-  display: block !important;
-}
-
-span.number{
-  background-color: $phsColor;
-  border-radius: 50%;
-  color: $light;
-  padding: 0.1rem;
-  padding-left: 0.4rem;
-  padding-right: 0.4rem;
-}
-ion-item.item-accordion{
-  padding-top: 0.3rem !important;
-  padding-bottom: 0.3rem !important;
-}
-.item-accordion span{
-  font-size: 0.8rem;
-  display: block;
-  line-height: 1.3rem;
-}
-.ion-chevron-up, .ion-chevron-down{
-  font-size: 1rem !important;
-  padding-left: 0.18rem;
-  padding-right: 0.18rem;
-  border: 2px solid $phsColor;
-  border-radius: 50%;
-  height: 2rem !important;
-  width: 2rem;
-  margin-top: 1rem;
 }
 
 .league-table{

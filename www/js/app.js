@@ -16,7 +16,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     });
   })
 
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $logProvider) {
+
+    $logProvider.debugEnabled(true);
+
     $stateProvider
 
       .state('app', {

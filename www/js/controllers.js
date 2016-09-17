@@ -202,16 +202,11 @@ angular.module('starter.controllers', [])
 
   })
 
-  .controller('LeadStatusCtrl', function ($scope) {
+  .controller('LeadStatusCtrl', function($scope, $log) {
 
     $scope.groups = groups;
 
-    console.log($scope.groups);
-
-    /*
-     * if given group is the selected group, deselect it
-     * else, select the given group
-     */
+    $log.debug($scope.groups);
     $scope.toggleGroup = function(group) {
       if ($scope.isGroupShown(group)) {
         $scope.shownGroup = null;
