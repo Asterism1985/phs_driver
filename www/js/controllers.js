@@ -244,8 +244,6 @@ angular.module('starter.controllers', [])
       }
 
     });
-
-
   })
 
   .controller('StoriesCtrl', function ($scope, $state) {
