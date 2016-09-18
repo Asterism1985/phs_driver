@@ -15,7 +15,8 @@
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
-    "cordova-plugin-crosswalk-webview"
+    "cordova-plugin-crosswalk-webview",
+    "cordova-plugin-whitelist"
   ],
   "cordovaPlatforms": [
     {

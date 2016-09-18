@@ -145,11 +145,45 @@ angular.module('starter.controllers', [])
 })
 
 .controller('NewLeadCtrl', function($rootScope, $scope, $ionicPlatform, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService) {
+  // Triggered on a button click, or some other target
+$scope.showPopupInputYourLocation = function() {
+  $scope.data = {};
+  var myLocationInputPopup = $ionicPopup.show({
+    template: '<input type="text" ng-model="data.location">',
+    title: 'Enter your location',
+    scope: $scope,
+    buttons: [
+      { text: 'Cancel',
+      type: 'cancel-btn'
+       },
+      {
+        text: '<b>Save</b>',
+        type: 'ok-btn-selected',
+        onTap: function(e) {
+          if (!$scope.data.location) {
+            //don't allow the user to close unless he enters wifi password
+            e.preventDefault();
+          } else {
+            return $scope.data.location;
+          }
+        }
+      }
+    ]
+  });
+  myLocationInputPopup.then(function(res) {
+    console.log('Tapped!', res);
+  });
+ };
 
   // Location picked from modal
   $scope.locationPicked = function() {
     console.log("loc picked");
     $scope.closeModal();
+  };
+
+  $scope.inputYourLocation = function() {
+    $scope.closeModal();
+    $scope.showPopupInputYourLocation();
   };
 
   $scope.uploadImage = function() {
@@ -196,9 +230,6 @@ angular.module('starter.controllers', [])
     $scope.slideIndex = index;
   };
 
-
-
-
   // Popover info for successful submit & submit
   // A confirm dialog
   $scope.submitLead = function() {
@@ -226,7 +257,7 @@ angular.module('starter.controllers', [])
   $scope.showPopup = function() {
     $scope.data = {};
     var myPopup = $ionicPopup.show({
-      templateUrl: '/templates/popups/confirmed.html',
+      templateUrl: 'templates/popups/confirmed.html',
       scope: $scope
     });
 
@@ -238,7 +269,6 @@ angular.module('starter.controllers', [])
       myPopup.close();
     }, 2000);
   };
-
 })
 
 .controller('LeadStatusCtrl', function($scope, $log) {
@@ -326,10 +356,45 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('NewStoryCtrl', function($scope) {
+.controller('NewStoryCtrl', function($scope, $ionicPopup, $rootScope, $timeout, $log) {
 
   $scope.submitStory = function() {
+    var confirmPopup = $ionicPopup.confirm({
+      title: '',
+      cssClass:'confirm-title',
+      template: 'Are you sure you want to submit your post?',
+      cancelType: 'cancel-btn',
+      okType: 'ok-btn-selected'
+    });
 
-  }
+    confirmPopup.then(function(res) {
+      if (res) {
+        $log.log('You are sure');
+        $scope.showPopup();
+        if ($rootScope.isDevice) {
+          window.plugins.NativeAudio.play('newLead');
+        }
+      } else {
+        $log.log('You are not sure');
+      }
+    });
+  };
+
+  $scope.showPopup = function() {
+    $scope.data = {};
+    var myPopup = $ionicPopup.show({
+      templateUrl: 'templates/popups/story-confirmed.html',
+      scope: $scope
+    });
+
+    myPopup.then(function(res) {
+      $log.log('Tapped!', res);
+    });
+
+    $timeout(function() {
+      myPopup.close();
+    }, 2000);
+  };
+
 
 });

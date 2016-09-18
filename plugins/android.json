@@ -18,6 +18,9 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.phs.driver.android"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.phs.driver.android"
         }
     },
     "dependent_plugins": {}
