@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $timeout, $ionicPlatform, $ionicModal, $ionicPopover, $ionicSideMenuDelegate) {
+.controller('AppCtrl', function($scope, $timeout, $ionicPlatform, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, Utils) {
 
 
 
@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
 
 
   $scope.logout = function() {
-    alert("logged out");
+    Utils.toLocation("/login");
   };
 
   $ionicPopover.fromTemplateUrl('templates/popover.html', {
