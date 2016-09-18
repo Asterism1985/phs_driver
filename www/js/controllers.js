@@ -145,11 +145,45 @@ angular.module('starter.controllers', [])
 })
 
 .controller('NewLeadCtrl', function($rootScope, $scope, $ionicPlatform, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService) {
+  // Triggered on a button click, or some other target
+$scope.showPopupInputYourLocation = function() {
+  $scope.data = {};
+  var myLocationInputPopup = $ionicPopup.show({
+    template: '<input type="text" ng-model="data.location">',
+    title: 'Enter your location',
+    scope: $scope,
+    buttons: [
+      { text: 'Cancel',
+      type: 'cancel-btn'
+       },
+      {
+        text: '<b>Save</b>',
+        type: 'ok-btn-selected',
+        onTap: function(e) {
+          if (!$scope.data.location) {
+            //don't allow the user to close unless he enters wifi password
+            e.preventDefault();
+          } else {
+            return $scope.data.location;
+          }
+        }
+      }
+    ]
+  });
+  myLocationInputPopup.then(function(res) {
+    console.log('Tapped!', res);
+  });
+ };
 
   // Location picked from modal
   $scope.locationPicked = function() {
     console.log("loc picked");
     $scope.closeModal();
+  };
+
+  $scope.inputYourLocation = function() {
+    $scope.closeModal();
+    $scope.showPopupInputYourLocation();
   };
 
   $scope.uploadImage = function() {
@@ -195,9 +229,6 @@ angular.module('starter.controllers', [])
   $scope.slideChanged = function(index) {
     $scope.slideIndex = index;
   };
-
-
-
 
   // Popover info for successful submit & submit
   // A confirm dialog
