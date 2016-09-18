@@ -41,15 +41,7 @@ angular.module('starter.controllers', [])
                 //window.plugins.NativeAudio.play( 'menuSwishReverse' );
               }
             });*/
-
-
-
-
-
   });
-
-
-
 
   $scope.logout = function() {
     Utils.toLocation("/login");
@@ -239,7 +231,7 @@ angular.module('starter.controllers', [])
     });
 
     myPopup.then(function(res) {
-      console.log('Tapped!', res);
+      $log.log('Tapped!', res);
     });
 
     $timeout(function() {
