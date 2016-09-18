@@ -62,6 +62,24 @@ angular.module('starter.controllers', [])
   });
 })
 
+
+
+.controller('LoginCtrl', function($scope, $log, Utils) {
+
+  $scope.passcode = {
+      number1: '',
+      number2: '',
+      number3: '',
+      number4: '',
+      number5: '',
+      number6: ''
+    };
+    $scope.doLogin = function() {
+      Utils.toLocation('/app/home');
+    }
+
+})
+
 .controller('HomeCtrl', function($scope, $ionicPlatform, $timeout, $window) {
 
   $ionicPlatform.ready(function() {
@@ -249,11 +267,16 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LeagueCtrl', function($scope, $ionicPlatform) {
+.controller('LeagueCtrl', function($scope, $ionicPlatform, $window) {
 
   $ionicPlatform.ready(function() {
 
-
+    if ($window.innerWidth < 375)
+    {
+      $scope.smallScreen = true;
+    } else {
+      $scope.smallScreen = false;
+    }
     $scope.setAll = function(bool) {
       console.log(bool);
       $scope.all = bool;

@@ -47,10 +47,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 @import "commons/control";
 @import "customs/footer";
+@import "pages/login";
 @import "pages/home";
 @import "pages/leadstatus";
 @import "pages/stories";
 @import "pages/newlead";
+@import "pages/leguetable"
 
 .list.list-inset{
   background-color: $pageBg;
@@ -359,27 +361,7 @@ load { 0% {
   text-align: center;
   padding-top: 0.5rem !important;
 }
-.numberStars{
-  font-size: 2.8rem;
-}
-.stars > span{
-  color: white;
-  z-index: 99999;
-  position: absolute;
-  height: 3rem;
-  width: 2.5rem;
-  font-size: 0.7rem;
-  padding-top: 0.79rem;
-}
-.stars .yellow{
-  color: $phsYellow;
-}
-.stars .gray{
-  color: $darkGray;
-}
-.stars .bronze{
-  color: #CD7F32;
-}
+
 span.name{
   padding-top: 0.6rem;
 }
