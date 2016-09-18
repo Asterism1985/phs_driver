@@ -44,6 +44,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       })
       .state('app.newlead', {
         url: '/newlead',
+        cache:false,
         views: {
           'menuContent': {
             templateUrl: 'templates/newLead.html',

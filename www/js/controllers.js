@@ -162,6 +162,7 @@ angular.module('starter.controllers', [])
   // Location picked from modal
   $scope.locationPicked = function() {
     console.log("loc picked");
+    $scope.closeModal();
   };
 
   $scope.uploadImage = function() {
