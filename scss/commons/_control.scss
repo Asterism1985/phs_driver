@@ -1,4 +1,4 @@
-.button-balanced{
+.button-balanced {
   background-color: $lightGreen !important;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -15,3 +15,123 @@
   }
 }
 
+.Sektor {
+  max-width: 150px !important;
+}
+
+.row + .row {
+  margin-top: -17px;
+  padding-top: 0;
+}
+
+@media (min-width: 480px) {
+  .row + .row {
+    margin-top: 30px;
+  }
+}
+
+
+/*confirm(options)*/
+
+.confirmed-custom {
+  .popup-body {
+    padding: 0px;
+  }
+  .icon-confirmed-custom {
+    text-align: center;
+    font-size: 30px;
+    color: $lightGreen
+  }
+}
+
+.confirm-title {
+  font-size: 16px;
+  text-align: center;
+}
+
+.ok-btn-selected {
+  background-color: $lightGreen;
+  color: white;
+}
+
+.cancel-btn {
+  border-color: $lightGreen !important;
+  color: $lightGreen !important;
+  background-color: white;
+}
+
+.title-confirmed {
+  text-align: center;
+  font-size: 16px;
+  margin: 15px;
+}
+
+
+/*Modal custom*/
+
+.modal-backdrop-bg {
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+  background-color: #000;
+  opacity: 0;
+}
+
+.active .modal-backdrop-bg {
+  opacity: 0.5;
+}
+
+.modal-location {
+  top: 20%;
+  right: 10%;
+  bottom: 10%;
+  height: 60%;
+  left: 10%;
+  min-height: 200px;
+  width: 80%;
+  max-height: 300px;
+}
+
+.modal-upload-file {
+  top: 20%;
+  right: 10%;
+  bottom: 20%;
+  height: 60%;
+  left: 10%;
+  min-height: 200px;
+  width: 80%;
+  width: 300px;
+  margin: auto;
+  max-height: 368px;
+}
+
+@media (min-width: 680px) {
+  .modal-location {
+    top: 20%;
+    right: 20%;
+    bottom: 20%;
+    left: 20%;
+    min-height: 240px;
+    width: 60%;
+  }
+}
+
+.item h6 {
+  margin: 0 0 3px 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.close-custom {
+  &:before {
+    font-size: 23px;
+  }
+}
+
+.delete-btn {
+  background-color: red;
+  color: $lightGreen !important;
+}
+
+.btn-phs {
+  color: $lightGreen;
+}

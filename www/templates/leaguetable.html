@@ -24,7 +24,7 @@
         <div class="row">
           <span class="col-5 position">{{ singleLeague.id }}</span>
           <div class="col-15 smallThumb"> <i class="icon ion-person"></i> </div>
-          <span class="col-40 name">{{ singleLeague.name }}</span>
+          <span class="name" ng-class="{'col-33': smallScreen, 'col-40': !smallScreen}">{{ singleLeague.name }}</span>
           <div class="col-50 stars">
             <!--{{ singleLeague.convertedLeads }}-->
             <span>10</span>
@@ -36,8 +36,6 @@
             <span>10</span>
             <i class="icon ion-ios-star numberStars bronze"></i>
           </div>
-
-
         </div>
 
       </ion-item>
@@ -50,7 +48,7 @@
       <div class="row">
         <span class="col-5 position">310</span>
         <div class="col-15 smallThumb"> <i class="icon ion-person"></i> </div>
-        <span class="col-40 name">John Smith</span>
+        <span class="name" ng-class="{'col-33': smallScreen, 'col-40': !smallScreen}">John Smith</span>
         <div class="col-50 stars">
                       <!--{{ singleLeague.convertedLeads }}-->
             <span>10</span>

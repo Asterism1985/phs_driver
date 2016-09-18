@@ -46,8 +46,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import "commons/control";
+@import "commons/specialdevice";
 @import "customs/footer";
+@import "pages/login";
 @import "pages/home";
+@import "pages/leadstatus";
+@import "pages/stories";
+@import "pages/newlead";
+@import "pages/leaguetable";
 
 .list.list-inset{
   background-color: $pageBg;
@@ -155,97 +161,6 @@ span.right{
   border-radius: 0;
 }
 
-.smallModal{
-  min-height: 300px;
-  width: 80%;
-  margin: 0 auto;
-  border: 1px solid $gray;
-  margin-left: 10%;
-  margin-top: 50%;
-  text-align: center;
-}
-.smallModal span{
-  font-size: 0.7rem !important;
-}
-.smallModal h6{
-  font-size: 0.9rem;
-}
-.noLocation{
-  font-size: 0.7rem;
-  color: #d70000;
-  text-align: left;
-  padding-left: 0.5rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-}
-
-.uploadImage .col-25{
-  text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.uploadImage .col-25 span{
-  display: block;
-  font-size: 0.7rem;
-}
-.uplContainer .icon{
-  font-size: 1.3rem;
-  color: $darkGray;
-}
-.uplContainer{
-  padding: 1rem;
-  background: $gray;
-  margin-right: 0.5rem;
-}
-.uploadImage .col-25:last-child .uplContainer{
-  margin-right: 0rem;
-}
-
-/* Lead Status */
-
-.list .item.item-accordion {
-  line-height: 38px;
-  padding-top: 0;
-  padding-bottom: 0;
-  transition: 0.09s all linear;
-}
-.list .item.item-accordion.ng-hide {
-  line-height: 0px;
-}
-.list .item.item-accordion.ng-hide-add,
-.list .item.item-accordion.ng-hide-remove {
-  display: block !important;
-}
-
-span.number{
-  background-color: $phsColor;
-  border-radius: 50%;
-  color: $light;
-  padding: 0.1rem;
-  padding-left: 0.4rem;
-  padding-right: 0.4rem;
-}
-ion-item.item-accordion{
-  padding-top: 0.3rem !important;
-  padding-bottom: 0.3rem !important;
-}
-.item-accordion span{
-  font-size: 0.8rem;
-  display: block;
-  line-height: 1.3rem;
-}
-.ion-chevron-up, .ion-chevron-down{
-  font-size: 1rem !important;
-  padding-left: 0.18rem;
-  padding-right: 0.18rem;
-  border: 2px solid $phsColor;
-  border-radius: 50%;
-  height: 2rem !important;
-  width: 2rem;
-  margin-top: 1rem;
-}
-
 .league-table{
   background-color: $darkGray2;
 }
@@ -327,9 +242,6 @@ ion-item .position{
 }
 .story .item-note{
   margin-top: -19px;
-}
-.thumbsUp{
-  color: $phsColor;
 }
 .postTitle{
   display: inline-block;
@@ -450,27 +362,7 @@ load { 0% {
   text-align: center;
   padding-top: 0.5rem !important;
 }
-.numberStars{
-  font-size: 2.8rem;
-}
-.stars > span{
-  color: white;
-  z-index: 99999;
-  position: absolute;
-  height: 3rem;
-  width: 2.5rem;
-  font-size: 0.7rem;
-  padding-top: 0.79rem;
-}
-.stars .yellow{
-  color: $phsYellow;
-}
-.stars .gray{
-  color: $darkGray;
-}
-.stars .bronze{
-  color: #CD7F32;
-}
+
 span.name{
   padding-top: 0.6rem;
 }
