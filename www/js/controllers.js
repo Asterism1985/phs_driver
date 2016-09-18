@@ -134,30 +134,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('NewLeadCtrl', function($rootScope, $scope, $ionicPlatform, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log) {
-
-
-  // Modal for Location
-  $ionicModal.fromTemplateUrl('templates/newLead-modal.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
-    $scope.modal.show();
-
-  });
-
-  $scope.openModal = function() {
-    $scope.modal.show();
-  };
-
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-  };
-
-  $scope.$on('$destroy', function() {
-    $scope.modal.remove();
-  });
+.controller('NewLeadCtrl', function($rootScope, $scope, $ionicPlatform, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService) {
 
   // Location picked from modal
   $scope.locationPicked = function() {
@@ -166,6 +143,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.uploadImage = function() {
+    $scope.showModalUploadFile();
 
     // plugins.imagePicker.getPictures(
     //   function(results) {
@@ -176,8 +154,40 @@ angular.module('starter.controllers', [])
     //     console.log('Error: ' + error);
     //   }
     // );
-
   }
+
+
+  $scope.showModalLocationPick = function() {
+    ModalService
+      .init('templates/newLead-modal.html', $scope)
+      .then(function(modal) {
+        modal.show();
+      });
+  };
+  $scope.showModalLocationPick();
+
+  $scope.showModalUploadFile = function() {
+    ModalService
+      .init('templates/popups/file-upload-modal.html', $scope)
+      .then(function(modal) {
+        modal.show();
+      });
+  };
+
+    $scope.next = function() {
+    $ionicSlideBoxDelegate.next();
+  };
+  $scope.previous = function() {
+    $ionicSlideBoxDelegate.previous();
+  };
+
+  // Called each time the slide changes
+  $scope.slideChanged = function(index) {
+    $scope.slideIndex = index;
+  };
+
+
+
 
   // Popover info for successful submit & submit
   // A confirm dialog

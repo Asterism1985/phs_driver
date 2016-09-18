@@ -91,6 +91,19 @@
   max-height: 300px;
 }
 
+.modal-upload-file {
+  top: 20%;
+  right: 10%;
+  bottom: 20%;
+  height: 60%;
+  left: 10%;
+  min-height: 200px;
+  width: 80%;
+  width: 332px;
+  margin: auto;
+  max-height: 368px;
+}
+
 @media (min-width: 680px) {
   .modal-location {
     top: 20%;
@@ -103,7 +116,22 @@
 }
 
 .item h6 {
-    margin: 0 0 3px 0;
-    font-size: 15px;
-    font-weight: 700;
+  margin: 0 0 3px 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.close-custom {
+  &:before {
+    font-size: 23px;
+  }
+}
+
+.delete-btn {
+  background-color: red;
+  color: $lightGreen !important;
+}
+
+.btn-phs {
+  color: $lightGreen;
 }
