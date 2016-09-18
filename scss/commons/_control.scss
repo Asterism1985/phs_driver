@@ -1,4 +1,4 @@
-.button-balanced{
+.button-balanced {
   background-color: $lightGreen !important;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -16,29 +16,51 @@
 }
 
 .Sektor {
-	max-width: 150px !important;
+  max-width: 150px !important;
 }
+
 .row + .row {
-    margin-top: -17px;
-    padding-top: 0;
+  margin-top: -17px;
+  padding-top: 0;
 }
+
 @media (min-width: 480px) {
   .row + .row {
     margin-top: 30px;
-	}
+  }
 }
 
 /*confirm(options)*/
+
+.confirmed-custom {
+  .popup-body {
+    padding: 0px;
+  }
+  .icon-confirmed-custom {
+    text-align: center;
+    font-size: 30px;
+    color: $lightGreen
+  }
+}
+
 .confirm-title {
-	font-size: 16px;
-	text-align: center;
+  font-size: 16px;
+  text-align: center;
 }
+
 .ok-btn-selected {
-	background-color: $lightGreen;
-	color: white;
+  background-color: $lightGreen;
+  color: white;
 }
+
 .cancel-btn {
-	border-color: $lightGreen !important;
-	color: $lightGreen !important;
-	background-color: white;
+  border-color: $lightGreen !important;
+  color: $lightGreen !important;
+  background-color: white;
+}
+
+.title-confirmed {
+  text-align: center;
+  font-size: 16px;
+  margin: 15px;
 }

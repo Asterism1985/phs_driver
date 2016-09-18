@@ -213,9 +213,9 @@ angular.module('starter.controllers', [])
       console.log('Tapped!', res);
     });
 
-    // $timeout(function() {
-    //   myPopup.close();
-    // }, 3000);
+    $timeout(function() {
+      myPopup.close();
+    }, 2000);
   };
 
 })
