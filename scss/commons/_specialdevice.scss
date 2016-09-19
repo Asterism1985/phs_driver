@@ -4,4 +4,7 @@
   .modal-upload-file {
     left: 3% !important;
   }
+  .row + .row {
+	  margin-top: -15px;
+	}
 }
