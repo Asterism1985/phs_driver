@@ -1,5 +1,5 @@
 <ion-view class="login-page">
-<ion-header-bar class="bar-balanced">
+<ion-header-bar align-title="center" class="bar-balanced">
   <h1 class="title"><img class='title-image'  src='img/logo.png' /> Login</h1>
   <div class="buttons">
     <button class="button button-icon button-clear ion-person" ng-click="popover.show($event)">
@@ -14,11 +14,11 @@
       </div>
       <div>
         <div class="row passcode-input">
-          <input ng-model="passcode.number1" type="text" required ng-minlength="1" maxlength="1" move-next>
-          <input ng-model="passcode.number2" type="text" required ng-minlength="1" maxlength="1" move-next>
-          <input ng-model="passcode.number3" type="text" required ng-minlength="1" maxlength="1" move-next>
-          <input ng-model="passcode.number4" type="text" required ng-minlength="1" maxlength="1" move-next>
-          <input ng-model="passcode.number5" type="text" required ng-minlength="1" maxlength="1" move-next>
+          <input ng-model="passcode.number1" type="number" autofocus phs-number required ng-minlength="1" maxlength="1" move-next>
+          <input ng-model="passcode.number2" type="number" phs-number required ng-minlength="1" maxlength="1" move-next>
+          <input ng-model="passcode.number3" type="number" phs-number required ng-minlength="1" maxlength="1" move-next>
+          <input ng-model="passcode.number4" type="number" phs-number required ng-minlength="1" maxlength="1" move-next>
+          <input ng-model="passcode.number5" type="number" phs-number required ng-minlength="1" maxlength="1">
         </div>
       </div>
       <div style="text-align:center; margin-top: 10px">

@@ -16,14 +16,15 @@
   },
   "cordovaPlugins": [
     "cordova-plugin-crosswalk-webview",
-    "cordova-plugin-whitelist"
+    "cordova-plugin-whitelist",
+    "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
+    "android",
     {
       "platform": "ios",
       "version": "3.9.2",
       "locator": "ios@3.9.2"
-    },
-    "android"
+    }
   ]
 }

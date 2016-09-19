@@ -46,7 +46,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import "commons/control";
-@import "commons/specialdevice";
 @import "customs/footer";
 @import "pages/login";
 @import "pages/home";
@@ -54,6 +53,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "pages/stories";
 @import "pages/newlead";
 @import "pages/leaguetable";
+@import "commons/specialdevice";
 
 .list.list-inset{
   background-color: $pageBg;
