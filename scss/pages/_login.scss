@@ -15,6 +15,11 @@ input::-webkit-input-placeholder {
 }
 
 .login-page {
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
   .row,
   .col {
     padding: 0px;
@@ -33,6 +38,14 @@ input::-webkit-input-placeholder {
       color: gray;
       font-size: 30px;
       text-align: center;
+    }
+  }
+}
+.platform-ios {
+  .passcode-input {
+    input {
+      padding: 13px;
+      padding-top: 17px;
     }
   }
 }
