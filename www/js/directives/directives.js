@@ -1,7 +1,7 @@
 
 angular.module('starter.directives', [])
 
-.directive('gnNumber', [function() {
+.directive('phsNumber', [function() {
   return {
     require: 'ngModel',
     restrict: 'A',
