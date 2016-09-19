@@ -26,7 +26,7 @@ angular.module('starter.directives', [])
   };
 }])
 
-.directive("moveNext", [function() {
+.directive("moveNext", ['$timeout', function ($timeout) {
   return {
     restrict: "A",
     link: function($scope, element) {
@@ -35,7 +35,9 @@ angular.module('starter.directives', [])
           if (element.val().length === parseInt(element.attr("maxlength"))) {
             var $nextElement = element.next();
             if ($nextElement.length) {
-              $nextElement[0].focus();
+              $timeout(function () {
+                $nextElement[0].focus();
+              }, 10);
             }
           }
         }
@@ -43,3 +45,15 @@ angular.module('starter.directives', [])
     }
   };
 }])
+
+.directive('autofocus', ['$timeout', function($timeout) {
+  return {
+    restrict: 'A',
+    link : function($scope, $element) {
+      $timeout(function() {
+        $element[0].focus();
+      });
+    }
+  }
+}])
+  ;
