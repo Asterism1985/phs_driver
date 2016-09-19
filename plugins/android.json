@@ -16,10 +16,10 @@
         "cordova-plugin-nativeaudio": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
-        "ionic-plugin-keyboard": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
-        "cordova-plugin-whitelist": {
+        "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.phs.driver.android"
         }
     },

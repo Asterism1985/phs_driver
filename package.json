@@ -16,7 +16,8 @@
   },
   "cordovaPlugins": [
     "cordova-plugin-crosswalk-webview",
-    "cordova-plugin-whitelist"
+    "cordova-plugin-whitelist",
+    "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
     {
