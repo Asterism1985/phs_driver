@@ -1,14 +1,19 @@
 <ion-popover-view>
-  <ion-content>
+  <ion-content class="padding" style="padding-top: 0px;">
     <div class="row popup-contacts">
       <div class="col">
         <h4>My FLT Admin Contacts</h4>
-        <div class="label">Name:</div>
-        <div class="contactsContent">John Smith</div>
-        <div class="label">Email:</div>
-        <div class="contactsContent">FLT001@phs.co.uk</div>
-        <div class="label">Phone:</div>
-        <div class="contactsContent">02920 809956</div>
+        <hr>
+        <div style="margin-bottom:15px">
+          <div class="title">Name:</div>
+          <a class="contactsContent">John Smith</a>
+        </div>
+        <div style="margin-bottom:15px">
+          <div class="title">Email:</div>
+          <a class="contactsContent" ng-href="mailto:FLT001@phs.co.uk" target="_blank">FLT001@phs.co.uk</a>
+        </div>
+        <div class="title">Phone:</div>
+        <a class="contactsContent" ng-href="tel:02920 809956" target="_blank">02920 809956</a>
       </div>
     </div>
   </ion-content>
