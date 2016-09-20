@@ -1,5 +1,9 @@
 angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverApp.directives', 'phsDriverApp.services', 'ngCordova', 'ngCountup'])
 
+.constant('Config', {
+    api: 'https://mobilewebapi.phs.co.uk/Salesforce.MobileServices/api' // baseURL
+  })
+
 .run(function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
