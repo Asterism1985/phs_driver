@@ -8,10 +8,18 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/**/*.scss'],
+  vendors: ['./node_modules/angular-localforage/dist/angular-localForage.min.js',
+  './node_modules/angular-localforage/bower_components/localforage/dist/localForage.min.js'
+        ]
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'copy-vendors']);
+
+gulp.task('copy-vendors', function copyVendors() {
+    gulp.src(paths.vendors)
+        .pipe(gulp.dest('./www/vendors'));
+});
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
