@@ -54,24 +54,6 @@ angular.module('phsDriverApp.controllers', [])
   });
 })
 
-
-
-.controller('LoginCtrl', function($scope, $log, Utils) {
-
-  $scope.passcode = {
-      number1: '',
-      number2: '',
-      number3: '',
-      number4: '',
-      number5: '',
-      number6: ''
-    };
-    $scope.doLogin = function() {
-      Utils.toLocation('/app/home');
-    }
-
-})
-
 .controller('HomeCtrl', function($scope, $ionicPlatform, $timeout, $window) {
 
   $ionicPlatform.ready(function() {
