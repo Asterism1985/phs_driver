@@ -23,7 +23,9 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $logProvider) {
+.config(function($stateProvider, $urlRouterProvider, $logProvider, $httpProvider) {
+
+  $httpProvider.interceptors.push('TokenInterceptor');
 
   $logProvider.debugEnabled(true);
 

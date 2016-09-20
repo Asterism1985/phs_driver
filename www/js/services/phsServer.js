@@ -6,7 +6,22 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, SessionFactory, $
   path = {
     login: Config.api + '/Authentication/Login',
     user: Config.api + '/user/',
-    register: Config.api + '/reg/'
+    register: Config.api + '/reg/',
+    getBadges: Config.api + '/DriverLeads/Badges',
+    contactInfos: Config.api + '/DriverLeads/ContactInfo',
+    elementLabelApp: Config.api + '/DriverLeads/ElementLabels',
+    leadRecent: Config.api + '/DriverLeads/Leads/Recent',
+    leadStatus: Config.api + '/DriverLeads/LeadStatus',
+    //league table
+    leagueTable: Config.api + '/DriverLeads/LeagueTable',
+    leagueTableAll: Config.api + '/DriverLeads/LeagueTable?type=all',
+    leagueTableFLT: Config.api + '/DriverLeads/LeagueTable?type=myflt',
+    storiesRecent: Config.api + '/DriverLeads/Stories/Recent',
+    submitLead: Config.api + '/DriverLeads/Leads',
+    //social
+    like: Config.api + '/DriverLeads/Stories/Like', //GET
+    unLike: Config.api + '/DriverLeads/Stories/Unlike',
+    nearBy: Config.api + '/DriverLeads/Customers/Nearby'//Nearby?lat=51.600697&lgt=0.549094
   };
 
   // User and Authentication

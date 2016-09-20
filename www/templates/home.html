@@ -1,5 +1,5 @@
 <ion-view class="home-page" view-title="<img class='title-image' src='img/logo.png' />Home">
-  <ion-content padding="false" style="bottom:55px !important">
+  <ion-content padding="false" style="bottom:65px !important">
     <div class="row">
       <div class="col col-25">
         <div class="avatar">
@@ -45,39 +45,19 @@
       </div>
     </div>
     <h5>Most Recent Leads <span class="right">Status</span></h5>
-    <div class="card">
+
+    <div class="card" ng-repeat="lead in ::leadRecents track by $index">
       <div class="item item-text-wrap">
-        Company name
+        {{lead.companyName}}
         <span class="item-note">
-          New
+          {{lead.status}}
         </span>
       </div>
       <div class="item item-divider">
-        3 Jan 2016
+        {{lead.createdDate}}
       </div>
     </div>
-    <div class="card">
-      <div class="item item-text-wrap">
-        Company name
-        <span class="item-note">
-          Won
-        </span>
-      </div>
-      <div class="item item-divider">
-        3 Jan 2016
-      </div>
-    </div>
-    <div class="card">
-      <div class="item item-text-wrap">
-        Company name
-        <span class="item-note">
-          Oportunity
-        </span>
-      </div>
-      <div class="item item-divider">
-        3 Jan 2016
-      </div>
-    </div>
+    
     <button class="button button-balanced middleButton" ui-sref="app.newlead">New Lead</button>
   </ion-content>
   <ion-footer-bar class="bar-balanced footer-bar-custom">
