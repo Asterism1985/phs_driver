@@ -17,5 +17,4 @@ angular.module('phsDriverApp.controllers')
         Utils.toast('Can\'t process your request', 2000);
       });
     }
-
 })
