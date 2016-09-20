@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'starter.services', 'ngCordova', 'ngCountup'])
+angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverApp.directives', 'phsDriverApp.services', 'ngCordova', 'ngCountup'])
 
 .run(function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {

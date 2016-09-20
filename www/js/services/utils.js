@@ -1,4 +1,4 @@
-angular.module('starter.services')
+angular.module('phsDriverApp.services')
   .factory('Utils', ['$rootScope', '$ionicLoading', '$timeout', '$ionicHistory', '$location', '$cordovaFileTransfer', '$log', function($rootScope, $ionicLoading, $timeout, $ionicHistory, $location, $cordovaFileTransfer, $log) {
     var UtilsSrv = {
 

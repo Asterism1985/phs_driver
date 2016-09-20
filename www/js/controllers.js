@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('phsDriverApp.controllers', [])
 
 .controller('AppCtrl', function($scope, $timeout, $ionicPlatform, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, Utils) {
 

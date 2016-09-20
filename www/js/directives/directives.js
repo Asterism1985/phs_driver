@@ -1,5 +1,5 @@
 
-angular.module('starter.directives', [])
+angular.module('phsDriverApp.directives', [])
 
 .directive('phsNumber', [function() {
   return {
