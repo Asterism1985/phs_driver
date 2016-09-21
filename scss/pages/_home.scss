@@ -16,3 +16,18 @@
     font-weight: 700;
   }
 }
+
+.home-page {
+  .avatar {
+    display: inline-block;
+    border: 3px solid $gray;
+    padding: 2px;
+    background-color: #eeeeee;
+    .avatar-image {
+      width: 70px;
+      height: auto;
+      min-height: 65px;
+      max-height: 150px;
+    }
+  }
+}

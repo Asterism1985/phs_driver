@@ -1,22 +1,22 @@
 <ion-view view-title="<img class='title-image' src='img/logo.png' />Lead Status">
   <ion-content>
     <ion-list>
-      <div ng-repeat="group in groups">
+      <div ng-repeat="group in ::leadStatuses">
         <ion-item class="item-stable item-icon-right" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
           <div class="circleIcon">
             <i class="icon" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
           </div>
           &nbsp; {{group.name}} <span class="number">3</span>
         </ion-item>
-        <ion-item class="item-accordion" ng-repeat="lead in group.leads" ng-show="isGroupShown(group)">
+        <ion-item class="item-accordion" ng-repeat="lead in ::group.items" ng-show="isGroupShown(group)">
           <div class="sub-item lead">
-            <strong>Lead: </strong>{{ lead.lead }}
+            <strong>Lead: </strong>{{ lead.id }}
           </div>
           <div class="sub-item companyName">
             <strong>Company name: </strong>{{ lead.companyName }}
           </div>
           <div class="sub-item">
-            <strong>Date: </strong>{{ lead.date }}
+            <strong>Date: </strong>{{ lead.createdDate }}
           </div>
         </ion-item>
       </div>
