@@ -32,8 +32,6 @@ angular.module('phsDriverApp.controllers')
         Utils.hideLoading();
         Utils.toast('Can\'t process your request', 2000);
       });
-
-
     };
 
     $scope.init();

@@ -5,7 +5,6 @@ angular.module('phsDriverApp.services')
       appKeys: {
       	currentUser: 'phsUser'
       },
-
       appLabel: $window.appConfigs
     };
   }]);

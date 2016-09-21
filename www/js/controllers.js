@@ -40,10 +40,11 @@ angular.module('phsDriverApp.controllers', [])
             });*/
   });
   $scope.init = function() {
-    PhsServer.getContactInfos.then(function(data) {
-      $rootScope.contactInfos  = data;
-    })
-  }
+    PhsServer.getContactInfos().then(function(data) {
+      $scope.contactInfos  = data[0];
+      $log.debug("[GLOBAL] contactinfos: ", $scope.contactInfos);
+    });
+  };
 
   $scope.logout = function() {
     Utils.clearHistory().then(function(){
@@ -59,6 +60,8 @@ angular.module('phsDriverApp.controllers', [])
   }).then(function(popover) {
     $scope.popover = popover;
   });
+
+  $scope.init();
 }])
 
 .controller('NewLeadCtrl', function($rootScope, $scope, $ionicPlatform, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService) {

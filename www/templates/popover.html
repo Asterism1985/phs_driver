@@ -2,21 +2,30 @@
   <ion-content class="padding" style="padding-top: 0px;">
     <div class="row popup-contacts">
       <div class="col">
-        <h4>My FLT Admin Contacts</h4>
+        <h4>{{::contactInfos.title}}</h4>
         <div class="avatar-contact">
-          <img ng-src="{{}}"/>
+          <img ng-src="{{::contactInfos.image}}" />
         </div>
         <hr>
-        <div style="margin-bottom:15px">
-          <div class="title">Name:</div>
-          <a class="contactsContent">John Smith</a>
+        <div ng-repeat="section in ::contactInfos.sections">
+          <h4>{{section.sectionHeaderLabel}}</h4>
+          <!-- list out name -->
+          <div ng-repeat="item in section.items track by item.id" style="margin-bottom:15px">
+            <div class="title">{{item.label}}</div>
+            <!-- NAME -->
+            <div ng-if="item.id==='NAME'" ng-repeat="name in item.values">
+              <a class="contactsContent" target="_blank">{{name}}</a> <br>
+            </div>
+            <!-- Email -->
+            <div ng-if="item.id==='EMAIL'" ng-repeat="name in item.values">
+              <a class="contactsContent" ng-href="mailto:{{name}}" target="_blank">{{name}}</a>
+            </div>
+            <!-- Phone -->
+            <div ng-if="item.id==='PHONE'" ng-repeat="name in item.values">
+              <a class="contactsContent" ng-href="tel:{{name}}" target="_blank">{{name}}</a>
+            </div>
+          </div>
         </div>
-        <div style="margin-bottom:15px">
-          <div class="title">Email:</div>
-          <a class="contactsContent" ng-href="mailto:FLT001@phs.co.uk" target="_blank">FLT001@phs.co.uk</a>
-        </div>
-        <div class="title">Phone:</div>
-        <a class="contactsContent" ng-href="tel:02920 809956" target="_blank">02920 809956</a>
       </div>
     </div>
   </ion-content>
