@@ -1,10 +1,10 @@
-angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverApp.directives', 'phsDriverApp.services', 'ngCordova', 'ngCountup'])
+angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverApp.directives', 'phsDriverApp.services', 'ngCordova', 'ngCountup', 'LocalForageModule'])
 
 .constant('Config', {
     api: 'https://mobilewebapi.phs.co.uk/Salesforce.MobileServices/api' // baseURL
   })
 
-.run(function($ionicPlatform, $rootScope) {
+.run(function($ionicPlatform, $rootScope, SessionFactory) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,10 +20,22 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
 
     $rootScope.isDevice = (ionic.Platform.device().available && ionic.Platform.device().platform !== 'browser') || false;
     window.isDevice = $rootScope.isDevice;
+    var currentUser = {};
+    SessionFactory.getCurrentUser().then(function(user){
+      $rootScope.currentUser = user;
+    })
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $logProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider, $logProvider, $httpProvider, $localForageProvider) {
+
+  $localForageProvider.config({
+        driver      : 'localStorageWrapper',
+        name        : 'PhsDriver', // name of the database and prefix for your data, it is "lf" by default
+        version     : 1.0, // version of the database, you shouldn't have to use this
+        storeName   : 'phstbl' // name of the table
+  });
+
 
   $httpProvider.interceptors.push('TokenInterceptor');
 

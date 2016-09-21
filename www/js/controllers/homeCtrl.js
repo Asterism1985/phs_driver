@@ -1,5 +1,5 @@
 angular.module('phsDriverApp.controllers')
-  .controller('HomeCtrl', function($scope, $ionicPlatform, $timeout, $window) {
+  .controller('HomeCtrl',['$rootScope', '$scope', '$ionicPlatform', '$timeout', '$window', function($rootScope, $scope, $ionicPlatform, $timeout, $window) {
 
     $ionicPlatform.ready(function() {
 
@@ -65,4 +65,6 @@ angular.module('phsDriverApp.controllers')
 
     });
 
-  })
+
+
+  }])

@@ -3,10 +3,11 @@
     <div class="row">
       <div class="col col-25">
         <div class="avatar">
-          <i class="icon userLarge ion-person"></i>
+          <!-- <i class="icon userLarge ion-person"></i> -->
+          <img data-ng-src="{{::currentUser.image}}"/>
         </div>
       </div>
-      <div class="col col-75 profileName">John Smith</div>
+      <div class="col col-75 profileName">{{::currentUser.fullName}}</div>
     </div>
     <!--<h1 count-up id="lead" ng-model="badges.lead"></h1>-->
     <h5>Your Badges</h5>
@@ -57,7 +58,7 @@
         {{lead.createdDate}}
       </div>
     </div>
-    
+
     <button class="button button-balanced middleButton" ui-sref="app.newlead">New Lead</button>
   </ion-content>
   <ion-footer-bar class="bar-balanced footer-bar-custom">

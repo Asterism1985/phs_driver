@@ -32,8 +32,10 @@ angular.module('phsDriverApp.services')
       },
       toLocation: function(url) {
         $location.path(url);
+      },
+      corectImageBase64: function (base64) {
+        return 'data:image/jpeg;base64,'+ base64;
       }
-
     };
     return UtilsSrv;
   }]);

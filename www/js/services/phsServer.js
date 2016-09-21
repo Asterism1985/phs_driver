@@ -30,7 +30,6 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, SessionFactory, $
     var deferred = $q.defer();
     $http.post(path.login, user).then(
       function(res) {
-        $log.debug('User Infos', JSON.stringify(res));
         deferred.resolve(res.data);
       },
       function(error) {

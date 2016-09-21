@@ -10,7 +10,6 @@ angular.module('phsDriverApp.services')
     };
 
     service.get = function (key) {
-
       return deferred.promise;
     };
 

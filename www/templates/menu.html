@@ -18,9 +18,10 @@
   <ion-side-menu side="left">
     <div class="sideProfile">
       <div class="sideAvatar">
-        <i class="icon userSmall ion-person"></i>
+        <!-- <i class="icon userSmall ion-person"></i> -->
+        <img data-ng-src="{{::currentUser.image}}"/>
       </div>
-      <div class="sideName">John Smith</div>
+      <div class="sideName">{{::currentUser.fullName}}</div>
     </div>
     <ion-content class="sideNavList">
       <ion-list>
