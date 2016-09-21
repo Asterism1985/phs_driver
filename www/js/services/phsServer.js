@@ -8,7 +8,7 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, SessionFactory, $
     logout: Config.api + '/Authentication/Logout',
     user: Config.api + '/user/',
     register: Config.api + '/reg/',
-    getBadges: Config.api + '/DriverLeads/Badges',
+    badges: Config.api + '/DriverLeads/Badges',
     contactInfos: Config.api + '/DriverLeads/ContactInfo',
     elementLabelApp: Config.api + '/DriverLeads/ElementLabels',
     leadRecent: Config.api + '/DriverLeads/Leads/Recent',
@@ -40,6 +40,49 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, SessionFactory, $
     );
     return deferred.promise;
   };
+  this.doLogout = function() {
+    $log.debug('logout call');
+    var deferred = $q.defer();
+    $http.post(path.logout).then(
+      function(res) {
+        deferred.resolve(true);
+      },
+      function(error) {
+        $log.error(error);
+        deferred.reject(error);
+      }
+    );
+    return deferred.promise;
+  };
+
+  // Home UI 
+  this.getLeadRecent = function() {
+    var deferred = $q.defer();
+    $http.get(path.leadRecent).then(
+      function(res) {
+        deferred.resolve(res.data);
+      },
+      function(error) {
+        $log.error(error);
+        deferred.reject(error);
+      }
+    );
+    return deferred.promise;
+  };
+  this.getBadges = function() {
+    var deferred = $q.defer();
+    $http.get(path.badges).then(
+      function(res) {
+        deferred.resolve(res.data);
+      },
+      function(error) {
+        $log.error(error);
+        deferred.reject(error);
+      }
+    );
+    return deferred.promise;
+  };
+
 
   this.getUserInformations = function(userId) {
     var deferred = $q.defer();

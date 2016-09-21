@@ -28,7 +28,6 @@ angular.module('phsDriverApp.controllers', [])
 
           window.plugins.NativeAudio.play( 'badge' );
 
-
           $scope.$watch(function () {
               return $ionicSideMenuDelegate.getOpenRatio();
             },
@@ -40,6 +39,7 @@ angular.module('phsDriverApp.controllers', [])
               }
             });*/
   });
+
 
   $scope.logout = function() {
     Utils.clearHistory().then(function(){
