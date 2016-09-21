@@ -15,9 +15,6 @@ angular.module('phsDriverApp.services')
 
       _sessionFactory.setCurrentUser = function(user) {
         var deferred = $q.defer();
-        if (user.image) {
-          user.image = Utils.corectImageBase64(user.image);
-        }
         $localForage.setItem(AppConfig.appKeys.currentUser, user).then(function() {
           deferred.resolve(true);
         });

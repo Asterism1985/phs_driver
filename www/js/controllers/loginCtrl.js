@@ -23,6 +23,7 @@ angular.module('phsDriverApp.controllers')
         return PhsServer.getAppConfigs();
       })
       .then(function(appConfigs) {
+        $log.debug("AppConfig label: ", appConfigs);
         $window.appConfigs = appConfigs;
         Utils.hideLoading();
         Utils.toLocation('/app/home');

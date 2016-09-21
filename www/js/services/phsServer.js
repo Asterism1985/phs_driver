@@ -112,6 +112,21 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, SessionFactory, $
     return deferred.promise;
   };
 
+  // LEAD Status UI
+  this.getLeadStatus = function() {
+    var deferred = $q.defer();
+    $http.get(path.leadStatus).then(
+      function(res) {
+        deferred.resolve(res.data);
+      },
+      function(error) {
+        $log.error(error);
+        deferred.reject(error);
+      }
+    );
+    return deferred.promise;
+  };
+
 
   this.getUserInformations = function(userId) {
     var deferred = $q.defer();

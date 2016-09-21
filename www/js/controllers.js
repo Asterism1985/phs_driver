@@ -191,24 +191,6 @@ $scope.showPopupInputYourLocation = function() {
   };
 })
 
-.controller('LeadStatusCtrl', function($scope, $log) {
-
-  $scope.groups = groups;
-
-  $log.debug($scope.groups);
-  $scope.toggleGroup = function(group) {
-    if ($scope.isGroupShown(group)) {
-      $scope.shownGroup = null;
-    } else {
-      $scope.shownGroup = group;
-    }
-  };
-  $scope.isGroupShown = function(group) {
-    return $scope.shownGroup === group;
-  };
-
-})
-
 .controller('LeagueCtrl', function($scope, $ionicPlatform, $window) {
 
   $ionicPlatform.ready(function() {
