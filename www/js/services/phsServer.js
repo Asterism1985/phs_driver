@@ -22,8 +22,22 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, SessionFactory, $
     //social
     like: Config.api + '/DriverLeads/Stories/Like', //GET
     unLike: Config.api + '/DriverLeads/Stories/Unlike',
-    nearBy: Config.api + '/DriverLeads/Customers/Nearby'//Nearby?lat=51.600697&lgt=0.549094
+    nearBy: Config.api + '/DriverLeads/Customers/Nearby' //Nearby?lat=51.600697&lgt=0.549094
   };
+
+  this.getContactInfos = function() {
+    var deferred = $q.defer();
+    $http.get(path.contactInfos).then(
+      function(res) {
+        deferred.resolve(res.data);
+      },
+      function(error) {
+        $log.error(error);
+        deferred.reject(error);
+      }
+    );
+    return deferred.promise;
+  }
 
   // User and Authentication
   this.doLogin = function(user) {

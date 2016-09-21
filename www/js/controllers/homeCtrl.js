@@ -3,16 +3,16 @@ angular.module('phsDriverApp.controllers')
     function($rootScope, $scope, $log, $ionicPlatform, $timeout, $window, PhsServer, Utils) {
 
       $scope.init = function() {
+        $scope.isLoading = true;
         //showLoading first
         Utils.showLoading();
-
+        //Update UI for cross device
         $scope.item_width = Math.round($window.innerWidth / 3);
         if ($scope.item_width > 150) {
           $scope.center_badges = 88;
         } else {
           $scope.center_badges = Math.round($scope.item_width / 2) + 6;
         }
-
         $scope.myStat = {
           "margin-top": "-" + $scope.center_badges + "px"
         };
@@ -22,14 +22,6 @@ angular.module('phsDriverApp.controllers')
         $scope.badges.lead = 0;
         $scope.badges.convertedLead = 0;
         $scope.badges.story = 0;
-
-        $timeout(function() {
-          $scope.badges.lead = 49;
-          $scope.badges.convertedLead = 10;
-          $scope.badges.story = 10;
-        }, 100);
-
-
 
         var sektor1 = new Sektor('.sektor1', {
           size: 20,
@@ -66,17 +58,28 @@ angular.module('phsDriverApp.controllers')
 
         PhsServer.getBadges().then(function(data) {
             $log.debug("[Home] Badges is: ", data);
+            Utils.hideLoading();
             $scope.badges = data;
+            initBadges(data);
             return PhsServer.getLeadRecent();
           })
           .then(function(leadRecents) {
             $log.debug("[Home] Lead Recent: ", leadRecents);
-            Utils.hideLoading();
+            $scope.isLoading = false;
             $scope.leadRecents = leadRecents;
-          })
+          });
+
+        var initBadges = function(badges) {
+          $scope.badgeLead = badges[0];
+          $scope.badgeConvertedLead = badges[1];
+          $scope.badgeStory = badges[2];
+          $timeout(function() {
+            $scope.badges.lead = $scope.badgeLead.badgeScore;
+            $scope.badges.convertedLead = $scope.badgeConvertedLead.badgeScore;
+            $scope.badges.story = $scope.badgeStory.badgeScore;
+          }, 100);
+        }
       };
-
       $scope.init();
-
     }
   ])

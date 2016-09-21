@@ -1,6 +1,6 @@
 angular.module('phsDriverApp.controllers', [])
 
-.controller('AppCtrl', ['$scope', '$timeout', '$ionicPlatform', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'SessionFactory', function($scope, $timeout, $ionicPlatform, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, SessionFactory) {
+.controller('AppCtrl', ['$scope', '$timeout', '$ionicPlatform', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'SessionFactory', 'PhsServer', function($scope, $timeout, $ionicPlatform, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, SessionFactory, PhsServer) {
 
   $ionicPlatform.ready(function() {
     /*
@@ -39,7 +39,11 @@ angular.module('phsDriverApp.controllers', [])
               }
             });*/
   });
-
+  $scope.init = function() {
+    PhsServer.getContactInfos.then(function(data) {
+      $rootScope.contactInfos  = data;
+    })
+  }
 
   $scope.logout = function() {
     Utils.clearHistory().then(function(){

@@ -3,13 +3,16 @@
 }
 
 .popup-contacts {
+  a {
+    color: $phsColor !important;
+  }
   display: inline !important;
   .contactsContent {
     margin-bottom: 15px;
     text-decoration: underline;
     font-size: 16px;
   }
-    .title {
+  .title {
     font-size: 16px;
     font-weight: 700;
   }

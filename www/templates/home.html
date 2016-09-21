@@ -46,8 +46,8 @@
       </div>
     </div>
     <h5>Most Recent Leads <span class="right">Status</span></h5>
-
-    <div class="card" ng-repeat="lead in ::leadRecents track by $index">
+    <spinner is-loading="isLoading"></spinner>
+    <div ng-show="!isLoading" class="card" ng-repeat="lead in ::leadRecents track by $index">
       <div class="item item-text-wrap">
         {{lead.companyName}}
         <span class="item-note">
@@ -65,7 +65,7 @@
   <div class="buttons">
     <button class="button button-clear"></button>
   </div>
-  <h1 class="title">Thank you for being part of the team, John Smith</h1>
+  <h1 class="title">Thank you for being part of the team, {{::currentUser.fullName}}</h1>
   <div class="buttons" ng-click="doSomething()">
     <button class="button button-clear"><span style="margin-top:15px;">v0.1</span></button>
   </div>
