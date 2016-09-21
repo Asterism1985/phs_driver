@@ -7,7 +7,7 @@ angular.module('phsDriverApp.services')
 
     _sessionFactory.getCurrentUser = function() {
         var deferred = $q.defer();
-        $localForage.getItem(AppConfig.keys.currentUser).then(function(user) {
+        $localForage.getItem(AppConfig.appKeys.currentUser).then(function(user) {
           deferred.resolve(user);
         });
         return deferred.promise;
@@ -18,7 +18,7 @@ angular.module('phsDriverApp.services')
         if (user.image) {
           user.image = Utils.corectImageBase64(user.image);
         }
-        $localForage.setItem(AppConfig.keys.currentUser, user).then(function() {
+        $localForage.setItem(AppConfig.appKeys.currentUser, user).then(function() {
           deferred.resolve(true);
         });
         return deferred.promise;

@@ -25,6 +25,21 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, SessionFactory, $
     nearBy: Config.api + '/DriverLeads/Customers/Nearby' //Nearby?lat=51.600697&lgt=0.549094
   };
 
+
+  this.getAppConfigs = function() {
+    var deferred = $q.defer();
+    $http.get(path.elementLabelApp).then(
+      function(res) {
+        deferred.resolve(res.data);
+      },
+      function(error) {
+        $log.error(error);
+        deferred.reject(error);
+      }
+    );
+    return deferred.promise;
+  }
+
   this.getContactInfos = function() {
     var deferred = $q.defer();
     $http.get(path.contactInfos).then(

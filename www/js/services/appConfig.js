@@ -1,9 +1,11 @@
 'use strict';
 angular.module('phsDriverApp.services')
-  .factory('AppConfig', [function () {
+  .factory('AppConfig', ['$window', function ($window) {
     return {
-      keys: {
+      appKeys: {
       	currentUser: 'phsUser'
-      }
+      },
+
+      appLabel: $window.appConfigs
     };
   }]);
