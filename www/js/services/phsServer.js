@@ -5,6 +5,7 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, SessionFactory, $
 
   path = {
     login: Config.api + '/Authentication/Login',
+    logout: Config.api + '/Authentication/Logout',
     user: Config.api + '/user/',
     register: Config.api + '/reg/',
     getBadges: Config.api + '/DriverLeads/Badges',

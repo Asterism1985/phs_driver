@@ -44,6 +44,11 @@ angular.module('phsDriverApp.services')
         return false;
       }
     };
+
+    _sessionFactory.clearAll = function() {
+      return $localForage.clear();
+    };
+
     return _sessionFactory;
   }
 ]);

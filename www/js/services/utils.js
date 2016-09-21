@@ -26,7 +26,7 @@ angular.module('phsDriverApp.services')
         }, time);
       },
       clearHistory: function() {
-        // SessionFactory.clearAll();
+        //SessionFactory.clearAll();
         $ionicHistory.clearHistory();
         return $ionicHistory.clearCache();
       },

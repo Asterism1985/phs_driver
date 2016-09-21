@@ -55,8 +55,6 @@ angular.module('phsDriverApp.controllers')
         fillCircle: false
       });
 
-
-
       $timeout(function() {
         sektor1.animateTo(360, 500);
         sektor2.animateTo(110, 500);

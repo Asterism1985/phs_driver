@@ -1,8 +1,6 @@
 angular.module('phsDriverApp.controllers', [])
 
-.controller('AppCtrl', function($scope, $timeout, $ionicPlatform, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, Utils) {
-
-
+.controller('AppCtrl', ['$scope', '$timeout', '$ionicPlatform', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'SessionFactory', function($scope, $timeout, $ionicPlatform, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, SessionFactory) {
 
   $ionicPlatform.ready(function() {
     /*
@@ -44,7 +42,12 @@ angular.module('phsDriverApp.controllers', [])
   });
 
   $scope.logout = function() {
-    Utils.toLocation("/login");
+    Utils.clearHistory().then(function(){
+      SessionFactory.clearAll();
+    }).then(function(){
+      $log.debug("clear all history and app data");
+      Utils.toLocation("/login");
+    })
   };
 
   $ionicPopover.fromTemplateUrl('templates/popover.html', {
@@ -52,7 +55,7 @@ angular.module('phsDriverApp.controllers', [])
   }).then(function(popover) {
     $scope.popover = popover;
   });
-})
+}])
 
 .controller('NewLeadCtrl', function($rootScope, $scope, $ionicPlatform, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService) {
   // Triggered on a button click, or some other target
