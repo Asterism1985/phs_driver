@@ -2,13 +2,20 @@ angular.module('phsDriverApp.services')
   .factory('Utils', ['$rootScope', '$ionicLoading', '$timeout', '$ionicHistory', '$location', '$cordovaFileTransfer', '$log', function($rootScope, $ionicLoading, $timeout, $ionicHistory, $location, $cordovaFileTransfer, $log) {
     var UtilsSrv = {
 
-      showLoading: function(msg) {
+      showLoadingTitle: function(msg) {
         $ionicLoading.show({
           template: msg || 'Loading',
           animation: 'fade-in',
           showBackdrop: true,
           maxWidth: 200,
           showDelay: 0
+        });
+      },
+
+      showLoading: function() {
+        $ionicLoading.show({
+            templateUrl: 'templates/directives/loading.html',
+            noBackdrop: 'true'
         });
       },
 
