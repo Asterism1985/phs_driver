@@ -1,4 +1,3 @@
-
 angular.module('phsDriverApp.directives', [])
 
 .directive('phsNumber', [function() {
@@ -26,7 +25,7 @@ angular.module('phsDriverApp.directives', [])
   };
 }])
 
-.directive("moveNext", ['$timeout', function ($timeout) {
+.directive("moveNext", ['$timeout', function($timeout) {
   return {
     restrict: "A",
     link: function($scope, element) {
@@ -35,7 +34,7 @@ angular.module('phsDriverApp.directives', [])
           if (element.val().length === parseInt(element.attr("maxlength"))) {
             var $nextElement = element.next();
             if ($nextElement.length) {
-              $timeout(function () {
+              $timeout(function() {
                 $nextElement[0].focus();
               }, 10);
             }
@@ -47,13 +46,31 @@ angular.module('phsDriverApp.directives', [])
 }])
 
 .directive('autofocus', ['$timeout', function($timeout) {
-  return {
-    restrict: 'A',
-    link : function($scope, $element) {
-      $timeout(function() {
-        $element[0].focus();
-      });
+    return {
+      restrict: 'A',
+      link: function($scope, $element) {
+        $timeout(function() {
+          $element[0].focus();
+        });
+      }
     }
-  }
-}])
+  }])
+  .directive('appGoBack', [function() {
+    return {
+      scope: {
+        appGoBack: '@'
+      },
+      controller: ['$scope', '$ionicHistory', function($scope, $ionicHistory) {
+        $scope.goBack = function() {
+          $ionicHistory.goBack();
+        };
+      }],
+      link: function(scope, elem, attrs) {
+        elem.on('click', function() {
+          scope.goBack();
+        });
+      }
+    };
+  }])
+
   ;
