@@ -17,7 +17,11 @@
   /* Firefox 18- */
   color: pink;
 }
-
+.btn-phs-small {
+    color: white;
+    background: $phsColor;
+    padding: 0px 11px;
+  }
 .button-balanced {
   background-color: $lightGreen !important;
   padding-left: 2rem;

@@ -1,0 +1,15 @@
+.story-detail-page {
+  .storyUpvote {
+    display: inline;
+    float: right;
+    font-size: 1.4rem;
+    color: $phsColor
+  }
+  .storyDetails {
+    clear: both;
+    height: 2rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid $gray;
+    color: $darkGray;
+  }
+}

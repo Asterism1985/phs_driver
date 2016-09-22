@@ -1,4 +1,4 @@
-<ion-view view-title="<img class='title-image'  src='img/logo.png' /> Stories">
+<ion-view class="story-detail-page" view-title="<img class='title-image'  src='img/logo.png' /> Stories">
   <ion-content class="padding">
     <div class="row">
       <div class="col">
@@ -13,7 +13,8 @@
         <p>
           {{::storyDetails.body}}
         </p>
-        <button class="button button-small icon-left ion-thumbsup btn-phs-small">Like</button>
+        <button ng-if="storyDetails.likedByCurrentUser" class="button button-small icon-left ion-thumbsup btn-phs-small">UnLike</button>
+        <button ng-if="!storyDetails.likedByCurrentUser" class="button button-small icon-left ion-thumbsup btn-phs-small">Like</button>
       </div>
     </div>
   </ion-content>

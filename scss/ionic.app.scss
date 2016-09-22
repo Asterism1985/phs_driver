@@ -51,8 +51,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "pages/home";
 @import "pages/leadstatus";
 @import "pages/stories";
+@import "pages/storydetail";
 @import "pages/newlead";
 @import "pages/leaguetable";
+
 @import "commons/specialdevice";
 
 .list.list-inset{
@@ -240,18 +242,6 @@ ion-item .position{
 }
 .postTitle{
   display: inline-block;
-}
-.storyUpvote{
-  display: inline;
-  float: right;
-  font-size: 1.4rem;
-}
-.storyDetails{
-  clear: both;
-  height: 2rem;
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid $gray;
-  color: $darkGray;
 }
 
 /* SVG circle */

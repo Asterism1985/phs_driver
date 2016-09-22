@@ -7,7 +7,7 @@ angular.module('phsDriverApp.services')
   'Utils',
   '$q',
   '$log',
-  'PhsServer'
+  'PhsServer',
   function (
   $rootScope,
   $state,
