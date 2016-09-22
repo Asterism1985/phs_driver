@@ -221,43 +221,6 @@ $scope.showPopupInputYourLocation = function() {
   });
 })
 
-.controller('StoriesCtrl', function($scope, $state) {
-
-  $scope.openSingleStory = function(id) {
-
-    $state.go('app.stories.');
-
-  };
-
-
-  $scope.stories = [];
-
-  for (var i = 0; i < 4; i++) {
-    $scope.stories[i] = {
-      title: 'Post Title',
-      name: 'John Smith',
-      date: '01/01/2016'
-    };
-
-  }
-
-  /*
-   * if given group is the selected group, deselect it
-   * else, select the given group
-   */
-  $scope.toggleGroup = function(group) {
-    if ($scope.isGroupShown(group)) {
-      $scope.shownGroup = null;
-    } else {
-      $scope.shownGroup = group;
-    }
-  };
-  $scope.isGroupShown = function(group) {
-    return $scope.shownGroup === group;
-  };
-
-})
-
 .controller('NewStoryCtrl', function($scope, $ionicPopup, $rootScope, $timeout, $log) {
 
   $scope.submitStory = function() {

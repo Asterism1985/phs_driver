@@ -1,9 +1,27 @@
-.thumbsUp {
-  color: $phsColor;
-}
-
-.btn-phs-small {
-  color: white;
-  background: $phsColor;
-  padding: 0px 11px;
+.stories-page {
+  a {
+    text-decoration: none;
+  }
+  .item {
+  	padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  .title {
+  	    font-size: 17px;
+    font-weight: 700;
+  }
+  .item-title {
+    font-weight: 700;
+  }
+  .thumbsUp {
+    color: $phsColor;
+    .thumbup-custom {
+    	position: relative !important;
+    }
+  }
+  .btn-phs-small {
+    color: white;
+    background: $phsColor;
+    padding: 0px 11px;
+  }
 }

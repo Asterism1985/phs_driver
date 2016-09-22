@@ -98,6 +98,9 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
     })
     .state('app.stories', {
       url: '/stories',
+      params: {
+        storyInfo: null
+      },
       views: {
         'menuContent': {
           templateUrl: 'templates/stories.html',
@@ -106,11 +109,11 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
       }
     })
     .state('app.storySingle', {
-      url: '/stories/:singleID',
+      url: '/storyDetail',
       views: {
         'menuContent': {
           templateUrl: 'templates/storiesSingle.html',
-          controller: 'StoriesCtrl'
+          controller: 'StoryDetailCtrl'
         }
       }
     })

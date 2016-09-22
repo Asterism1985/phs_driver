@@ -2,23 +2,19 @@
   <ion-content class="padding">
     <div class="row">
       <div class="col">
-        <h2 class="postTitle">Post Title</h2>
-        <div class="storyUpvote"><div class="thumbsUp"> <i class="icon ion-thumbsup"></i> 33</div></div>
+        <h2 class="postTitle">{{::storyDetails.title}}</h2>
+        <div class="storyUpvote">
+          <div class="thumbsUp"> <i class="icon ion-thumbsup"></i> {{::storyDetails.likes}}</div>
+        </div>
         <div class="storyDetails">
-          <div class="storyName">Post by: John Smith</div>
-          <div class="storyDate">Date: 01/01/2016</div>
+          <div class="storyName">Post by: {{::storyDetails.postingUser}}</div>
+          <div class="storyDate">Date: {{::storyDetails.createdDate}}</div>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac pulvinar nulla.
-          Maecenas vel dapibus tellus. Aenean finibus sapien nisl, quis iaculis metus venenatis nec.
-          Nam velit urna, varius sit amet lorem vel, commodo varius tellus. Vivamus ut ullamcorper ex, vel sodales sapien. Ut elementum dui sed dolor rhoncus placerat. Donec id eleifend lectus. Integer condimentum rhoncus aliquet. Phasellus quis varius velit. Praesent sit amet convallis est. Curabitur hendrerit consequat eros, tincidunt pellentesque libero hendrerit non. Etiam gravida quis odio eu egestas. Sed vel odio nec nibh iaculis congue. Nulla eu mauris in nisi porttitor posuere vitae a quam. Nam aliquam, felis nec lacinia vulputate, urna augue imperdiet tortor, vitae semper nisi quam non lacus.
-
+          {{::storyDetails.body}}
         </p>
         <button class="button button-small icon-left ion-thumbsup btn-phs-small">Like</button>
       </div>
-
     </div>
-
-
   </ion-content>
 </ion-view>

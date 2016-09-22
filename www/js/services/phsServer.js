@@ -127,6 +127,20 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, SessionFactory, $
     return deferred.promise;
   };
 
+  this.getStoriesRecent = function() {
+    var deferred = $q.defer();
+    $http.get(path.storiesRecent).then(
+      function(res) {
+        deferred.resolve(res.data);
+      },
+      function(error) {
+        $log.error(error);
+        deferred.reject(error);
+      }
+    );
+    return deferred.promise;
+  };
+
 
   this.getUserInformations = function(userId) {
     var deferred = $q.defer();
