@@ -2,13 +2,15 @@
   <ion-content>
     <ion-list ng-repeat="story in ::stories">
       <a ng-click="openSingleStory($index)">
-        <ion-item class="item item-avatar item-icon-right story">
+        <ion-item class="item item-avatar story">
           <img src="img/user.png">
           <p class="title">{{ story.title }}</p>
           <p><i style="font-weight:700">Post by: </i>{{story.postingUser}}</p>
           <p><i style="font-weight:700">Post by: </i>Date: {{ story.createdDate }}</p>
-          <div class="thumbsUp"> <i class="icon ion-thumbsup" ng-class="{'thumbup-custom-liked':story.likedByCurrentUser, 'thumbup-custom':!story.likedByCurrentUser}"></i> {{story.likes}}</div>
-          <i class="icon ion-ios-arrow-forward"></i>
+          <div class="{{story.likedByCurrentUser ? 'thumbsUpLiked': 'thumbsUpNormal'}}">
+            <i class="icon ion-thumbsup"></i> {{story.likes}}
+          </div>
+          <i class="icon ion-ios-arrow-forward arrow-right-custom"></i>
         </ion-item>
       </a>
     </ion-list>

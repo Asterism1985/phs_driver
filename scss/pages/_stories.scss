@@ -3,21 +3,28 @@
     text-decoration: none;
   }
   .item {
-  	padding-top: 8px !important;
+    padding-top: 8px !important;
     padding-bottom: 8px !important;
   }
   .title {
-  	    font-size: 17px;
+    font-size: 17px;
     font-weight: 700;
   }
   .item-title {
     font-weight: 700;
   }
-  .thumbsUp {
+  .thumbsUpLiked {
     color: $phsColor;
-    .thumbup-custom {
-    	position: relative !important;
-    }
+  }
+  .thumbsUpNormal {
+    color: #666;
+  }
+  .arrow-right-custom {
+    position: absolute;
+    right: 11px;
+    font-size: 27px;
+    top: 34px;
+    color: $phsColor;
   }
   .btn-phs-small {
     color: white;
