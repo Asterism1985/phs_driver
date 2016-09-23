@@ -1,21 +1,20 @@
-::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
-  color: green;
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #909;
 }
-
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: pink;
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #909;
+   opacity:  1;
 }
-
-:-ms-input-placeholder {
-  /* IE 10+ */
-  color: pink;
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #909;
+   opacity:  1;
 }
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #909;
+}
+::placeholder {
 
-:-moz-placeholder {
-  /* Firefox 18- */
-  color: pink;
+  color:red !important;
 }
 .btn-phs-small {
     color: white;

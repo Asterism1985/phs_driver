@@ -285,16 +285,6 @@ span.name{
   padding-top: 0.6rem;
 }
 
-label.item.item-input{
-  margin-bottom: 1rem;
-  padding-top: 0.05rem;
-  padding-bottom: 0.05rem;
-}
-label.item.item-input > input, label.item.item-input > textarea{
-  font-size: 0.73rem;
-
-}
-
 @keyframes rotation {
   from {
     transform: rotateY(170deg);
