@@ -75,7 +75,7 @@ angular.module('phsDriverApp.controllers')
     };
 
     $scope.uploadImage = function() {
-      if ($rootScope.isDevice) {
+      // if ($rootScope.isDevice) {
         var options = {
           maximumImagesCount: 10,
           width: 800,
@@ -90,9 +90,9 @@ angular.module('phsDriverApp.controllers')
           }, function(error) {
             // error getting photos
           });
-      } else {
-        $scope.showModalUploadFile();
-      }
+      // } else {
+      //   $scope.showModalUploadFile();
+      // }
     };
 
     $scope.showModalLocationPick = function() {
