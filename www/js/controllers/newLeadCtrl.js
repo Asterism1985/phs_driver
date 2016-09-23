@@ -1,5 +1,5 @@
 angular.module('phsDriverApp.controllers')
-  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$ionicPlatform', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', function($rootScope, $scope, $ionicPlatform, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService) {
+  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$cordovaImagePicker', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', function($rootScope, $scope, $cordovaImagePicker, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService) {
     // Triggered on a button click, or some other target
     $scope.showPopupInputYourLocation = function() {
       $scope.data = {};
@@ -42,16 +42,25 @@ angular.module('phsDriverApp.controllers')
     $scope.uploadImage = function() {
       //$scope.showModalUploadFile();
 
-      plugins.imagePicker.getPictures(
-        function(results) {
+      var options = {
+        maximumImagesCount: 10,
+        width: 800,
+        height: 800,
+        quality: 80
+      };
+
+      $cordovaImagePicker.getPictures(options)
+        .then(function(results) {
           for (var i = 0; i < results.length; i++) {
             console.log('Image URI: ' + results[i]);
           }
-        }, function (error) {
-          console.log('Error: ' + error);
-        }
-      );
-    }
+        }, function(error) {
+          // error getting photos
+        });
+
+
+
+    };
 
 
     $scope.showModalLocationPick = function() {

@@ -7,7 +7,21 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.phs.driver.ios"
+        },
         "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "cordova-plugin-image-picker": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.phs.driver.ios"
         },
         "cordova-plugin-nativeaudio": {
@@ -17,15 +31,6 @@
             "PACKAGE_NAME": "com.phs.driver.ios"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.phs.driver.ios"
-        },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.phs.driver.ios"
-        },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.phs.driver.ios"
-        },
-        "cordova-plugin-image-picker": {
             "PACKAGE_NAME": "com.phs.driver.ios"
         }
     },

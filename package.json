@@ -24,14 +24,11 @@
     {
       "locator": "https://github.com/wymsee/cordova-imagePicker.git",
       "id": "cordova-plugin-image-picker"
-    }
+    },
+    "cordova-plugin-camera"
   ],
   "cordovaPlatforms": [
-    {
-      "platform": "ios",
-      "version": "3.9.2",
-      "locator": "ios@3.9.2"
-    },
-    "android"
+    "android",
+    "ios"
   ]
 }
