@@ -138,7 +138,7 @@ $scope.showPopupInputYourLocation = function() {
       });
   };
 
-    $scope.next = function() {
+  $scope.next = function() {
     $ionicSlideBoxDelegate.next();
   };
   $scope.previous = function() {

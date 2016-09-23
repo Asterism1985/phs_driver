@@ -1,4 +1,10 @@
 .league-page {
+  .list {
+    .item {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+  }
   .league-table {
     background-color: $darkGray2;
   }
@@ -60,6 +66,7 @@
     padding-right: 22px;
   }
   .middleTitle {
+    margin: 0px;
     font-size: 1rem !important;
     color: $light;
     text-align: center;

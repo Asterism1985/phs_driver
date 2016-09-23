@@ -35,18 +35,6 @@ angular.module('phsDriverApp.controllers')
       })
     };
 
-
-
-    // for (var i = 1; i < 10; i++) {
-    //   var singleLeague = {
-    //     id: i,
-    //     name: 'John Smith',
-    //     convertedLeads: [10, 9, 9]
-    //   };
-
-    //   $scope.leagueTable.push(singleLeague);
-    // }
-
     $scope.init();
 
   }])

@@ -15,41 +15,29 @@
         <div class="col col-40">Converted Leads</div>
       </div>
     </div>
-    <spinner is-loading="isLoading" style="padding-top:5px !important; margin-top:5px !important;"></spinner>
-    <ion-list>
-      <ion-item ng-repeat="singleLeague in leagueTable track by $index">
-        <div class="row">
-          <span class="col-5 position">{{ singleLeague.position }}</span>
-          <div class="col-15 smallThumb"> <i class="icon ion-person"></i> </div>
-          <span class="name" ng-class="{'col-33': smallScreen, 'col-40': !smallScreen}">{{ singleLeague.name }}</span>
-          <div class="col-50 stars">
-            <!--{{ singleLeague.convertedLeads }}-->
-            <span>10</span>
-            <i class="icon ion-ios-star numberStars yellow"></i>
-            <span>10</span>
-            <i class="icon ion-ios-star numberStars gray"></i>
-            <span>10</span>
-            <i class="icon ion-ios-star numberStars bronze"></i>
+    <div ng-if="isLoading" style="padding:10px">
+      <spinner is-loading="isLoading"></spinner>
+    </div>
+    <ion-list ng-if="!isLoading">
+      <div ng-repeat="singleLeague in ::leagueTable track by $index">
+        <h4 ng-if="singleLeague.highlight" class="league-table middleTitle">Your Current Position</h4>
+        <ion-item>
+          <div class="row">
+            <span class="col-5 position">{{ singleLeague.position }}</span>
+            <div class="col-15 smallThumb"> <i class="icon ion-person"></i> </div>
+            <span class="name" ng-class="{'col-33': smallScreen, 'col-40': !smallScreen}">{{ singleLeague.name }}</span>
+            <div class="col-50 stars">
+              <!--{{ singleLeague.convertedLeads }}-->
+              <span>{{singleLeague.scores[0]}}</span>
+              <i class="icon ion-ios-star numberStars yellow"></i>
+              <span>{{singleLeague.scores[1]}}</span>
+              <i class="icon ion-ios-star numberStars gray"></i>
+              <span>{{singleLeague.scores[2]}}</span>
+              <i class="icon ion-ios-star numberStars bronze"></i>
+            </div>
           </div>
-        </div>
-      </ion-item>
-    </ion-list>
-    <h4 class="league-table middleTitle">Your Current Position</h4>
-    <ion-item>
-      <div class="row">
-        <span class="col-5 position">310</span>
-        <div class="col-15 smallThumb"> <i class="icon ion-person"></i> </div>
-        <span class="name" ng-class="{'col-33': smallScreen, 'col-40': !smallScreen}">John Smith</span>
-        <div class="col-50 stars">
-          <!--{{ singleLeague.convertedLeads }}-->
-          <span>10</span>
-          <i class="icon ion-ios-star numberStars yellow"></i>
-          <span>10</span>
-          <i class="icon ion-ios-star numberStars gray"></i>
-          <span>10</span>
-          <i class="icon ion-ios-star numberStars bronze"></i>
-        </div>
+        </ion-item>
       </div>
-    </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
