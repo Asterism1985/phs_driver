@@ -6,6 +6,10 @@ This is an addon starter template for the [Ionic Framework](http://ionicframewor
 
 To use this, either create a new ionic project using the ionic node.js utility, or copy and paste this into an existing Cordova project and download a release of Ionic separately.
 
+
+### Install ionic and cordova
+https://github.com/uphack/phs_driver_app/wiki/Install-ionic-and-cordova
+
 ### With the Ionic tool:
 
 Take the name after `ionic-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
