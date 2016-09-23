@@ -40,17 +40,17 @@ angular.module('phsDriverApp.controllers')
     };
 
     $scope.uploadImage = function() {
-      $scope.showModalUploadFile();
+      //$scope.showModalUploadFile();
 
-      // plugins.imagePicker.getPictures(
-      //   function(results) {
-      //     for (var i = 0; i < results.length; i++) {
-      //       console.log('Image URI: ' + results[i]);
-      //     }
-      //   }, function (error) {
-      //     console.log('Error: ' + error);
-      //   }
-      // );
+      plugins.imagePicker.getPictures(
+        function(results) {
+          for (var i = 0; i < results.length; i++) {
+            console.log('Image URI: ' + results[i]);
+          }
+        }, function (error) {
+          console.log('Error: ' + error);
+        }
+      );
     }
 
 

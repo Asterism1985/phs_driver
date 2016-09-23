@@ -24,6 +24,9 @@
         },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
         }
     },
     "dependent_plugins": {

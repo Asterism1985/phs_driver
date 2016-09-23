@@ -19,7 +19,12 @@
     "cordova-plugin-crosswalk-webview",
     "cordova-plugin-whitelist",
     "ionic-plugin-keyboard",
-    "cordova-plugin-geolocation"
+    "cordova-plugin-geolocation",
+    "cordova-plugin-inappbrowser",
+    {
+      "locator": "https://github.com/wymsee/cordova-imagePicker.git",
+      "id": "cordova-plugin-image-picker"
+    }
   ],
   "cordovaPlatforms": [
     {
