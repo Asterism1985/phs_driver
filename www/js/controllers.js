@@ -47,10 +47,12 @@ angular.module('phsDriverApp.controllers', [])
   };
 
   $scope.logout = function() {
+    Utils.showLoading("Logging out...");
     Utils.clearHistory().then(function(){
       SessionFactory.clearAll();
     }).then(function(){
       $log.debug("clear all history and app data");
+      Utils.hideLoading();
       Utils.toLocation("/login");
     })
   };

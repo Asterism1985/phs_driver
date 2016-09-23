@@ -15,9 +15,7 @@
         <div class="col col-40">Converted Leads</div>
       </div>
     </div>
-    <div ng-if="isLoading" style="padding:10px">
-      <spinner is-loading="isLoading"></spinner>
-    </div>
+    <spinner is-loading="isLoading"></spinner>
     <ion-list ng-if="!isLoading">
       <div ng-repeat="singleLeague in ::leagueTable track by $index">
         <h4 ng-if="singleLeague.highlight" class="league-table middleTitle">Your Current Position</h4>

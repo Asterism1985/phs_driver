@@ -1,23 +1,28 @@
 angular.module('phsDriverApp.controllers')
-  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$cordovaImagePicker', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', 'LocationService', function($rootScope, $scope, $cordovaImagePicker, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService, LocationService) {
+  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$cordovaImagePicker', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', 'LocationService', 'Utils', function($rootScope, $scope, $cordovaImagePicker, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService, LocationService, Utils) {
 
     $scope.init = function() {
+
+      Utils.showLoading("Get current location...");
+
       LocationService.getAllNearBy().then(function(data) {
         $scope.locationsNearby = data;
       }, function(error) {});
 
       LocationService.getCurrentLocation().then(function(data) {
         var latlng = new google.maps.LatLng(data.lat, data.long);
-        var geocoder = geocoder = new google.maps.Geocoder();
+        var geocoder = new google.maps.Geocoder();
         geocoder.geocode({
           'latLng': latlng
         }, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
-            if (results[1]) {
-              $scope.currentAddress = results[1].formatted_address;
+            Utils.hideLoading();
+            if (results[0]) {
+              $scope.currentAddress = results[0].formatted_address;
             } else {
               $scope.currentAddress = "Can not find my address";
             }
+            $scope.showModalLocationPick();
           }
         });
       });
@@ -89,7 +94,6 @@ angular.module('phsDriverApp.controllers')
           modal.show();
         });
     };
-    $scope.showModalLocationPick();
 
     $scope.showModalUploadFile = function() {
       ModalService

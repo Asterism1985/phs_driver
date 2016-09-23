@@ -1,6 +1,7 @@
 <ion-view class="leadstatus-page" view-title="<img class='title-image' src='img/logo.png' />Lead Status">
   <ion-content>
-    <ion-list>
+    <spinner is-loading="isLoading"></spinner>
+    <ion-list ng-if="!isLoading">
       <div ng-repeat="group in ::leadStatuses">
         <ion-item class="item-stable item-icon-right" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
           <div class="circleIcon">
@@ -21,6 +22,5 @@
         </ion-item>
       </div>
     </ion-list>
-
   </ion-content>
 </ion-view>

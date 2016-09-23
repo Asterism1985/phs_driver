@@ -2,13 +2,12 @@ angular.module('phsDriverApp.controllers')
   .controller('LeadStatusCtrl', ['$scope', '$log', 'Utils', 'PhsServer', function($scope, $log, Utils, PhsServer) {
 
     $scope.init = function() {
+      $scope.isLoading = true;
       PhsServer.getLeadStatus().then(function(data){
+        $scope.isLoading = false;
         $scope.leadStatuses = data;
       })
-
-    }
-    //$scope.groups = groups;
-
+    };
     //$log.debug($scope.groups);
     $scope.toggleGroup = function(group) {
       if ($scope.isGroupShown(group)) {

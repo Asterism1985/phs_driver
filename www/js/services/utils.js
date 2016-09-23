@@ -12,9 +12,12 @@ angular.module('phsDriverApp.services')
         });
       },
 
-      showLoading: function() {
+      showLoading: function(msg) {
+        if (!msg) {
+          msg = 'loading...';
+        }
         $ionicLoading.show({
-            templateUrl: 'templates/directives/loading.html',
+            template: '<ion-spinner></ion-spinner>'+'<p>'+msg+'</p>',
             noBackdrop: 'true'
         });
       },
