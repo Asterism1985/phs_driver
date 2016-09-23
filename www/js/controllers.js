@@ -191,36 +191,6 @@ $scope.showPopupInputYourLocation = function() {
   };
 })
 
-.controller('LeagueCtrl', function($scope, $ionicPlatform, $window) {
-
-  $ionicPlatform.ready(function() {
-
-    if ($window.innerWidth < 375)
-    {
-      $scope.smallScreen = true;
-    } else {
-      $scope.smallScreen = false;
-    }
-    $scope.setAll = function(bool) {
-      console.log(bool);
-      $scope.all = bool;
-    };
-
-    $scope.leagueTable = [];
-
-    for (var i = 1; i < 10; i++) {
-      var singleLeague = {
-        id: i,
-        name: 'John Smith',
-        convertedLeads: [10, 9, 9]
-      };
-
-      $scope.leagueTable.push(singleLeague);
-    }
-
-  });
-})
-
 .controller('NewStoryCtrl', function($scope, $ionicPopup, $rootScope, $timeout, $log) {
 
   $scope.submitStory = function() {

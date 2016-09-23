@@ -15,8 +15,6 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, SessionFactory, $
     leadStatus: Config.api + '/DriverLeads/LeadStatus',
     //league table
     leagueTable: Config.api + '/DriverLeads/LeagueTable',
-    leagueTableAll: Config.api + '/DriverLeads/LeagueTable?type=all',
-    leagueTableFLT: Config.api + '/DriverLeads/LeagueTable?type=myflt',
     storiesRecent: Config.api + '/DriverLeads/Stories/Recent',
     submitLead: Config.api + '/DriverLeads/Leads',
     //social
@@ -130,6 +128,21 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, SessionFactory, $
   this.getStoriesRecent = function() {
     var deferred = $q.defer();
     $http.get(path.storiesRecent).then(
+      function(res) {
+        deferred.resolve(res.data);
+      },
+      function(error) {
+        $log.error(error);
+        deferred.reject(error);
+      }
+    );
+    return deferred.promise;
+  };
+
+  // League Table UI
+  this.getDataLeagueTable = function(param) {
+    var deferred = $q.defer();
+    $http.get(path.leagueTable + param).then(
       function(res) {
         deferred.resolve(res.data);
       },
