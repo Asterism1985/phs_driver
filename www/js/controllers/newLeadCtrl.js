@@ -1,5 +1,27 @@
 angular.module('phsDriverApp.controllers')
-  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$cordovaImagePicker', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', function($rootScope, $scope, $cordovaImagePicker, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService) {
+  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$cordovaImagePicker', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', 'LocationService', function($rootScope, $scope, $cordovaImagePicker, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService, LocationService) {
+
+    $scope.init = function() {
+      LocationService.getAllNearBy().then(function(data) {
+        $scope.locationsNearby = data;
+      }, function(error) {});
+
+      LocationService.getCurrentLocation().then(function(data) {
+        var latlng = new google.maps.LatLng(data.lat, data.long);
+        var geocoder = geocoder = new google.maps.Geocoder();
+        geocoder.geocode({
+          'latLng': latlng
+        }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            if (results[1]) {
+              $scope.currentAddress = results[1].formatted_address;
+            } else {
+              $scope.currentAddress = "Can not find my address";
+            }
+          }
+        });
+      });
+    };
     // Triggered on a button click, or some other target
     $scope.showPopupInputYourLocation = function() {
       $scope.data = {};
@@ -40,32 +62,29 @@ angular.module('phsDriverApp.controllers')
     };
 
     $scope.uploadImage = function() {
-      //$scope.showModalUploadFile();
-
-      var options = {
-        maximumImagesCount: 10,
-        width: 800,
-        height: 800,
-        quality: 80
-      };
-
-      $cordovaImagePicker.getPictures(options)
-        .then(function(results) {
-          for (var i = 0; i < results.length; i++) {
-            console.log('Image URI: ' + results[i]);
-          }
-        }, function(error) {
-          // error getting photos
-        });
-
-
-
+      if ($rootScope.isDevice) {
+        var options = {
+          maximumImagesCount: 10,
+          width: 800,
+          height: 800,
+          quality: 80
+        };
+        $cordovaImagePicker.getPictures(options)
+          .then(function(results) {
+            for (var i = 0; i < results.length; i++) {
+              console.log('Image URI: ' + results[i]);
+            }
+          }, function(error) {
+            // error getting photos
+          });
+      } else {
+        $scope.showModalUploadFile();
+      }
     };
-
 
     $scope.showModalLocationPick = function() {
       ModalService
-        .init('templates/newLead-modal.html', $scope)
+        .init('templates/popups/location-modal.html', $scope)
         .then(function(modal) {
           modal.show();
         });
@@ -131,4 +150,6 @@ angular.module('phsDriverApp.controllers')
         myPopup.close();
       }, 2000);
     };
+
+    $scope.init();
   }])

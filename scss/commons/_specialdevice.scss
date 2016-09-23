@@ -8,7 +8,7 @@
 	  margin-top: -15px;
 	}
 }
-
+/*Special for ios platform*/
 .platform-ios {
 	input {
 		padding-top: 8px;
@@ -17,4 +17,8 @@
 	textarea {
 		text-indent: -3px;
 	}
+}
+/*Special for android platform*/
+.platform-android {
+	
 }

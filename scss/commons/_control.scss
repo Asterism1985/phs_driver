@@ -22,10 +22,6 @@
   color: #ccc4c4;
 }
 
-input {
-  font-size: 16px;
-}
-
 .btn-phs-small {
   color: white;
   background: $phsColor;
@@ -40,6 +36,15 @@ input {
 
 .row + .row {
   margin-top: 5px;
+}
+
+.noLocation {
+  font-size: 0.9rem;
+  color: #d70000;
+  text-align: left;
+  padding-left: 0.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
 }
 
 @media (min-width: 430px) {

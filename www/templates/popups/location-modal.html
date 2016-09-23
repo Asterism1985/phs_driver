@@ -1,0 +1,18 @@
+<ion-modal-view class="modal modal-location">
+  <ion-header-bar class="bar-balanced">
+    <h1 class="title">Your Locations</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list class="pick-location">
+      <ion-item ng-repeat="location in ::locationsNearby" ng-click="locationPicked()">
+        <h6>{{location.name}}</h6>
+        <span>{{location.street}} {{location.town}} {{location.country}}</span>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <h6>Current location</h6>
+      <span>{{currentAddress}}</span>
+    </ion-item>
+    <a class="noLocation" ng-click="inputYourLocation()">I can't find my location</a>
+  </ion-content>
+</ion-modal-view>
