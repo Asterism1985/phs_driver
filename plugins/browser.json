@@ -10,6 +10,9 @@
         "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
         "cordova-plugin-image-picker": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
@@ -20,9 +23,6 @@
             "PACKAGE_NAME": "com.phs.driver.android"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.phs.driver.android"
-        },
-        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.phs.driver.android"
         }
     },
