@@ -1,0 +1,27 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "cordova-plugin-image-picker": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "cordova-plugin-nativeaudio": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
+        }
+    },
+    "dependent_plugins": {}
+}

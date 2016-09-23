@@ -2,7 +2,6 @@
 node_modules
 www/css
 lib
-plugins
 platforms
 __MACOSX
 sourcemaps
