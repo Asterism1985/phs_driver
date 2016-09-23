@@ -7,7 +7,11 @@ angular.module('phsDriverApp.controllers')
 
       LocationService.getAllNearBy().then(function(data) {
         $scope.locationsNearby = data;
-      }, function(error) {});
+      }, function(error) {
+        $log.debug("Can not get nearby location");
+        alert("please check your network.");
+        Utils.hideLoading();
+      });
 
       LocationService.getCurrentLocation().then(function(data) {
         var latlng = new google.maps.LatLng(data.lat, data.long);
@@ -16,15 +20,19 @@ angular.module('phsDriverApp.controllers')
           'latLng': latlng
         }, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
-            Utils.hideLoading();
             if (results[0]) {
               $scope.currentAddress = results[0].formatted_address;
             } else {
               $scope.currentAddress = "Can not find my address";
             }
+            Utils.hideLoading();
             $scope.showModalLocationPick();
           }
         });
+      }, function(error) {
+        $log.debug("Can not get current location");
+        Utils.hideLoading();
+        $scope.showModalLocationPick();
       });
     };
     // Triggered on a button click, or some other target
