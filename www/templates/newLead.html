@@ -1,58 +1,58 @@
-<ion-view class="newlead-page" view-title="<img class='title-image'  src='img/logo.png' /> New Lead">
+<ion-view class="newlead-page" view-title="<img class='title-image'  src='img/logo.png' /> {{AppText.homE_NEW_LEAD}}">
   <ion-content padding="true">
     <div class="list list-inset">
       <label class="item item-input">
-        <input type="text" placeholder="Lead Contact Surname">
+        <input type="text" placeholder="{{AppText.leaD_CREATE_LEAD_CONTACT_SURNAME}}">
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="Lead Company Name">
+        <input type="text" placeholder="{{AppText.leaD_CREATE_LEAD_COMPANY_NAME}}">
       </label>
       <label class="item item-input">
-        <textarea rows="6" placeholder="Please describe the lead. Include any information which will help your colleagues open the conversation. Problems PHS could solve, name of anyone you spoke to, etc"></textarea>
+        <textarea rows="6" placeholder="{{AppText.leaD_CREATE_DESCRIPTION}}"></textarea>
       </label>
       <div class="row uploadImage" style="padding:0px; margin-bottom: 10px; margin-top: -6px;">
         <div class="col-25" style="padding-left: 0px;">
           <div class="uplContainer" ng-click="uploadImage()">
-            <span>Upload</span>
+            <span>{{AppText.leaD_CREATE_UPLOAD}}</span>
             <i class="icon ion-ios-videocam"></i>
             <i class="icon ion-camera"></i>
           </div>
         </div>
         <div class="col-25">
           <div class="uplContainer" ng-click="uploadImage()">
-            <span>Upload</span>
+            <span>{{AppText.leaD_CREATE_UPLOAD}}</span>
             <i class="icon ion-ios-videocam"></i>
             <i class="icon ion-camera"></i>
           </div>
         </div>
         <div class="col-25">
           <div class="uplContainer" ng-click="uploadImage()">
-            <span>Upload</span>
+            <span>{{AppText.leaD_CREATE_UPLOAD}}</span>
             <i class="icon ion-ios-videocam"></i>
             <i class="icon ion-camera"></i>
           </div>
         </div>
         <div class="col-25" style="padding-right: 0px;">
           <div class="uplContainer" ng-click="uploadImage()">
-            <span>Upload</span>
+            <span>{{AppText.leaD_CREATE_UPLOAD}}</span>
             <i class="icon ion-ios-videocam"></i>
             <i class="icon ion-camera"></i>
           </div>
         </div>
       </div>
       <label class="item item-input">
-        <input type="text" placeholder="Account No">
+        <input type="text" placeholder="{{AppText.leaD_CREATE_ACCOUNT_NO}}">
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="Postcode">
+        <input type="text" placeholder="{{AppText.leaD_CREATE_POSTCODE}}">
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="Phone">
+        <input type="text" placeholder="{{AppText.leaD_CREATE_PHONE}}">
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="Email">
+        <input type="text" placeholder="{{AppText.leaD_CREATE_EMAIL}}">
       </label>
     </div>
-    <button class="button button-balanced middleButton" ng-click="submitLead()">Submit</button>
+    <button class="button button-balanced middleButton" ng-click="submitLead()">{{AppText.leaD_CREATE_SUBMIT}}</button>
   </ion-content>
 </ion-view>

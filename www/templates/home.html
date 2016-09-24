@@ -1,4 +1,4 @@
-<ion-view class="home-page" view-title="<img class='title-image' src='img/logo.png' /> Home">
+<ion-view class="home-page" view-title="<img class='title-image' src='img/logo.png' /> {{AppText.homE_TITLE}}">
   <ion-content padding="false" style="bottom:65px !important">
     <div class="row">
       <div class="col col-25">
@@ -10,7 +10,7 @@
       <div class="col col-75 profileName">{{::currentUser.fullName}}</div>
     </div>
     <!--<h1 count-up id="lead" ng-model="badges.lead"></h1>-->
-    <h5>Your Badges</h5>
+    <h5>{{AppText.homE_YOUR_BADGES}}</h5>
     <div class="row badges">
       <div class="col col-33 lead">
         <div class="insideCircle rotate">
@@ -36,16 +36,16 @@
     </div>
     <div class="row badgeTitle">
       <div class="col-33">
-        <span class="statname">Lead</span>
+        <span class="statname">{{AppText.leaD_STATUS_LEAD}}</span>
       </div>
       <div class="col-33">
-        <span class="statname">Converted Lead</span>
+        <span class="statname">{{AppText.leaguE_TABLE_CONVERTED_LEADS}}</span>
       </div>
       <div class="col-33">
         <span class="statname">Story</span>
       </div>
     </div>
-    <h5>Most Recent Leads <span class="right">Status</span></h5>
+    <h5>{{AppText.homE_MOST_RECENT_LEADS}} <span class="right">{{AppText.homE_STATUS}}</span></h5>
     <spinner is-loading="isLoading"></spinner>
     <div ng-show="!isLoading" class="card" ng-repeat="lead in ::leadRecents track by $index">
       <div class="item item-text-wrap">

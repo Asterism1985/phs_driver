@@ -9,7 +9,6 @@ angular.module('phsDriverApp.controllers')
         $scope.locationsNearby = data;
       }, function(error) {
         $log.debug("Can not get nearby location");
-        alert("please check your network.");
         Utils.hideLoading();
       });
 
@@ -129,7 +128,7 @@ angular.module('phsDriverApp.controllers')
       var confirmPopup = $ionicPopup.confirm({
         title: '',
         cssClass: 'confirm-title',
-        template: 'Are you sure you want to submit your lead?',
+        template: $rootScope.AppText.leaD_CREATE_CONFIRM,
         cancelType: 'cancel-btn',
         okType: 'ok-btn-selected'
       });

@@ -21,29 +21,28 @@
       <div class="sideAvatar">
         <!-- <i class="icon userSmall ion-person"></i> -->
         <img data-ng-src="{{::currentUser.image}}"/>
-        
       </div>
       <div class="sideName">{{::currentUser.fullName}}</div>
     </div>
     <ion-content class="sideNavList">
       <ion-list>
         <ion-item menu-close href="#/app/home">
-          Home
+          {{AppText.homE_TITLE}}
         </ion-item>
         <ion-item menu-close href="#/app/newlead">
-          New Lead
+          {{AppText.leaD_CREATE_TITLE}}
         </ion-item>
         <ion-item menu-close href="#/app/leadstatus">
-          Lead Status
+          {{AppText.leaD_STATUS_TITLE}}
         </ion-item>
         <ion-item menu-close href="#/app/leaguetable">
-          League Table
+          {{AppText.leaguE_TABLE_LEAD_TITLE}}
         </ion-item>
         <ion-item menu-close href="#/app/stories">
-          Stories
+          {{AppText.alL_STORIES_TITLE}}
         </ion-item>
         <ion-item menu-close href="#/app/newstory">
-          New Story
+          {{AppText.neW_STORY_TITLE}}
         </ion-item>
         <ion-item menu-close ng-click="logout()">
           Log Out
