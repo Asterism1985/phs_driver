@@ -1,7 +1,7 @@
 angular.module('phsDriverApp.services')
   .service('PhsServer', PHSDriverService);
 
-function PHSDriverService($rootScope, $log, $q, $http, Config, SessionFactory, $cordovaFileTransfer) {
+function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTransfer) {
 
   path = {
     login: Config.api + '/Authentication/Login',

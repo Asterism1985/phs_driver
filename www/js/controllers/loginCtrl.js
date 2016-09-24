@@ -1,5 +1,5 @@
 angular.module('phsDriverApp.controllers')
-  .controller('LoginCtrl', ['$rootScope', '$scope', '$log', 'Utils', 'PhsServer', 'SessionFactory', '$window', function($rootScope, $scope, $log, Utils, PhsServer, SessionFactory, $window) {
+  .controller('LoginCtrl', ['$rootScope', '$scope', '$log', 'Utils', 'PhsServer', 'UserService', '$window', function($rootScope, $scope, $log, Utils, PhsServer, UserService, $window) {
 
     $scope.init = function() {
       $scope.passcode = {
@@ -17,7 +17,7 @@ angular.module('phsDriverApp.controllers')
       PhsServer.doLogin($scope.passcode).then(function(user) {
         $rootScope.currentUser = user;
         $log.debug('User Infos', JSON.stringify(user));
-        return SessionFactory.setCurrentUser(user);
+        return UserService.setCurrentUser(user);
       })
       .then(function() {
         return PhsServer.getAppConfigs();

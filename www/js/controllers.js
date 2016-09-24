@@ -1,6 +1,6 @@
 angular.module('phsDriverApp.controllers', [])
 
-.controller('AppCtrl', ['$scope', '$timeout', '$ionicPlatform', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'SessionFactory', 'PhsServer', function($scope, $timeout, $ionicPlatform, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, SessionFactory, PhsServer) {
+.controller('AppCtrl', ['$scope', '$timeout', '$ionicPlatform', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'UserService', 'PhsServer', function($scope, $timeout, $ionicPlatform, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, UserService, PhsServer) {
 
   $ionicPlatform.ready(function() {
     /*
@@ -48,12 +48,13 @@ angular.module('phsDriverApp.controllers', [])
 
   $scope.logout = function() {
     Utils.showLoading("Logging out...");
-    Utils.clearHistory().then(function(){
-      SessionFactory.clearAll();
-    }).then(function(){
+
+    UserService.logOut().then(function(){
       $log.debug("clear all history and app data");
       Utils.hideLoading();
-      Utils.toLocation("/login");
+       Utils.toLocation("/login");
+    }, function(error){
+      alert("can not log out, please check your network");
     })
   };
 

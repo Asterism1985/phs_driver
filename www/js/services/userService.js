@@ -1,11 +1,11 @@
 'use strict';
 angular.module('phsDriverApp.services')
 
-.factory('SessionFactory', ['$window', '$localForage', 'AppConfig', '$q', 'Utils',
+.factory('UserService', ['$window', '$localForage', 'AppConfig', '$q', 'Utils',
   function($window, $localForage, AppConfig, $q, Utils) {
-    var _sessionFactory = {};
+    var UserService = {};
 
-    _sessionFactory.getCurrentUser = function() {
+    UserService.getCurrentUser = function() {
         var deferred = $q.defer();
         $localForage.getItem(AppConfig.appKeys.currentUser).then(function(user) {
           deferred.resolve(user);
@@ -13,7 +13,7 @@ angular.module('phsDriverApp.services')
         return deferred.promise;
       },
 
-      _sessionFactory.setCurrentUser = function(user) {
+      UserService.setCurrentUser = function(user) {
         var deferred = $q.defer();
         $localForage.setItem(AppConfig.appKeys.currentUser, user).then(function() {
           deferred.resolve(true);
@@ -21,20 +21,20 @@ angular.module('phsDriverApp.services')
         return deferred.promise;
       },
 
-      _sessionFactory.createSession = function(user) {
+      UserService.createSession = function(user) {
         return $window.localStorage.user = JSON.stringify(user);
       };
 
-    _sessionFactory.getSession = function() {
+    UserService.getSession = function() {
       return JSON.parse($window.localStorage.user);
     };
 
-    _sessionFactory.deleteSession = function() {
+    UserService.deleteSession = function() {
       delete $window.localStorage.user;
       return true;
     };
 
-    _sessionFactory.checkSession = function() {
+    UserService.checkSession = function() {
       if ($window.localStorage.user) {
         return true;
       } else {
@@ -42,10 +42,23 @@ angular.module('phsDriverApp.services')
       }
     };
 
-    _sessionFactory.clearAll = function() {
+    UserService.clearAll = function() {
       return $localForage.clear();
     };
 
-    return _sessionFactory;
+    UserService.logOut = function() {
+      var deferred = $q.defer();
+      return UserService.clearAll().then(function(){
+        return Utils.clearHistory();
+      })
+      .then(function(){
+        deferred.resolve(true);
+      }, function(error){
+        deferred.reject(error);
+      })
+      deferred.promise();
+    };
+
+    return UserService;
   }
 ]);
