@@ -48,7 +48,7 @@ angular.module('phsDriverApp.services')
 
     UserService.registerTimeoutSession = function() {
       $log.debug("Register trigger 5s to logout");
-      var timeOutTimerValue = 24*60*60;//1 day to logout the app.
+      var timeOutTimerValue = 24*60*60*1000;//1 day to logout the app. to milisecond
       // Start a timeout
       var TimeOut_Thread = $timeout(function() {
         UserService.logOut().then(function(){
