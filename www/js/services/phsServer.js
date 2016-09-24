@@ -70,15 +70,15 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTrans
   this.doLogout = function() {
     $log.debug('logout call');
     var deferred = $q.defer();
-    $http.post(path.logout).then(
-      function(res) {
+    // $http.post(path.logout).then(
+    //   function(res) {
         deferred.resolve(true);
-      },
-      function(error) {
-        $log.error(error);
-        deferred.reject(error);
-      }
-    );
+    //   },
+    //   function(error) {
+    //     $log.error(error);
+    //     deferred.reject(error);
+    //   }
+    // );
     return deferred.promise;
   };
 

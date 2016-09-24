@@ -1,8 +1,8 @@
 'use strict';
 angular.module('phsDriverApp.services')
 
-.factory('UserService', ['$window', '$localForage', 'AppConfig', '$q', 'Utils',
-  function($window, $localForage, AppConfig, $q, Utils) {
+.factory('UserService', ['$window', '$log', 'PhsServer', '$localForage', 'AppConfig', '$q', 'Utils', '$timeout',
+  function($window, $log, PhsServer, $localForage, AppConfig, $q, Utils, $timeout) {
     var UserService = {};
 
     UserService.getCurrentUser = function() {
@@ -46,9 +46,24 @@ angular.module('phsDriverApp.services')
       return $localForage.clear();
     };
 
+    UserService.registerTimeoutSession = function() {
+      $log.debug("Register trigger 5s to logout");
+      var timeOutTimerValue = 24*60*60;//1 day to logout the app.
+      // Start a timeout
+      var TimeOut_Thread = $timeout(function() {
+        UserService.logOut().then(function(){
+          $log.debug("auto call logout Service");
+          Utils.toLocation('/login');
+        })
+      }, timeOutTimerValue);
+    };
+
     UserService.logOut = function() {
       var deferred = $q.defer();
-      return UserService.clearAll().then(function(){
+      return PhsServer.doLogout().then(function(){
+        return UserService.clearAll();
+      })
+      .then(function(){
         return Utils.clearHistory();
       })
       .then(function(){
