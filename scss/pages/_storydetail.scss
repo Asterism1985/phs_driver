@@ -6,10 +6,24 @@
     color: $phsColor
   }
   .storyDetails {
-    clear: both;
-    height: 2rem;
     margin-bottom: 0.5rem;
     border-bottom: 1px solid $gray;
     color: $darkGray;
   }
+
+  .storyTitle, .storyName{
+  display: inline-block;
+}
+.storyName{
+  float: left;
+}
+.storyDate{
+  
+}
+.storyTitle{
+  font-size: 1.2rem;
+}
+.story .item-note{
+  margin-top: -19px;
+}
 }

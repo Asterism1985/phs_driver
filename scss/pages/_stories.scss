@@ -26,4 +26,20 @@
     top: 34px;
     color: $phsColor;
   }
+  .storyTitle,
+  .storyName {
+    display: inline-block;
+  }
+  .storyName {
+    float: left;
+  }
+  .storyDate {
+    float: right;
+  }
+  .storyTitle {
+    font-size: 1.2rem;
+  }
+  .story .item-note {
+    margin-top: -19px;
+  }
 }
