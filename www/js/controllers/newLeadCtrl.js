@@ -3,36 +3,36 @@ angular.module('phsDriverApp.controllers')
 
     $scope.init = function() {
 
-      // Utils.showLoading("Get current location...");
+      Utils.showLoading("Get current location...");
 
-      // LocationService.getAllNearBy().then(function(data) {
-      //   $scope.locationsNearby = data;
-      // }, function(error) {
-      //   $log.debug("Can not get nearby location");
-      //   Utils.hideLoading();
-      // });
+      LocationService.getAllNearBy().then(function(data) {
+        $scope.locationsNearby = data;
+      }, function(error) {
+        $log.debug("Can not get nearby location");
+        Utils.hideLoading();
+      });
 
-      // LocationService.getCurrentLocation().then(function(data) {
-      //   var latlng = new google.maps.LatLng(data.lat, data.long);
-      //   var geocoder = new google.maps.Geocoder();
-      //   geocoder.geocode({
-      //     'latLng': latlng
-      //   }, function(results, status) {
-      //     if (status == google.maps.GeocoderStatus.OK) {
-      //       if (results[0]) {
-      //         $scope.currentAddress = results[0].formatted_address;
-      //       } else {
-      //         $scope.currentAddress = "Can not find my address";
-      //       }
-      //       Utils.hideLoading();
-      //       $scope.showModalLocationPick();
-      //     }
-      //   });
-      // }, function(error) {
-      //   $log.debug("Can not get current location");
-      //   Utils.hideLoading();
-      //   $scope.showModalLocationPick();
-      // });
+      LocationService.getCurrentLocation().then(function(data) {
+        var latlng = new google.maps.LatLng(data.lat, data.long);
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({
+          'latLng': latlng
+        }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+              $scope.currentAddress = results[0].formatted_address;
+            } else {
+              $scope.currentAddress = "Can not find my address";
+            }
+            Utils.hideLoading();
+            $scope.showModalLocationPick();
+          }
+        });
+      }, function(error) {
+        $log.debug("Can not get current location");
+        Utils.hideLoading();
+        $scope.showModalLocationPick();
+      });
     };
     // Triggered on a button click, or some other target
     $scope.showPopupInputYourLocation = function() {

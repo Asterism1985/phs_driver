@@ -43,3 +43,14 @@
     margin-top: -19px;
   }
 }
+.new-story-page {
+  .item {
+      &.item-input {
+        padding: 4px 10px;
+        margin-bottom: 13px;
+        input {
+          padding-right: 0px;
+        }
+      }
+    }
+}

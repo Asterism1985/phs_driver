@@ -16,13 +16,14 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTrans
     //league table
     leagueTable: Config.api + '/DriverLeads/LeagueTable',
     storiesRecent: Config.api + '/DriverLeads/Stories/Recent',
-    submitLead: Config.api + '/DriverLeads/Leads',
+    submitNewLead: Config.api + '/DriverLeads/Leads',
+    // Story submit
+    submitNewStory: Config.api + '/DriverLeads/Stories',
     //social
     like: Config.api + '/DriverLeads/Stories/Like', //GET
     unLike: Config.api + '/DriverLeads/Stories/Unlike',
     nearBy: Config.api + '/DriverLeads/Customers/Nearby' //Nearby?lat=51.600697&lgt=0.549094
   };
-
 
   this.getAppConfigs = function() {
     var deferred = $q.defer();
@@ -168,6 +169,37 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTrans
     return deferred.promise;
   };
 
+  // Submit New Lead 
+  this.submitNewLead = function(leadObj) {
+    $log.debug('leadObj', leadObj);
+    var deferred = $q.defer();
+    $http.post(path.submitNewLead, leadObj).then(
+      function() {
+        deferred.resolve(true);
+      },
+      function(error) {
+        $log.error(error);
+        deferred.reject(error);
+      }
+    );
+    return deferred.promise;
+  };
+
+  // Submit New Lead 
+  this.postNewStory = function(storyObj) {
+    $log.debug('storyObj', storyObj);
+    var deferred = $q.defer();
+    $http.post(path.submitNewStory, storyObj).then(
+      function() {
+        deferred.resolve(true);
+      },
+      function(error) {
+        $log.error(error);
+        deferred.reject(error);
+      }
+    );
+    return deferred.promise;
+  };
 
   this.getUserInformations = function(userId) {
     var deferred = $q.defer();
