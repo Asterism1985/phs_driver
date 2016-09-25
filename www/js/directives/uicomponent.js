@@ -13,7 +13,7 @@ angular.module('phsDriverApp.directives')
     return {
       restrict: 'E',
       templateUrl: 'templates/directives/image-slider.html',
-      controller: ['$scope', '$ionicSlideBoxDelegate', function($scope, $ionicSlideBoxDelegate) {
+      controller: ['$scope', '$ionicSlideBoxDelegate', '$timeout', function($scope, $ionicSlideBoxDelegate, $timeout) {
         $scope.next = function() {
           $ionicSlideBoxDelegate.next();
         };
@@ -24,6 +24,29 @@ angular.module('phsDriverApp.directives')
         $scope.slideChanged = function(index) {
           $scope.slideIndex = index;
         };
+        $scope.removeImage = function(index) {
+          $scope.files.splice($scope.slideIndex, 1);
+          $timeout(function() {
+            $ionicSlideBoxDelegate.slide(0);
+            $ionicSlideBoxDelegate.update();
+            $scope.$apply();
+          }, 10);
+        };
+
+        $scope.$watch(function($scope) {
+            return $scope.files
+          },
+          function(newValue, oldValue) {
+            if ($scope.files.length > 0 && newValue !== oldValue) {
+              $timeout(function() {
+                $ionicSlideBoxDelegate.slide($scope.files.length - 1);
+                $ionicSlideBoxDelegate.update();
+                $scope.$apply();
+              }, 10);
+            }
+          }
+        );
+
       }]
     };
   });
