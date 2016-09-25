@@ -10,34 +10,17 @@
       }
     }
   }
-  .uploadImage .col-25 {
+  .upload-btn {
+    margin: auto;
     text-align: center;
-    padding: 4px;
-  }
-  .uploadImage .col-25 span {
-    display: block;
-    font-size: 0.7rem;
-  }
-  .uplContainer .icon {
-    font-size: 1.3rem;
-    color: $darkGray;
-  }
-  .uplContainer {
-    background: #E8E8E8;
-    padding: 10px;
-  }
-  .uploadImage .col-25:last-child .uplContainer {
-    margin-right: 0rem;
-  }
-  @media (min-width: 375px) {
+    width: 90px;
     .uplContainer .icon {
-      font-size: 1.5rem;
-      color: #44575E;
-      padding: 3px;
+      font-size: 1.3rem;
+      color: $darkGray;
     }
-    .uploadImage .col-25 span {
-      display: block;
-      font-size: inherit;
+    .uplContainer {
+      background: #E8E8E8;
+      padding: 20px;
     }
   }
   .smallModal {

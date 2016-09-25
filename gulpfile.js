@@ -10,15 +10,17 @@ var sh = require('shelljs');
 var paths = {
   sass: ['./scss/**/*.scss'],
   vendors: ['./node_modules/angular-localforage/dist/angular-localForage.min.js',
-  './node_modules/angular-localforage/bower_components/localforage/dist/localForage.min.js'
-        ]
+    './node_modules/angular-localforage/bower_components/localforage/dist/localForage.min.js',
+    './node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js',
+    './node_modules/ng-file-upload/dist/ng-file-upload.min.js'
+  ]
 };
 
 gulp.task('default', ['sass', 'copy-vendors']);
 
 gulp.task('copy-vendors', function copyVendors() {
-    gulp.src(paths.vendors)
-        .pipe(gulp.dest('./www/vendors'));
+  gulp.src(paths.vendors)
+    .pipe(gulp.dest('./www/vendors'));
 });
 
 gulp.task('sass', function(done) {
@@ -29,7 +31,9 @@ gulp.task('sass', function(done) {
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))
-    .pipe(rename({ extname: '.min.css' }))
+    .pipe(rename({
+      extname: '.min.css'
+    }))
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
 });

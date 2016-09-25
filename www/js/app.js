@@ -1,4 +1,4 @@
-angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverApp.directives', 'phsDriverApp.services', 'ngCordova', 'ngCountup', 'LocalForageModule'])
+angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverApp.directives', 'phsDriverApp.services', 'ngCordova', 'ngCountup', 'LocalForageModule', 'ngFileUpload'])
 
 .constant('Config', {
     api: 'https://mobilewebapi.phs.co.uk/Salesforce.MobileServices/api' // baseURL
