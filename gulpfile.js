@@ -15,6 +15,7 @@ var stylish = require('jshint-stylish');
 var jshint = require('gulp-jshint');
 var livereload = require('gulp-livereload');
 var preprocess = require('gulp-preprocess');
+var uglify = require('gulp-uglify');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
@@ -38,7 +39,17 @@ var paths = {
 
 gulp.task('default', ['sass', 'copy-html','templatecache', 'copy-vendors', 'copy-libs', 'compile-js']);
 
-gulp.task('prod', ['default', 'index-prod']);
+gulp.task('production', ['default'], function() {
+  return gulp.src([
+      'www/js/phsdriver.js',
+    ])
+    .pipe(concat('phsdriver.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('www/js'))
+    .on('end', function() {
+      console.log('Compress PROD DONE');
+    });
+});
 
 gulp.task('copy-vendors', function copyVendors() {
   gulp.src(paths.vendors)
