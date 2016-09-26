@@ -16,6 +16,7 @@ We should use "ionic plugin add name_of_plugin" instead for "cordova plugin add"
 1. npm install (we will run this command if there is a new lib added)
 2. gulp
 3. ionic serve
+
 After that, it will run the app on browser
 
 ## Build app for debug.
