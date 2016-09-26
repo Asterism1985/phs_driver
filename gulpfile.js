@@ -7,20 +7,39 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 
+///minify the code for production
+var templateCache = require('gulp-angular-templatecache');
+var ngAnnotate = require('gulp-ng-annotate');
+var useref = require('gulp-useref');
+var stylish = require('jshint-stylish');
+var jshint = require('gulp-jshint');
+
 var paths = {
   sass: ['./scss/**/*.scss'],
+  js: ['./www/js/*.js', './www/js/**/*.js'],
   vendors: ['./node_modules/angular-localforage/dist/angular-localForage.min.js',
     './node_modules/angular-localforage/bower_components/localforage/dist/localForage.min.js',
     './node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js',
     './node_modules/ng-file-upload/dist/ng-file-upload.min.js'
+  ],
+  libs: [
+  './lib/ionic/js/ionic.bundle.js',
+  './lib/ngCordova/dist/ng-cordova.js',
+  './lib/countUp.js/dist/countUp.min.js',
+  './lib/countup-angularjs-directive/dist/countup-angularjs-directive.min.js'
   ]
 };
 
-gulp.task('default', ['sass', 'copy-vendors']);
+gulp.task('default', ['sass', 'copy-vendors', 'copy-libs', 'compile-js']);
 
 gulp.task('copy-vendors', function copyVendors() {
   gulp.src(paths.vendors)
     .pipe(gulp.dest('./www/vendors'));
+});
+
+gulp.task('copy-libs', function copyLibs() {
+  gulp.src(paths.libs)
+    .pipe(gulp.dest('./www/lib'));
 });
 
 gulp.task('sass', function(done) {
@@ -37,6 +56,18 @@ gulp.task('sass', function(done) {
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
 });
+
+gulp.task('compile-js', function compileJs() {
+  gulp.src(paths.js)
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish))
+    .pipe(sourcemaps.init())
+    .pipe(ngAnnotate())
+    .pipe(concat('phsdriver.js'))
+    .pipe(gulp.dest('./www/js'))
+    .pipe(livereload());
+});
+
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
