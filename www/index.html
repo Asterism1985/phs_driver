@@ -1,73 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+  <!-- compiled css output -->
+  <link href="css/ionic.app.css" rel="stylesheet">
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic.bundle.js"></script>
+  <script src="lib/ng-cordova.js"></script>
+  <!-- Vendor lib -->
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script src="vendors/localForage.min.js"></script>
+  <script src="vendors/angular-localForage.min.js"></script>
+  <script src="vendors/ng-file-upload-shim.min.js"></script>
+  <!-- for no html5 browsers support -->
+  <script src="vendors/ng-file-upload.min.js"></script>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+  <script src="vendors/sektor.js"></script>
+  <script src="lib/countUp.min.js"></script>
+  <script src="lib/countup-angularjs-directive.min.js"></script>
+  <!-- your app's js -->
+  <script src="js/phsviews.js"></script>
+  <script src="js/phsdriver.js"></script>
+</head>
 
-    <!-- compiled css output -->
-    <link href="css/ionic.app.css" rel="stylesheet">
-
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic.bundle.js"></script>
-    <script src="lib/ng-cordova.js"></script>
-
-    <!-- Vendor lib -->
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="vendors/localForage.min.js"></script>
-    <script src="vendors/angular-localForage.min.js"></script>
-
-    <script src="vendors/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
-    <script src="vendors/ng-file-upload.min.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-    <script src="vendors/sektor.js"></script>
-    <script src="lib/countUp.min.js"></script>
-    <script src="lib/countup-angularjs-directive.min.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/phsviews.js"></script>
-    <script src="js/phsdriver.js"></script>
-    
-
-    <!-- @if ENVIRONMENT='development' -->
-    <!-- Service -->
-<!--     // <script src="js/services.js"></script>
-    // <script src="js/services/appConfig.js"></script>
-    // <script src="js/services/phsLocalStorage.js"></script>
-    // <script src="js/services/utils.js"></script>
-    // <script src="js/services/phsServer.js"></script>
-    // <script src="js/services/userService.js"></script>
-    // <script src="js/services/storyService.js"></script>
-    // <script src="js/services/leagueService.js"></script>
-    // <script src="js/services/locationService.js"></script> -->
-
-    <!-- Controler -->
-<!--     // <script src="js/controllers.js"></script>
-    // <script src="js/controllers/loginCtrl.js"></script>
-    // <script src="js/controllers/homeCtrl.js"></script>
-    // <script src="js/controllers/leagueCtrl.js"></script>
-    // <script src="js/controllers/leadStatusCtrl.js"></script>
-    // <script src="js/controllers/storiesCtrl.js"></script>
-    // <script src="js/controllers/storyDetailCtrl.js"></script>
-    // <script src="js/controllers/newLeadCtrl.js"></script> -->
-
-    <!-- Directive -->
-<!--     // <script src="js/directives/directives.js"></script>
-    // <script src="js/directives/uicomponent.js"></script> -->
-    <!-- @endif -->
-
-    <!-- @if ENVIRONMENT='production' -->
-
-    <!-- @endif -->
-
-  </head>
-
-  <body ng-app="phsDriverApp">
-
+<body ng-app="phsDriverApp">
   <ion-nav-view></ion-nav-view>
+</body>
 
-  </body>
 </html>
