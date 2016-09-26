@@ -44,7 +44,7 @@ $font-family-base: "calibri", sans-serif !default;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
-@import "../lib/ionic/scss/ionic";
+@import "lib/ionic/scss/ionic";
 @import "commons/control";
 @import "customs/footer";
 @import "pages/login";

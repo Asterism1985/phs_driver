@@ -19,6 +19,7 @@ var uglify = require('gulp-uglify');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
+  fonts: ['./lib/ionic/fonts/*'],
   index: ['./phs/index.html'],
   templatecache: ['./phs/templates/*.html', './phs/templates/**/*.html'],
   js: ['./phs/js/*.js', './phs/js/**/*.js'],
@@ -37,7 +38,7 @@ var paths = {
   cleanFolder: ['./www/js', './www/templates'],
 };
 
-gulp.task('default', ['sass', 'copy-html','templatecache', 'copy-vendors', 'copy-libs', 'compile-js']);
+gulp.task('default', ['sass', 'copy-html','templatecache', 'copy-vendors','copy-fonts', 'copy-libs', 'compile-js']);
 
 gulp.task('production', ['default'], function() {
   return gulp.src([
@@ -62,9 +63,9 @@ gulp.task('copy-html', function copyHtml() {
     .pipe(livereload());
 });
 
-gulp.task('copy-js', function copyJS() {
-  gulp.src(paths.css)
-    .pipe(gulp.dest('./www/js'))
+gulp.task('copy-fonts', function copyFonts() {
+  gulp.src(paths.fonts)
+    .pipe(gulp.dest('./www/lib/ionic/fonts/'))
     .pipe(livereload());
 });
 
