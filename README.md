@@ -17,11 +17,13 @@ We should use "ionic plugin add name_of_plugin" instead for "cordova plugin add"
 2. gulp
 3. ionic serve
 After that, it will run the app on browser
+
 ## Build app for debug.
 1. npm install
 2. gulp
 3. ionic platform add android/ios
 3. ionic run android/ios
+
 ## Build app for releasing Google play or apple store
 1. npm install
 2. gulp production
