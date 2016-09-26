@@ -217,4 +217,4 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTrans
     return deferred.promise;
   };
 
-}
+};

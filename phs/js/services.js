@@ -1,4 +1,4 @@
-angular.module('phsDriverApp.services', [])
+angular.module('phsDriverApp.services')
 
   .factory('Store', function($http, $q){
 

@@ -13,29 +13,50 @@ var ngAnnotate = require('gulp-ng-annotate');
 var useref = require('gulp-useref');
 var stylish = require('jshint-stylish');
 var jshint = require('gulp-jshint');
+var livereload = require('gulp-livereload');
+var preprocess = require('gulp-preprocess');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
-  js: ['./www/js/*.js', './www/js/**/*.js'],
+  index: ['./phs/index.html'],
+  templatecache: ['./phs/templates/*.html', './phs/templates/**/*.html'],
+  js: ['./phs/js/*.js', './phs/js/**/*.js'],
   vendors: ['./node_modules/angular-localforage/dist/angular-localForage.min.js',
     './node_modules/angular-localforage/bower_components/localforage/dist/localForage.min.js',
     './node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js',
-    './node_modules/ng-file-upload/dist/ng-file-upload.min.js'
+    './node_modules/ng-file-upload/dist/ng-file-upload.min.js',
+    './phs/vendors/sektor.js'
   ],
   libs: [
   './lib/ionic/js/ionic.bundle.js',
   './lib/ngCordova/dist/ng-cordova.js',
   './lib/countUp.js/dist/countUp.min.js',
   './lib/countup-angularjs-directive/dist/countup-angularjs-directive.min.js'
-  ]
+  ],
+  cleanFolder: ['./www/js', './www/templates'],
 };
 
-gulp.task('default', ['sass', 'copy-vendors', 'copy-libs', 'compile-js']);
+gulp.task('default', ['sass', 'copy-html','templatecache', 'copy-vendors', 'copy-libs', 'compile-js']);
+
+gulp.task('prod', ['default', 'index-prod']);
 
 gulp.task('copy-vendors', function copyVendors() {
   gulp.src(paths.vendors)
     .pipe(gulp.dest('./www/vendors'));
 });
+
+gulp.task('copy-html', function copyHtml() {
+  gulp.src(paths.index)
+    .pipe(gulp.dest('./www'))
+    .pipe(livereload());
+});
+
+gulp.task('copy-js', function copyJS() {
+  gulp.src(paths.css)
+    .pipe(gulp.dest('./www/js'))
+    .pipe(livereload());
+});
+
 
 gulp.task('copy-libs', function copyLibs() {
   gulp.src(paths.libs)
@@ -61,13 +82,26 @@ gulp.task('compile-js', function compileJs() {
   gulp.src(paths.js)
     .pipe(jshint())
     .pipe(jshint.reporter(stylish))
-    .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
     .pipe(concat('phsdriver.js'))
     .pipe(gulp.dest('./www/js'))
     .pipe(livereload());
 });
 
+
+gulp.task('templatecache', function(done) {
+  gulp.src(paths.templatecache)
+
+  .pipe(templateCache({
+      standalone: true,
+      filename: 'phsviews.js',
+      module: 'phsDriverApp.templates',
+      root: 'templates'
+    }))
+    .pipe(gulp.dest('./www/js/'))
+    .pipe(livereload())
+    .on('end', done);
+});
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);

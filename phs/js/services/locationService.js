@@ -1,4 +1,4 @@
-'use strict';
+
 angular.module('phsDriverApp.services').factory('LocationService', ['$rootScope', '$state', 'Utils', '$q', '$log', 'PhsServer', '$cordovaGeolocation', function($rootScope, $state, Utils, $q, $log, PhsServer, $cordovaGeolocation) {
   var LocationService = {};
 

@@ -1,4 +1,4 @@
-'use strict';
+
 angular.module('phsDriverApp.services')
   .factory('LocalStorageService',['$log', '$q', 'Utils', function ($log, $q, Utils) {
     var service = {};

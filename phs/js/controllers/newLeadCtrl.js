@@ -151,4 +151,4 @@ angular.module('phsDriverApp.controllers')
     };
 
     $scope.init();
-  }])
+  }]);

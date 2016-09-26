@@ -1,4 +1,4 @@
-'use strict';
+
 angular.module('phsDriverApp.services')
 
 .factory('UserService', ['$window', '$log', 'PhsServer', '$localForage', 'AppConfig', '$q', 'Utils', '$timeout',
@@ -11,7 +11,7 @@ angular.module('phsDriverApp.services')
           deferred.resolve(user);
         });
         return deferred.promise;
-      },
+      };
 
       UserService.setCurrentUser = function(user) {
         var deferred = $q.defer();
@@ -19,10 +19,10 @@ angular.module('phsDriverApp.services')
           deferred.resolve(true);
         });
         return deferred.promise;
-      },
+      };
 
       UserService.createSession = function(user) {
-        return $window.localStorage.user = JSON.stringify(user);
+        $window.localStorage.user = JSON.stringify(user);
       };
 
     UserService.getSession = function() {
@@ -54,7 +54,7 @@ angular.module('phsDriverApp.services')
         UserService.logOut().then(function(){
           $log.debug("auto call logout Service");
           Utils.toLocation('/login');
-        })
+        });
       }, timeOutTimerValue);
     };
 
@@ -70,8 +70,8 @@ angular.module('phsDriverApp.services')
         deferred.resolve(true);
       }, function(error){
         deferred.reject(error);
-      })
-      deferred.promise();
+      });
+      return deferred.promise();
     };
 
     return UserService;
