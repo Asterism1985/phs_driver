@@ -12,11 +12,11 @@ More info on this can be found on the Ionic [Getting Started](http://ionicframew
 ## Install cordova plugin
 We should use "ionic plugin add name_of_plugin" instead for "cordova plugin add"
 
-## Run app for debug.
-The build is using those commands below. After that, it will run the app on browser
-1. npm install
+## Run app for debug on Browser
+1. npm install (we will run this command if there is a new lib added)
 2. gulp
 3. ionic serve
+After that, it will run the app on browser
 ## Build app for debug.
 1. npm install
 2. gulp
