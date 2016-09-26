@@ -55,7 +55,7 @@ angular.module('phsDriverApp.controllers')
        Utils.toLocation("/login");
     }, function(error){
       alert("can not log out, please check your network");
-    })
+    });
   };
 
   $ionicPopover.fromTemplateUrl('templates/popover.html', {

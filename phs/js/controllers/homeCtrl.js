@@ -78,7 +78,7 @@ angular.module('phsDriverApp.controllers')
             $scope.badges.convertedLead = $scope.badgeConvertedLead.badgeScore;
             $scope.badges.story = $scope.badgeStory.badgeScore;
           }, 100);
-        }
+        };
       };
       $scope.init();
     }

@@ -6,7 +6,7 @@ angular.module('phsDriverApp.controllers')
       PhsServer.getLeadStatus().then(function(data){
         $scope.isLoading = false;
         $scope.leadStatuses = data;
-      })
+      });
     };
     //$log.debug($scope.groups);
     $scope.toggleGroup = function(group) {

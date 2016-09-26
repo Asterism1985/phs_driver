@@ -34,7 +34,7 @@ angular.module('phsDriverApp.directives')
         };
 
         $scope.$watch(function($scope) {
-            return $scope.files
+            return $scope.files;
           },
           function(newValue, oldValue) {
             if ($scope.files.length > 0 && newValue !== oldValue) {

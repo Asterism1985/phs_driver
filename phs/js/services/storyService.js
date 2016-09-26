@@ -37,7 +37,7 @@ angular.module('phsDriverApp.services')
 
   StoryService.getAllStoriesCache = function() {
     return allStories;
-  }
+  };
 
   return StoryService;
 }]);

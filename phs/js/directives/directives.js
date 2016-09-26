@@ -53,7 +53,7 @@ angular.module('phsDriverApp.directives')
           $element[0].focus();
         });
       }
-    }
+    };
   }])
   .directive('appGoBack', [function() {
     return {

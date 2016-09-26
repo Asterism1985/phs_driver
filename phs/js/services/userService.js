@@ -60,7 +60,7 @@ angular.module('phsDriverApp.services')
 
     UserService.logOut = function() {
       var deferred = $q.defer();
-      return PhsServer.doLogout().then(function(){
+      PhsServer.doLogout().then(function(){
         return UserService.clearAll();
       })
       .then(function(){

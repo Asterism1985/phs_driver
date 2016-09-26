@@ -9,7 +9,7 @@ angular.module('phsDriverApp.controllers')
         $scope.smallScreen = false;
       }
       $scope.setAll(true);
-    }
+    };
     $scope.setAll = function(flag) {
       $scope.isLoading = true;
       $log.debug("set all: ", flag);
@@ -25,14 +25,14 @@ angular.module('phsDriverApp.controllers')
         $log.debug("all league: ", data.rows);
         $scope.isLoading = false;
         $scope.leagueTable = data.rows;
-      })
+      });
     };
     var getMyFLTLeague = function() {
       LeagueService.getMyFLTLeague().then(function(data) {
         $log.debug("my flt : ", data.rows);
         $scope.isLoading = false;
         $scope.leagueTable = data.rows;
-      })
+      });
     };
 
     $scope.init();

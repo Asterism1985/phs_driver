@@ -9,7 +9,7 @@ angular.module('phsDriverApp.controllers')
         number4: '',
         number5: ''
       };
-    }
+    };
 
     $scope.doLogin = function() {
 
@@ -28,8 +28,7 @@ angular.module('phsDriverApp.controllers')
         Utils.hideLoading();
         UserService.registerTimeoutSession();
         Utils.toLocation('/app/home');
-      }
-      , function(error) {
+      }, function(error) {
         $log.debug('Login error Infos', error);
         Utils.hideLoading();
         Utils.toast('Can\'t process your request', 2000);

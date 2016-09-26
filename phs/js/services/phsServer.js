@@ -37,7 +37,7 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTrans
       }
     );
     return deferred.promise;
-  }
+  };
 
   this.getContactInfos = function() {
     var deferred = $q.defer();
@@ -51,7 +51,7 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTrans
       }
     );
     return deferred.promise;
-  }
+  };
 
   // User and Authentication
   this.doLogin = function(user) {
@@ -217,4 +217,4 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTrans
     return deferred.promise;
   };
 
-};
+}
