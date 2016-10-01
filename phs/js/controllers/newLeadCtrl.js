@@ -5,13 +5,6 @@ angular.module('phsDriverApp.controllers')
 
       Utils.showLoading("Get current location...");
 
-      LocationService.getAllNearBy().then(function(data) {
-        $scope.locationsNearby = data;
-      }, function(error) {
-        $log.debug("Can not get nearby location");
-        Utils.hideLoading();
-      });
-
       LocationService.getCurrentLocation().then(function(data) {
         var latlng = new google.maps.LatLng(data.lat, data.long);
         var geocoder = new google.maps.Geocoder();
@@ -24,8 +17,17 @@ angular.module('phsDriverApp.controllers')
             } else {
               $scope.currentAddress = "Can not find my address";
             }
-            Utils.hideLoading();
-            $scope.showModalLocationPick();
+            LocationService.getAllNearBy(data).then(function(data) {
+              $scope.locationsNearby = data;
+              Utils.hideLoading();
+              $scope.showModalLocationPick();
+            }, function(error) {
+              $log.debug("Can not get nearby location");
+              Utils.hideLoading();
+              $scope.showModalLocationPick();
+            });
+
+            
           }
         });
       }, function(error) {
@@ -75,20 +77,20 @@ angular.module('phsDriverApp.controllers')
 
     $scope.uploadImage = function() {
       // if ($rootScope.isDevice) {
-        var options = {
-          maximumImagesCount: 10,
-          width: 800,
-          height: 800,
-          quality: 80
-        };
-        $cordovaImagePicker.getPictures(options)
-          .then(function(results) {
-            for (var i = 0; i < results.length; i++) {
-              console.log('Image URI: ' + results[i]);
-            }
-          }, function(error) {
-            // error getting photos
-          });
+      var options = {
+        maximumImagesCount: 10,
+        width: 800,
+        height: 800,
+        quality: 80
+      };
+      $cordovaImagePicker.getPictures(options)
+        .then(function(results) {
+          for (var i = 0; i < results.length; i++) {
+            console.log('Image URI: ' + results[i]);
+          }
+        }, function(error) {
+          // error getting photos
+        });
       // } else {
       //   $scope.showModalUploadFile();
       // }

@@ -2,9 +2,9 @@
 angular.module('phsDriverApp.services').factory('LocationService', ['$rootScope', '$state', 'Utils', '$q', '$log', 'PhsServer', '$cordovaGeolocation', function($rootScope, $state, Utils, $q, $log, PhsServer, $cordovaGeolocation) {
   var LocationService = {};
 
-  LocationService.getAllNearBy = function() {
+  LocationService.getAllNearBy = function(location) {
     var deferred = $q.defer();
-    PhsServer.getAllLocationNearBy().then(function(data) {
+    PhsServer.getAllLocationNearBy(location).then(function(data) {
       deferred.resolve(data);
     }, function(error) {
       deferred.reject(error);
