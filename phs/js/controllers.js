@@ -54,7 +54,9 @@ angular.module('phsDriverApp.controllers')
       Utils.hideLoading();
        Utils.toLocation("/login");
     }, function(error){
-      alert("can not log out, please check your network");
+      //alert("can not log out, please check your network");
+      $log.debug('can not log out, please check your network');
+      Utils.hideLoading();
     });
   };
 
