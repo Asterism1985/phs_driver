@@ -1,4 +1,4 @@
-<ion-view class="story-detail-page" view-title="<img class='title-image'  src='img/logo.png' /> Stories">
+<ion-view class="story-detail-page" view-title="<img class='title-image'  src='img/logo.png' /> {{AppText.NEW_STORY_STORY_TITLE}}">
   <ion-content class="padding">
     <div class="row">
       <div class="col">
@@ -7,8 +7,8 @@
           <div class="thumbsUp"> <i class="icon ion-thumbsup"></i> {{::storyDetails.likes}}</div>
         </div>
         <div class="storyDetails">
-          <div class="storyName">{{AppText.alL_STORIES_POSTED_BY}} {{::storyDetails.postingUser}}</div><br>
-          <div class="storyDate">{{AppText.alL_STORIES_DATE}} {{::storyDetails.createdDate}}</div>
+          <div class="storyName">{{AppText.ALL_STORIES_POSTED_BY}} {{::storyDetails.postingUser}}</div><br>
+          <div class="storyDate">{{AppText.ALL_STORIES_DATE}} {{::storyDetails.createdDate}}</div>
         </div>
         <p>
           {{::storyDetails.body}}

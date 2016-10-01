@@ -1,12 +1,12 @@
-<ion-view class="stories-page" view-title="<img class='title-image' src='img/logo.png' /> {{AppText.alL_STORIES_TITLE}}">
+<ion-view class="stories-page" view-title="<img class='title-image' src='img/logo.png' /> {{AppText.ALL_STORIES_TITLE}}">
   <ion-content>
     <ion-list ng-repeat="story in ::stories">
       <a ng-click="openSingleStory($index)">
         <ion-item class="item item-avatar story">
           <img src="img/user.png">
           <p class="title">{{ story.title }}</p>
-          <p><i style="font-weight:700">{{AppText.alL_STORIES_POSTED_BY}} </i>{{story.postingUser}}</p>
-          <p><i style="font-weight:700">{{AppText.alL_STORIES_DATE}} </i>{{ story.createdDate }}</p>
+          <p><i style="font-weight:700">{{AppText.ALL_STORIES_POSTED_BY}} </i>{{story.postingUser}}</p>
+          <p><i style="font-weight:700">{{AppText.ALL_STORIES_DATE}} </i>{{ story.createdDate }}</p>
           <div class="{{story.likedByCurrentUser ? 'thumbsUpLiked': 'thumbsUpNormal'}}">
             <i class="icon ion-thumbsup"></i> {{story.likes}}
           </div>

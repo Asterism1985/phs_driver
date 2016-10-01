@@ -1,4 +1,4 @@
-<ion-view class="leadstatus-page" view-title="<img class='title-image' src='img/logo.png' /> Lead Status">
+<ion-view class="leadstatus-page" view-title="<img class='title-image' src='img/logo.png' /> {{AppText.LEAD_STATUS_TITLE}}">
   <ion-content>
     <spinner is-loading="isLoading"></spinner>
     <ion-list ng-if="!isLoading">
@@ -11,13 +11,13 @@
         </ion-item>
         <ion-item class="item-accordion" ng-repeat="lead in ::group.items" ng-show="isGroupShown(group)">
           <div class="sub-item lead">
-            <strong>Lead: </strong>{{ lead.id }}
+            <strong>{{AppText.LEAD_STATUS_LEAD}} </strong>{{ lead.id }}
           </div>
           <div class="sub-item companyName">
-            <strong>Company name: </strong>{{ lead.companyName }}
+            <strong>{{AppText.LEAD_STATUS_COMPANY_NAME}} </strong>{{ lead.companyName }}
           </div>
           <div class="sub-item">
-            <strong>Date: </strong>{{ lead.createdDate }}
+            <strong>{{AppText.LEAD_STATUS_DATE}} </strong>{{ lead.createdDate }}
           </div>
         </ion-item>
       </div>

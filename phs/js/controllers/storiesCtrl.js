@@ -7,6 +7,8 @@ angular.module('phsDriverApp.controllers')
         Utils.hideLoading();
         $log.debug("stories data is : ", data);
         $scope.stories = data;
+      }, function(error) {
+        Utils.hideLoading();
       });
     };
 
