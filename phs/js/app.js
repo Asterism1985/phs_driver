@@ -41,7 +41,7 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
   });
 
 
-  $httpProvider.interceptors.push('TokenInterceptor');
+  $httpProvider.interceptors.push('RequestService');
 
   $logProvider.debugEnabled(true);
 

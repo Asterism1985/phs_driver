@@ -8,23 +8,32 @@ angular.module('phsDriverApp.services')
 
   })
 
-  .factory('TokenInterceptor', ['$q', '$window', function($q, $window) {
-  return {
-    request: function(config) {
-      config.headers = config.headers || {};
-      if ($window.sessionStorage.token) {
-        config.headers['X-Access-Token'] = $window.sessionStorage.token;
-        config.headers['X-Key'] = $window.sessionStorage.user;
-        config.headers['Content-Type'] = "application/json";
-      }
-      return config || $q.when(config);
-    },
- 
-    response: function(response) {
-      return response || $q.when(response);
-    }
+.factory('RequestService', function RequestService() {
+  var token = null;
+
+  var setToken = function setToken(someToken) {
+    token = someToken;
   };
-}])
+
+  var getToken = function getToken() {
+    return token;
+  };
+
+  var request = function request(config) {
+
+    if (token) {
+      // jqXHR.setRequestHeader('Authorization','Token token="' + app.user.api_key.access_token + '"');
+      config.headers.auth_key = token;
+    }
+    return config;
+  };
+
+  return {
+    setToken: setToken,
+    getToken: getToken,
+    request: request
+  };
+})
 //TO USE IT
 // $scope.modal1 = function() {
 //     ModalService

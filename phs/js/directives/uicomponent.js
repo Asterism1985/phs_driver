@@ -37,7 +37,7 @@ angular.module('phsDriverApp.directives')
             return $scope.files;
           },
           function(newValue, oldValue) {
-            if ($scope.files.length > 0 && newValue !== oldValue) {
+            if (newValue !== oldValue && $scope.files.length > 0) {
               $timeout(function() {
                 $ionicSlideBoxDelegate.slide($scope.files.length - 1);
                 $ionicSlideBoxDelegate.update();
