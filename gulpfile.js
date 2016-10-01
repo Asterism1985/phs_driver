@@ -40,6 +40,8 @@ var paths = {
 
 gulp.task('default', ['sass', 'copy-html','templatecache', 'copy-vendors','copy-fonts', 'copy-libs', 'compile-js']);
 
+gulp.task('development', ['copy-html','templatecache', 'copy-vendors','copy-fonts', 'copy-libs', 'compile-js']);
+
 gulp.task('production', ['default'], function() {
   return gulp.src([
       'www/js/phsdriver.js',
@@ -48,7 +50,7 @@ gulp.task('production', ['default'], function() {
     .pipe(uglify())
     .pipe(gulp.dest('www/js'))
     .on('end', function() {
-      console.log('Compress PROD DONE');
+      console.log('Obfucate the code for PROD DONE');
     });
 });
 
@@ -117,6 +119,7 @@ gulp.task('templatecache', function(done) {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.js, ['development']);
 });
 
 gulp.task('install', ['git-check'], function() {

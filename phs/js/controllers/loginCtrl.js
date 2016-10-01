@@ -12,9 +12,13 @@ angular.module('phsDriverApp.controllers')
     };
 
     $scope.doLogin = function() {
+      var employeeNumber = '' + $scope.passcode.number1 + $scope.passcode.number2 + $scope.passcode.number3 + $scope.passcode.number4 + $scope.passcode.number5;
+      $scope.data = {
+        employeeNumber: employeeNumber
+      };
 
       Utils.showLoading();
-      PhsServer.doLogin($scope.passcode).then(function(user) {
+      PhsServer.doLogin($scope.data).then(function(user) {
         $rootScope.currentUser = user;
         $log.debug('User Infos', JSON.stringify(user));
         return UserService.setCurrentUser(user);

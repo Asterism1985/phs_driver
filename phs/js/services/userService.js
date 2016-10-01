@@ -71,7 +71,7 @@ angular.module('phsDriverApp.services')
       }, function(error){
         deferred.reject(error);
       });
-      return deferred.promise();
+      return deferred.promise;
     };
 
     return UserService;
