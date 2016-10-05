@@ -27,6 +27,7 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
     window.isDevice = $rootScope.isDevice;
     var currentUser = {};
     UserService.getCurrentUser().then(function(user){
+      console.log('user id');
       $rootScope.currentUser = user;
     });
   });

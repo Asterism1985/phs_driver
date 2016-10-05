@@ -45,6 +45,16 @@ angular.module('phsDriverApp.services')
     return allStories[index];
   };
 
+  StoryService.rsvpToAStory = function (storyId) {
+    var deferred = $q.defer();
+    PhsServer.rsvpAStory(storyId).then(function(){
+      deferred.resolve(true);
+    }, function(error){
+      deferred.reject(error);
+    });
+    return deferred.promise;
+  };
+
   StoryService.getAllStoriesCache = function() {
     return allStories;
   };

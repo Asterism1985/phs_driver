@@ -3,11 +3,11 @@ angular.module('phsDriverApp.controllers')
 
     $scope.init = function() {
       $scope.passcode = {
-        number1: '',
-        number2: '',
-        number3: '',
-        number4: '',
-        number5: ''
+        number1: 8,
+        number2: 6,
+        number3: 3,
+        number4: 7,
+        number5: 3
       };
     };
 

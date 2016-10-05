@@ -21,7 +21,6 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTrans
     submitNewStory: Config.api + '/DriverLeads/Stories',
     //social
     like: Config.api + '/DriverLeads/Stories/Like', //GET
-    unLike: Config.api + '/DriverLeads/Stories/Unlike',
     nearBy: Config.api + '/DriverLeads/Customers/Nearby' //Nearby?lat=51.600697&lgt=0.549094
   };
 
@@ -191,6 +190,21 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTrans
     $log.debug('storyObj', storyObj);
     var deferred = $q.defer();
     $http.post(path.submitNewStory, storyObj).then(
+      function() {
+        deferred.resolve(true);
+      },
+      function(error) {
+        $log.error(error);
+        deferred.reject(error);
+      }
+    );
+    return deferred.promise;
+  };
+
+  this.rsvpAStory = function(storyObj) {
+    $log.debug('storyObj', storyObj);
+    var deferred = $q.defer();
+    $http.post(path.like, storyObj).then(
       function() {
         deferred.resolve(true);
       },
