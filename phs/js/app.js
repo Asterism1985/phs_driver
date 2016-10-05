@@ -1,6 +1,7 @@
 angular.module('phsDriverApp.services', []);
 angular.module('phsDriverApp.controllers', []);
 angular.module('phsDriverApp.directives', []);
+angular.module('phsDriverApp.templates', []);
 
 angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverApp.directives', 'phsDriverApp.services', 'phsDriverApp.templates', 'ngCordova', 'ngCountup', 'LocalForageModule', 'ngFileUpload'])
 

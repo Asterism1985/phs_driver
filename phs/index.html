@@ -22,9 +22,37 @@
   <script src="vendors/sektor.js"></script>
   <script src="lib/countUp.min.js"></script>
   <script src="lib/countup-angularjs-directive.min.js"></script>
-  <!-- your app's js -->
+
+  <!-- @if NODE_ENV='development' -->
+  <!-- Service -->
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/services/appConfig.js"></script>
+  <script src="js/services/phsLocalStorage.js"></script>
+  <script src="js/services/utils.js"></script>
+  <script src="js/services/phsServer.js"></script>
+  <script src="js/services/userService.js"></script>
+  <script src="js/services/storyService.js"></script>
+  <script src="js/services/leagueService.js"></script>
+  <script src="js/services/locationService.js"></script>
+  <!-- Controler -->
+  <script src="js/controllers.js"></script>
+  <script src="js/controllers/loginCtrl.js"></script>
+  <script src="js/controllers/homeCtrl.js"></script>
+  <script src="js/controllers/leagueCtrl.js"></script>
+  <script src="js/controllers/leadStatusCtrl.js"></script>
+  <script src="js/controllers/storiesCtrl.js"></script>
+  <script src="js/controllers/storyDetailCtrl.js"></script>
+  <script src="js/controllers/newLeadCtrl.js"></script>
+  <!-- Directive -->
+  <script src="js/directives/directives.js"></script>
+  <script src="js/directives/uicomponent.js"></script>
+  <!-- @endif -->
+
+  <!-- @if NODE_ENV='production' -->
   <script src="js/phsviews.js"></script>
   <script src="js/phsdriver.js"></script>
+  <!-- @endif -->
 </head>
 
 <body ng-app="phsDriverApp">

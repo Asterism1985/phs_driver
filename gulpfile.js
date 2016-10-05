@@ -16,13 +16,15 @@ var jshint = require('gulp-jshint');
 var livereload = require('gulp-livereload');
 var preprocess = require('gulp-preprocess');
 var uglify = require('gulp-uglify');
+var clean = require('gulp-clean');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
   fonts: ['./lib/ionic/fonts/*'],
-  index: ['./phs/index.html'],
+  htmlIndex: ['./phs/index.html'],
   templatecache: ['./phs/templates/*.html', './phs/templates/**/*.html'],
   js: ['./phs/js/*.js', './phs/js/**/*.js'],
+  appjs: ['./phs/js/app.js'],
   vendors: ['./node_modules/angular-localforage/dist/angular-localForage.min.js',
     './node_modules/angular-localforage/bower_components/localforage/dist/localForage.min.js',
     './node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js',
@@ -35,12 +37,53 @@ var paths = {
   './lib/countUp.js/dist/countUp.min.js',
   './lib/countup-angularjs-directive/dist/countup-angularjs-directive.min.js'
   ],
-  cleanFolder: ['./www/js', './www/templates'],
+  cleanJSFolder: ['./www/js'],
+  cleanTemplatesFolder: ['./www/templates']
 };
+ 
+gulp.task('clean-scripts', function () {
+  return gulp.src(paths.cleanJSFolder, {read: false})
+    .pipe(clean());
+});
 
-gulp.task('default', ['sass', 'copy-html','templatecache', 'copy-vendors','copy-fonts', 'copy-libs', 'compile-js']);
+gulp.task('clean-template', function () {
+  return gulp.src(paths.cleanTemplatesFolder, {read: false})
+    .pipe(clean());
+});
 
-gulp.task('development', ['copy-html','templatecache', 'copy-vendors','copy-fonts', 'copy-libs', 'compile-js']);
+gulp.task('clean-index', function () {
+  return gulp.src('./www/index.html', {read: false})
+    .pipe(clean());
+});
+
+gulp.task('default', ['sass', 'process-index-prod','templatecache', 'copy-vendors','copy-fonts', 'copy-libs', 'compile-js']);
+
+//for development 
+gulp.task('development', ['sass', 'process-index-development', 'copy-template', 'copy-vendors','copy-fonts', 'copy-libs', 'copy-js']);
+
+gulp.task('process-index-development', ['clean-index'], function () {
+  gulp.src(paths.htmlIndex)
+  .pipe(preprocess({context: { NODE_ENV: 'development', DEBUG: true}})) //To set environment variables in-line
+    .pipe(gulp.dest('./www'));
+});
+
+gulp.task('process-index-prod', ['clean-index'], function () {
+  gulp.src(paths.htmlIndex)
+  .pipe(preprocess({context: { NODE_ENV: 'production', DEBUG: true}})) //To set environment variables in-line
+    .pipe(gulp.dest('./www'));
+});
+
+gulp.task('copy-template', ['clean-template'], function () {
+  gulp.src(paths.templatecache)
+    .pipe(gulp.dest('./www/templates'));
+});
+
+gulp.task('copy-js', ['clean-scripts'], function () {
+  gulp.src(paths.js)
+  .pipe(preprocess({context: { NODE_ENV: 'development', DEBUG: true}})) //To set environment variables in-line
+    .pipe(gulp.dest('./www/js'));
+});
+
 
 gulp.task('production', ['default'], function() {
   return gulp.src([
@@ -59,12 +102,6 @@ gulp.task('copy-vendors', function copyVendors() {
     .pipe(gulp.dest('./www/vendors'));
 });
 
-gulp.task('copy-html', function copyHtml() {
-  gulp.src(paths.index)
-    .pipe(gulp.dest('./www'))
-    .pipe(livereload());
-});
-
 gulp.task('copy-fonts', function copyFonts() {
   gulp.src(paths.fonts)
     .pipe(gulp.dest('./www/lib/ionic/fonts/'))
@@ -74,7 +111,7 @@ gulp.task('copy-fonts', function copyFonts() {
 
 gulp.task('copy-libs', function copyLibs() {
   gulp.src(paths.libs)
-    .pipe(gulp.dest('./www/lib'));
+    .pipe(gulp.dest('./www/lib/'));
 });
 
 gulp.task('sass', function(done) {
@@ -103,7 +140,7 @@ gulp.task('compile-js', function compileJs() {
 });
 
 
-gulp.task('templatecache', function(done) {
+gulp.task('templatecache', ['clean-template', 'clean-scripts'], function(done) {
   gulp.src(paths.templatecache)
 
   .pipe(templateCache({
