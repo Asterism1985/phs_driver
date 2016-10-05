@@ -8,6 +8,8 @@ angular.module('phsDriverApp.controllers')
         $log.debug("stories data is : ", data);
         $scope.stories = data;
       }, function(error) {
+        $log.debug("can not get story recent");
+        alert("error");
         Utils.hideLoading();
       });
     };

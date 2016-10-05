@@ -102,6 +102,7 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
     })
     .state('app.stories', {
       url: '/stories',
+      cache: false,
       views: {
         'menuContent': {
           templateUrl: 'templates/stories.html',
@@ -111,6 +112,7 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
     })
     .state('app.storySingle', {
       url: '/storyDetail',
+      cache: false,
       params: {
         storyInfo: null
       },
@@ -123,6 +125,7 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
     })
     .state('app.newStory', {
       url: '/newstory',
+      cache: false,
       views: {
         'menuContent': {
           templateUrl: 'templates/newStory.html',

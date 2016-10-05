@@ -41,7 +41,7 @@ angular.module('phsDriverApp.controllers')
   });
   $scope.init = function() {
     PhsServer.getContactInfos().then(function(data) {
-      $scope.contactInfos  = data[0];
+      $scope.contactInfos = data[0];
       $log.debug("[GLOBAL] contactinfos: ", $scope.contactInfos);
     });
   };
@@ -49,11 +49,11 @@ angular.module('phsDriverApp.controllers')
   $scope.logout = function() {
     Utils.showLoading("Logging out...");
 
-    UserService.logOut().then(function(){
+    UserService.logOut().then(function() {
       $log.debug("clear all history and app data");
       Utils.hideLoading();
-       Utils.toLocation("/login");
-    }, function(error){
+      Utils.toLocation("/login");
+    }, function(error) {
       //alert("can not log out, please check your network");
       $log.debug('can not log out, please check your network');
       Utils.hideLoading();
@@ -69,12 +69,15 @@ angular.module('phsDriverApp.controllers')
   $scope.init();
 }])
 
-.controller('NewStoryCtrl', function($scope, $ionicPopup, $rootScope, $timeout, $log) {
-
+.controller('NewStoryCtrl', function($scope, $ionicPopup, $rootScope, $timeout, $log, StoryService) {
+  $scope.data = {
+    title: '',
+    body: ''
+  };
   $scope.submitStory = function() {
     var confirmPopup = $ionicPopup.confirm({
       title: '',
-      cssClass:'confirm-title',
+      cssClass: 'confirm-title',
       template: 'Are you sure you want to submit your post?',
       cancelType: 'cancel-btn',
       okType: 'ok-btn-selected'
@@ -83,10 +86,12 @@ angular.module('phsDriverApp.controllers')
     confirmPopup.then(function(res) {
       if (res) {
         $log.log('You are sure');
-        $scope.showPopup();
-        if ($rootScope.isDevice) {
-          window.plugins.NativeAudio.play('newLead');
-        }
+        StoryService.postNewStory($scope.data).then(function() {
+          $scope.showPopup();
+          if ($rootScope.isDevice) {
+            window.plugins.NativeAudio.play('newLead');
+          }
+        });
       } else {
         $log.log('You are not sure');
       }
@@ -108,6 +113,8 @@ angular.module('phsDriverApp.controllers')
       myPopup.close();
     }, 2000);
   };
+
+
 
 
 });

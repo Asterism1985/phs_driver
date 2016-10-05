@@ -31,6 +31,16 @@ angular.module('phsDriverApp.services')
     return deferred.promise;
   };
 
+  StoryService.postNewStory = function (story) {
+    var deferred = $q.defer();
+    PhsServer.postNewStory(story).then(function(){
+      deferred.resolve(true);
+    }, function(error){
+      deferred.reject(error);
+    });
+    return deferred.promise;
+  };
+
   StoryService.getOneStory = function (index) {
     return allStories[index];
   };
