@@ -4,6 +4,7 @@ www/css
 www/js
 www/vendors
 www/lib
+www/templates
 www/index.html
 platforms
 __MACOSX
