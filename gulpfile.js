@@ -29,7 +29,8 @@ var paths = {
     './node_modules/angular-localforage/bower_components/localforage/dist/localForage.min.js',
     './node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js',
     './node_modules/ng-file-upload/dist/ng-file-upload.min.js',
-    './phs/vendors/sektor.js'
+    './phs/vendors/sektor.js',
+    './phs/vendors/map.api.google.min.js'
   ],
   libs: [
   './lib/ionic/js/ionic.bundle.js',
