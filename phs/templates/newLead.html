@@ -2,25 +2,25 @@
   <ion-content padding="true">
     <div class="list list-inset">
       <label class="item item-input">
-        <input type="text" placeholder="{{AppText.LEAD_CREATE_LEAD_CONTACT_SURNAME}}">
+        <input type="text" ng-model="data.surname" placeholder="{{AppText.LEAD_CREATE_LEAD_CONTACT_SURNAME}}">
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="{{AppText.LEAD_CREATE_LEAD_COMPANY_NAME}}">
+        <input type="text" ng-model="data.companyName" placeholder="{{AppText.LEAD_CREATE_LEAD_COMPANY_NAME}}">
       </label>
       <label class="item item-input">
-        <textarea rows="6" placeholder="{{AppText.LEAD_CREATE_DESCRIPTION}}"></textarea>
+        <textarea rows="6" ng-model="data.description" placeholder="{{AppText.LEAD_CREATE_DESCRIPTION}}"></textarea>
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="{{AppText.LEAD_CREATE_ACCOUNT_NO}}">
+        <input type="text" ng-model="data.accountNo" placeholder="{{AppText.LEAD_CREATE_ACCOUNT_NO}}">
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="{{AppText.LEAD_CREATE_POSTCODE}}">
+        <input type="text" ng-model="data.postcode" placeholder="{{AppText.LEAD_CREATE_POSTCODE}}">
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="{{AppText.LEAD_CREATE_PHONE}}">
+        <input type="text" ng-model="data.phone" placeholder="{{AppText.LEAD_CREATE_PHONE}}">
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="{{AppText.LEAD_CREATE_EMAIL}}">
+        <input type="text" ng-model="data.email" placeholder="{{AppText.LEAD_CREATE_EMAIL}}">
       </label>
       <image-slider></image-slider>
     </div>

@@ -1,7 +1,17 @@
 angular.module('phsDriverApp.controllers')
-  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$cordovaImagePicker', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', 'LocationService', 'Utils', function($rootScope, $scope, $cordovaImagePicker, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService, LocationService, Utils) {
+  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$cordovaImagePicker', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', 'LocationService', 'Utils', 'PhsServer', function($rootScope, $scope, $cordovaImagePicker, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService, LocationService, Utils, PhsServer) {
 
     $scope.init = function() {
+
+      $scope.data = {
+        surname: '',
+        companyName: '',
+        description: '',
+        accountNo: '',
+        postcode: '',
+        phone: '',
+        email: ''
+      };
 
       Utils.showLoading("Get current location...");
 
@@ -118,7 +128,7 @@ angular.module('phsDriverApp.controllers')
       var confirmPopup = $ionicPopup.confirm({
         title: '',
         cssClass: 'confirm-title',
-        template: $rootScope.AppText.leaD_CREATE_CONFIRM,
+        template: $rootScope.AppText.LEAD_CREATE_CONFIRM,
         cancelType: 'cancel-btn',
         okType: 'ok-btn-selected'
       });
@@ -126,10 +136,18 @@ angular.module('phsDriverApp.controllers')
       confirmPopup.then(function(res) {
         if (res) {
           $log.log('You are sure');
-          $scope.showPopup();
-          if ($rootScope.isDevice) {
-            window.plugins.NativeAudio.play('newLead');
-          }
+          Utils.showLoading();
+          PhsServer.submitNewLead($scope.data).then(function(){
+            Utils.hideLoading();
+            $scope.showPopup();
+            if ($rootScope.isDevice) {
+              window.plugins.NativeAudio.play('newLead');
+            }
+          }, function(error) {
+            Utils.hideLoading();
+            $log.debug("Create new lead error", error);
+          })
+          
         } else {
           $log.log('You are not sure');
         }
