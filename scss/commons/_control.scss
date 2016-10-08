@@ -1,21 +1,44 @@
+body {
+  font-size: 16px;
+}
+
+::placeholder {
+  color: #ccc4c4 !important;
+}
+
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: green;
+  color: #ccc4c4 !important;
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: pink;
+  color: #ccc4c4;
 }
 
 :-ms-input-placeholder {
   /* IE 10+ */
-  color: pink;
+  color: #ccc4c4;
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: pink;
+  color: #ccc4c4;
+}
+
+input,
+textarea {
+  font-size: 16px;
+}
+
+input[type="text"] {
+  font-size: 16px;
+}
+
+.btn-phs-small {
+  color: white;
+  background: $phsColor;
+  padding: 0px 11px;
 }
 
 .button-balanced {
@@ -24,29 +47,31 @@
   padding-right: 2rem;
 }
 
-.popup-contacts > .label,
-.popup-contacts > .contactsContent {
-  display: inline !important;
-}
-
-.popup-contacts {
-  .contactsContent {
-    margin-bottom: 15px;
-  }
-}
-
-.Sektor {
-  max-width: 150px !important;
-}
-
 .row + .row {
   margin-top: 5px;
+}
+
+.noLocation {
+  font-size: 1rem;
+  color: #d70000;
+  text-align: left;
+  padding-left: 0.85rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  background: transparent;
 }
 
 @media (min-width: 430px) {
   .row + .row {
     margin-top: 30px;
   }
+}
+
+
+/*Spinner*/
+
+.spinner {
+  text-align: center !important;
 }
 
 
@@ -147,7 +172,7 @@
 }
 
 .delete-btn {
-  background-color: red;
+  background-color: red !important;
   color: $lightGreen !important;
 }
 

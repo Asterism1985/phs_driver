@@ -3,7 +3,11 @@ Ionic App Base
 
 A starting project for Ionic that optionally supports using custom SCSS.
 
-## Tool Setup
+
+## Ionic and Cordova version install
+[Setup ionic and cordova](https://github.com/uphack/phs_driver_app/wiki/Install-ionic-and-cordova)
+## Using this project
+
 
 [Ionic version and Cordova,](https://github.com/uphack/phs_driver_app/wiki/Install-ionic-and-cordova)
 

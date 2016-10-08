@@ -1,8 +1,11 @@
 .DS_Store
 node_modules
 www/css
-lib
-plugins
+www/js
+www/vendors
+www/lib
+www/templates
+www/index.html
 platforms
 __MACOSX
 sourcemaps

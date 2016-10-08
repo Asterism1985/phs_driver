@@ -1,9 +1,56 @@
-.thumbsUp {
-  color: $phsColor;
+.stories-page {
+  a {
+    text-decoration: none;
+  }
+  .item {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  .title {
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .item-title {
+    font-weight: 700;
+  }
+  .thumbsUpLiked {
+    color: $phsColor;
+  }
+  .thumbsUpNormal {
+    color: #666;
+  }
+  .arrow-right-custom {
+    position: absolute;
+    right: 11px;
+    font-size: 27px;
+    top: 34px;
+    color: $phsColor;
+  }
+  .storyTitle,
+  .storyName {
+    display: inline-block;
+  }
+  .storyName {
+    float: left;
+  }
+  .storyDate {
+    float: right;
+  }
+  .storyTitle {
+    font-size: 1.2rem;
+  }
+  .story .item-note {
+    margin-top: -19px;
+  }
 }
-
-.btn-phs-small {
-  color: white;
-  background: $phsColor;
-  padding: 0px 11px;
+.new-story-page {
+  .item {
+      &.item-input {
+        padding: 4px 10px;
+        margin-bottom: 13px;
+        input {
+          padding-right: 0px;
+        }
+      }
+    }
 }

@@ -1,22 +1,98 @@
-.numberStars{
-  font-size: 2.8rem;
-}
-.stars > span {
-  color: white;
-  z-index: 99999;
-  position: absolute;
-  height: 3rem;
-  width: 2.5rem;
-  font-size: 10px;
-  padding-top: 14px;
-  margin-left: -1px;
-}
-.stars .yellow{
-  color: $phsYellow;
-}
-.stars .gray{
-  color: $darkGray;
-}
-.stars .bronze{
-  color: #CD7F32;
+.league-page {
+  .list {
+    .item {
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+  }
+  .league-table {
+    background-color: $darkGray2;
+  }
+  ion-content.league-table ion-item {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+  }
+  ion-item .position {
+    padding-top: 10px;
+    min-width: 33px;
+    max-width: 33px;
+    padding-left: 3px;
+  }
+  .top-togg > div {
+    float: left;
+    width: 50%;
+    text-align: center;
+    color: $light;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-family: 'calibri_bold';
+    border: 1px solid white;
+    padding: 4px;
+  }
+  .top-togg > div > span {
+    padding: 0.5rem;
+    border: 1px solid #ffffff;
+    padding: 0.5rem;
+  }
+  .actv {
+    border: 1px solid rgb(255, 255, 255);
+    padding: 4px;
+    color: $darkGray !important;
+    background-color: $phsYellow !important;
+  }
+  .leagueTitle > div {
+    color: $light;
+    font-family: 'calibri_bold';
+  }
+  .smallThumb,
+  .stars {
+    display: inline;
+  }
+  .smallThumb .ion-person {
+    font-size: 2rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    background-color: $light;
+    border: 2px solid $gray;
+    padding-top: 5px;
+    &:before {
+      margin-top: 4px;
+    }
+  }
+  .stars {
+    text-align: center;
+    padding-right: 22px;
+  }
+  .middleTitle {
+    margin: 0px;
+    font-size: 1rem !important;
+    color: $light;
+    text-align: center;
+    min-height: 33px;
+    padding-top: 7px;
+  }
+  .numberStars {
+    font-size: 2.8rem;
+  }
+  .stars > span {
+    color: white;
+    z-index: 99999;
+    position: absolute;
+    height: 3rem;
+    width: 2.5rem;
+    font-size: 10px;
+    padding-top: 14px;
+    margin-left: -1px;
+  }
+  .stars .yellow {
+    color: $phsYellow;
+  }
+  .stars .gray {
+    color: $darkGray;
+  }
+  .stars .bronze {
+    color: #CD7F32;
+  }
 }

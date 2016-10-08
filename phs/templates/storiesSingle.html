@@ -1,0 +1,21 @@
+<ion-view class="story-detail-page" view-title="<img class='title-image'  src='img/logo.png' /> {{AppText.NEW_STORY_STORY_TITLE}}">
+  <ion-content class="padding">
+    <div class="row">
+      <div class="col">
+        <h2 class="postTitle">{{::storyDetails.title}}</h2>
+        <div class="storyUpvote">
+          <div class="thumbsUp"> <i class="icon ion-thumbsup"></i> {{storyDetails.likes}}</div>
+        </div>
+        <div class="storyDetails">
+          <div class="storyName">{{AppText.ALL_STORIES_POSTED_BY}} {{::storyDetails.postingUser}}</div><br>
+          <div class="storyDate">{{AppText.ALL_STORIES_DATE}} {{::storyDetails.createdDate}}</div>
+        </div>
+        <p>
+          {{::storyDetails.body}}
+        </p>
+        <button ng-if="storyDetails.likedByCurrentUser" class="button button-small icon-left ion-thumbsup btn-phs-small" ng-click="rsvpAStory(storyDetails)">UnLike</button>
+        <button ng-if="!storyDetails.likedByCurrentUser" class="button button-small icon-left ion-thumbsup btn-phs-small" ng-click="rsvpAStory(storyDetails)">Like</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

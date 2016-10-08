@@ -5,6 +5,29 @@
     left: 3% !important;
   }
   .row + .row {
-	  margin-top: -15px;
-	}
+    margin-top: -15px;
+  }
 }
+
+
+/*Special for ios platform*/
+
+.platform-ios {
+  input {
+    padding-top: 8px;
+    line-height: 20px;
+  }
+  .popup-body {
+    input {
+      padding: 0px 6px;
+    }
+  }
+  textarea {
+    text-indent: -3px;
+  }
+}
+
+
+/*Special for android platform*/
+
+.platform-android {}
