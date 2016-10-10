@@ -1,43 +1,42 @@
 angular.module('phsDriverApp.controllers')
 
-.controller('AppCtrl', ['$scope', '$timeout', '$ionicPlatform', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'UserService', 'PhsServer', function($scope, $timeout, $ionicPlatform, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, UserService, PhsServer) {
+.controller('AppCtrl', ['$rootScope', '$scope', '$timeout', '$ionicPlatform', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'UserService', 'PhsServer', function($rootScope, $scope, $timeout, $ionicPlatform, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, UserService, PhsServer) {
 
   $ionicPlatform.ready(function() {
-    /*
-          window.plugins.NativeAudio.preloadSimple( 'badge', 'audio/Badge_Acquisition.mp3', function(msg){
-          }, function(msg){
-            console.log( 'error: ' + msg );
-          });
 
-          window.plugins.NativeAudio.preloadSimple( 'menuSwoop', 'audio/Contact Menu Swoop.mp3', function(msg){
-          }, function(msg){
-            console.log( 'error: ' + msg );
-          });
-          window.plugins.NativeAudio.preloadSimple( 'menuSwishReverse', 'audio/Menu Swish Reverse.mp3', function(msg){
-          }, function(msg){
-            console.log( 'error: ' + msg );
-          });
-          window.plugins.NativeAudio.preloadSimple( 'menuSwish', 'audio/Menu Swish.mp3', function(msg){
-          }, function(msg){
-            console.log( 'error: ' + msg );
-          });
-          window.plugins.NativeAudio.preloadSimple( 'newLead', 'audio/New Lead.mp3', function(msg){
-          }, function(msg){
-            console.log( 'error: ' + msg );
-          });
+    if ($rootScope.isDevice) {
 
-          window.plugins.NativeAudio.play( 'badge' );
+      window.plugins.NativeAudio.preloadSimple('badge', 'audio/Badge_Acquisition.mp3', function(msg) {}, function(msg) {
+        console.log('error: ' + msg);
+      });
 
-          $scope.$watch(function () {
-              return $ionicSideMenuDelegate.getOpenRatio();
-            },
-            function (ratio) {
-              if (ratio === 1){
-                window.plugins.NativeAudio.play( 'menuSwish' );
-              } else{
-                //window.plugins.NativeAudio.play( 'menuSwishReverse' );
-              }
-            });*/
+      window.plugins.NativeAudio.preloadSimple('menuSwoop', 'audio/Contact Menu Swoop.mp3', function(msg) {}, function(msg) {
+        console.log('error: ' + msg);
+      });
+      window.plugins.NativeAudio.preloadSimple('menuSwishReverse', 'audio/Menu Swish Reverse.mp3', function(msg) {}, function(msg) {
+        console.log('error: ' + msg);
+      });
+      window.plugins.NativeAudio.preloadSimple('menuSwish', 'audio/Menu Swish.mp3', function(msg) {}, function(msg) {
+        console.log('error: ' + msg);
+      });
+      window.plugins.NativeAudio.preloadSimple('newLead', 'audio/New Lead.mp3', function(msg) {}, function(msg) {
+        console.log('error: ' + msg);
+      });
+
+      window.plugins.NativeAudio.play('badge');
+
+      $scope.$watch(function() {
+          return $ionicSideMenuDelegate.getOpenRatio();
+        },
+        function(ratio) {
+          if (ratio === 1) {
+            window.plugins.NativeAudio.play('menuSwish');
+          } else {
+            window.plugins.NativeAudio.play('menuSwishReverse');
+          }
+        });
+    }
+
   });
   $scope.init = function() {
     PhsServer.getContactInfos().then(function(data) {
