@@ -2,6 +2,17 @@
   max-width: 150px !important;
 }
 
+.gold {
+  color: $goldColor !important;
+}
+.silver {
+  color: $silverColor !important;
+}
+
+.bronze {
+  color: $bronzeColor !important;
+}
+
 .popup-contacts {
   a {
     color: $phsColor !important;

@@ -51,7 +51,7 @@ angular.module('phsDriverApp.controllers')
         });
 
         $timeout(function() {
-          sektor1.animateTo(360, 500);
+          sektor1.animateTo(180, 500);
           sektor2.animateTo(110, 500);
           sektor3.animateTo(120, 500);
         }, 500);
@@ -71,14 +71,35 @@ angular.module('phsDriverApp.controllers')
 
         var initBadges = function(badges) {
           $scope.badgeLead = badges[0];
+          $scope.leadStar = calculateStarColor($scope.badgeLead);
+
           $scope.badgeConvertedLead = badges[1];
+          $scope.convertedLeadStar = calculateStarColor($scope.badgeConvertedLead);
+
           $scope.badgeStory = badges[2];
+          $scope.storyStar = calculateStarColor($scope.badgeStory);
+
           $timeout(function() {
             $scope.badges.lead = $scope.badgeLead.badgeScore;
             $scope.badges.convertedLead = $scope.badgeConvertedLead.badgeScore;
             $scope.badges.story = $scope.badgeStory.badgeScore;
           }, 100);
         };
+
+        var calculateStarColor = function(badge) {
+          var range = badge.badgeScoreBands;
+          var isNumber = 0;
+          if (badge.badgeScore >= range[1].rangeMin && badge.badgeScore <= range[1].rangeMax) {
+            isNumber = 1;
+          } else if (badge.badgeScore >= range[2].rangeMin && badge.badgeScore <= range[2].rangeMax) {
+            isNumber = 2;
+          } else if (badge.badgeScore >= range[3].rangeMin && badge.badgeScore <= range[3].rangeMax) {
+            isNumber = 3;
+          } else {
+            isNumber = 0;
+          }
+          return isNumber;
+        }
       };
       $scope.init();
     }

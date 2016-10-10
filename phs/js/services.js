@@ -9,7 +9,7 @@ angular.module('phsDriverApp.services')
   })
 
 .factory('RequestService', function RequestService() {
-  var token = null;
+  var token = '0BjXPsVtV6vAFMjIPF5wPdZK2NLkX68PGqOoiVpVCdZjR46dJ5BxH647MK5bSKGZ8Q4p86z4pk5MoP39SHL2FKhLwSNJ0oc3H0mbaRfOGHixasS7R7tk9OuyIt3qt0ebhceoD29aB8w8CVKdaQ245243QZDSY0vQDgq9oDEZ9sUbsw6YT0qN9kgpilJPzrnMMRFvFL0Hmd5Mi2Lu3P98JSSs0';
 
   var setToken = function setToken(someToken) {
     token = someToken;
@@ -22,7 +22,6 @@ angular.module('phsDriverApp.services')
   var request = function request(config) {
 
     if (token) {
-      // jqXHR.setRequestHeader('Authorization','Token token="' + app.user.api_key.access_token + '"');
       config.headers.auth_key = token;
     }
     return config;

@@ -14,21 +14,21 @@
     <div class="row badges">
       <div class="col col-33 lead">
         <div class="insideCircle rotate">
-          <i class="icon ion-ios-star"></i>
+          <i class="icon ion-ios-star" ng-class="{bronze: leadStar==1, silver: leadStar==2, gold: leadStar==3}"></i>
         </div>
         <div class="sektor1"></div>
         <span class="statnum" count-up id="lead" ng-model="badges.lead" ng-style="myStat"></span>
       </div>
       <div class="col col-33 convertedLead">
         <div class="insideCircle">
-          <i class="icon ion-ios-star rotate"></i>
+          <i class="icon ion-ios-star rotate" ng-class="{bronze: convertedLeadStar==1, silver: convertedLeadStar==2, gold: convertedLeadStar==3}"></i>
         </div>
         <div class="sektor2"></div>
         <span class="statnum" count-up id="convertedLead" ng-model="badges.convertedLead" ng-style="myStat"></span>
       </div>
       <div class="col col-33 Story">
         <div class="insideCircle">
-          <i class="icon ion-ios-star rotate"></i>
+          <i class="icon ion-ios-star rotate" ng-class="{bronze: storyStar==1, silver: storyStar==2, gold: storyStar==3}"></i>
         </div>
         <div class="sektor3"></div>
         <span class="statnum" count-up id="story" ng-model="badges.story" ng-style="myStat"></span>

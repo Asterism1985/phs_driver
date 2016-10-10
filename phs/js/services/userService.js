@@ -28,7 +28,11 @@ angular.module('phsDriverApp.services')
       };
 
     UserService.getSession = function() {
-      return JSON.parse($window.localStorage.user);
+      var deferred = $q.defer();
+      $localForage.getItem(AppConfig.appKeys.currentUser).then(function(session) {
+          deferred.resolve(session);
+        });
+      return deferred.promise;
     };
 
     UserService.deleteSession = function() {
