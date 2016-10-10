@@ -50,11 +50,7 @@ angular.module('phsDriverApp.controllers')
           fillCircle: false
         });
 
-        $timeout(function() {
-          sektor1.animateTo(180, 500);
-          sektor2.animateTo(110, 500);
-          sektor3.animateTo(120, 500);
-        }, 500);
+        
 
         PhsServer.getBadges().then(function(data) {
             $log.debug("[Home] Badges is: ", data);
@@ -72,18 +68,31 @@ angular.module('phsDriverApp.controllers')
         var initBadges = function(badges) {
           $scope.badgeLead = badges[0];
           $scope.leadStar = calculateStarColor($scope.badgeLead);
+          $scope.percentLead = calculatePercent($scope.badgeLead, $scope.leadStar);
+          $scope.angleLead = percentToDegree($scope.percentLead);
 
           $scope.badgeConvertedLead = badges[1];
           $scope.convertedLeadStar = calculateStarColor($scope.badgeConvertedLead);
+          $scope.percentConvertedLead = calculatePercent($scope.badgeConvertedLead, $scope.convertedLeadStar);
+          $scope.angleConvertedLead = percentToDegree($scope.percentConvertedLead);
 
           $scope.badgeStory = badges[2];
           $scope.storyStar = calculateStarColor($scope.badgeStory);
+          $scope.percentStory = calculatePercent($scope.badgeStory, $scope.storyStar);
+          $scope.angleStory = percentToDegree($scope.percentStory);
 
           $timeout(function() {
             $scope.badges.lead = $scope.badgeLead.badgeScore;
             $scope.badges.convertedLead = $scope.badgeConvertedLead.badgeScore;
             $scope.badges.story = $scope.badgeStory.badgeScore;
           }, 100);
+
+          $timeout(function() {
+          sektor1.animateTo($scope.angleLead, 500);
+          sektor2.animateTo($scope.angleConvertedLead, 500);
+          sektor3.animateTo($scope.angleStory, 500);
+        }, 500);
+          
         };
 
         var calculateStarColor = function(badge) {
@@ -99,7 +108,27 @@ angular.module('phsDriverApp.controllers')
             isNumber = 0;
           }
           return isNumber;
+        };
+
+        var percentToDegree = function(ratio) {
+          return ratio * 360;
+        };
+
+        var calculatePercent = function(badge, number) {
+          var range = badge.badgeScoreBands;
+          if (number === 1) {
+            return (badge.badgeScore - range[1].rangeMin) / (range[1].rangeMax - range[1].rangeMin + 1);
+          } else if (number === 2) {
+            return (badge.badgeScore - range[2].rangeMin) / (range[2].rangeMax - range[2].rangeMin + 1);
+          } else if (number === 3) {
+            return (badge.badgeScore - range[3].rangeMin) / (range[3].rangeMax - range[3].rangeMin + 1);
+          }
+          else {
+            return (badge.badgeScore - range[0].rangeMin) / (range[0].rangeMax - range[0].rangeMin + 1);
+          }
+
         }
+
       };
       $scope.init();
     }
