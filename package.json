@@ -38,10 +38,15 @@
       "locator": "https://github.com/wymsee/cordova-imagePicker.git",
       "id": "cordova-plugin-image-picker"
     },
-    "cordova-plugin-camera"
+    "cordova-plugin-camera",
+    {
+      "locator": "https://github.com/SidneyS/cordova-plugin-nativeaudio.git",
+      "id": "cordova-plugin-nativeaudio"
+    },
+    "cordova-plugin-device"
   ],
   "cordovaPlatforms": [
-    "android",
-    "ios"
+    "ios",
+    "android"
   ]
 }

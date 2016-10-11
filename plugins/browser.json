@@ -13,9 +13,6 @@
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
-        "cordova-plugin-nativeaudio": {
-            "PACKAGE_NAME": "com.phs.driver.android"
-        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
@@ -29,6 +26,12 @@
             "PACKAGE_NAME": "com.phs.driver.android"
         },
         "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
+        "cordova-plugin-nativeaudio": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.phs.driver.android"
         }
     },

@@ -1,29 +1,65 @@
 angular.module('phsDriverApp.controllers')
 
-.controller('AppCtrl', ['$rootScope', '$scope', '$timeout', '$ionicPlatform', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'UserService', 'PhsServer', function($rootScope, $scope, $timeout, $ionicPlatform, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, UserService, PhsServer) {
-
-  $ionicPlatform.ready(function() {
+.controller('AppCtrl', ['$rootScope', '$scope', '$timeout', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'UserService', 'PhsServer', '$cordovaNativeAudio', function($rootScope, $scope, $timeout, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, UserService, PhsServer, $cordovaNativeAudio) {
 
     if ($rootScope.isDevice) {
+      $log.debug("prepare for sound");
 
-      window.plugins.NativeAudio.preloadSimple('badge', 'audio/Badge_Acquisition.mp3', function(msg) {}, function(msg) {
-        console.log('error: ' + msg);
-      });
+      $cordovaNativeAudio
+       .preloadSimple('click', 'audio/BadgeAcquisition.mp3')
+       .then(function(msg) {
+        alert(msg);
+         console.log(msg);
+         $log.debug("prepare sound successfully", msg);
+       }, function(error) {
+        $log.debug("error", error);
+         alert(error);
+       });
 
-      window.plugins.NativeAudio.preloadSimple('menuSwoop', 'audio/Contact Menu Swoop.mp3', function(msg) {}, function(msg) {
-        console.log('error: ' + msg);
-      });
-      window.plugins.NativeAudio.preloadSimple('menuSwishReverse', 'audio/Menu Swish Reverse.mp3', function(msg) {}, function(msg) {
-        console.log('error: ' + msg);
-      });
-      window.plugins.NativeAudio.preloadSimple('menuSwish', 'audio/Menu Swish.mp3', function(msg) {}, function(msg) {
-        console.log('error: ' + msg);
-      });
-      window.plugins.NativeAudio.preloadSimple('newLead', 'audio/New Lead.mp3', function(msg) {}, function(msg) {
-        console.log('error: ' + msg);
-      });
+       $cordovaNativeAudio
+       .preloadSimple('badge', 'audio/BadgeAcquisition.mp3')
+       .then(function(msg) {
+         console.log(msg);
+         $log.debug("prepare sound successfully", msg);
+       }, function(error) {
+        $log.debug("error", error);
+       });
 
-      window.plugins.NativeAudio.play('badge');
+       $cordovaNativeAudio
+       .preloadSimple('menuSwoop', 'audio/ContactMenuSwoop.mp3')
+       .then(function(msg) {
+         console.log(msg);
+         $log.debug("prepare sound successfully", msg);
+       }, function(error) {
+        $log.debug("error", error);
+       });
+
+       $cordovaNativeAudio
+       .preloadSimple('menuSwishReverse', 'audio/MenuSwishReverse.mp3')
+       .then(function(msg) {
+         console.log(msg);
+         $log.debug("prepare sound successfully", msg);
+       }, function(error) {
+        $log.debug("error", error);
+       });
+
+       $cordovaNativeAudio
+       .preloadSimple('menuSwish', 'audio/MenuSwish.mp3')
+       .then(function(msg) {
+         console.log(msg);
+         $log.debug("prepare sound successfully", msg);
+       }, function(error) {
+        $log.debug("error", error);
+       });
+
+       $cordovaNativeAudio
+       .preloadSimple('newLead', 'audio/NewLead.mp3')
+       .then(function(msg) {
+         console.log(msg);
+         $log.debug("prepare sound successfully", msg);
+       }, function(error) {
+        $log.debug("error", error);
+       });
 
       $scope.$watch(function() {
           return $ionicSideMenuDelegate.getOpenRatio();
@@ -35,9 +71,10 @@ angular.module('phsDriverApp.controllers')
             window.plugins.NativeAudio.play('menuSwishReverse');
           }
         });
+    } else {
+      $log.debug("Not a real device");
     }
 
-  });
   $scope.init = function() {
     PhsServer.getContactInfos().then(function(data) {
       $scope.contactInfos = data[0];
@@ -68,7 +105,7 @@ angular.module('phsDriverApp.controllers')
   $scope.init();
 }])
 
-.controller('NewStoryCtrl', function($scope, $ionicPopup, $rootScope, $timeout, $log, StoryService) {
+.controller('NewStoryCtrl', function($scope, $ionicPopup, $rootScope, $timeout, $log, StoryService, $cordovaNativeAudio) {
   $scope.data = {
     title: '',
     body: ''
@@ -88,7 +125,7 @@ angular.module('phsDriverApp.controllers')
         StoryService.postNewStory($scope.data).then(function() {
           $scope.showPopup();
           if ($rootScope.isDevice) {
-            window.plugins.NativeAudio.play('newLead');
+            $cordovaNativeAudio.play('newLead');
           }
         });
       } else {

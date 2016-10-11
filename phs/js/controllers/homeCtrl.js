@@ -1,6 +1,6 @@
 angular.module('phsDriverApp.controllers')
-  .controller('HomeCtrl', ['$rootScope', '$scope', '$log', '$ionicPlatform', '$timeout', '$window', 'PhsServer', 'Utils',
-    function($rootScope, $scope, $log, $ionicPlatform, $timeout, $window, PhsServer, Utils) {
+  .controller('HomeCtrl', ['$rootScope', '$scope', '$log', '$ionicPlatform', '$timeout', '$window', 'PhsServer', 'Utils', '$cordovaNativeAudio',
+    function($rootScope, $scope, $log, $ionicPlatform, $timeout, $window, PhsServer, Utils, $cordovaNativeAudio) {
 
       $scope.init = function() {
         $scope.isLoading = true;
@@ -60,9 +60,14 @@ angular.module('phsDriverApp.controllers')
             return PhsServer.getLeadRecent();
           })
           .then(function(leadRecents) {
+            if ($rootScope.isDevice) {
+              $cordovaNativeAudio.play('badge');
+            }
             $log.debug("[Home] Lead Recent: ", leadRecents);
             $scope.isLoading = false;
             $scope.leadRecents = leadRecents;
+          }, function(error) {
+            Utils.hideLoading();
           });
 
         var initBadges = function(badges) {

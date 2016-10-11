@@ -7,6 +7,9 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
         "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
@@ -28,7 +31,7 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
-        "cordova-plugin-camera": {
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.phs.driver.android"
         }
     },

@@ -1,5 +1,5 @@
 angular.module('phsDriverApp.controllers')
-  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$cordovaImagePicker', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', 'LocationService', 'Utils', 'PhsServer', function($rootScope, $scope, $cordovaImagePicker, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService, LocationService, Utils, PhsServer) {
+  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$cordovaImagePicker', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', 'LocationService', 'Utils', 'PhsServer', '$cordovaNativeAudio', function($rootScope, $scope, $cordovaImagePicker, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService, LocationService, Utils, PhsServer, $cordovaNativeAudio) {
 
     $scope.init = function() {
 
@@ -141,7 +141,7 @@ angular.module('phsDriverApp.controllers')
             Utils.hideLoading();
             $scope.showPopup();
             if ($rootScope.isDevice) {
-              window.plugins.NativeAudio.play('newLead');
+              $cordovaNativeAudio.play('newLead');
             }
           }, function(error) {
             Utils.hideLoading();

@@ -9,7 +9,7 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
     api: 'https://mobilewebapi.phs.co.uk/Salesforce.MobileServices/api' // baseURL
   })
 
-.run(function($ionicPlatform, $rootScope, UserService) {
+.run(function($ionicPlatform, $rootScope, UserService, $log) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -25,6 +25,7 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
 
     $rootScope.isDevice = (ionic.Platform.device().available && ionic.Platform.device().platform !== 'browser') || false;
     window.isDevice = $rootScope.isDevice;
+    $log.debug("isDevice is: ", $rootScope.isDevice);
     var currentUser = {};
     UserService.getCurrentUser().then(function(user){
       console.log('user id');
