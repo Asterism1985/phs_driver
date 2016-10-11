@@ -55,9 +55,10 @@ angular.module('phsDriverApp.controllers')
         function(ratio) {
           if (ratio === 1) {
             window.plugins.NativeAudio.play('menuSwish');
-          } else {
-            window.plugins.NativeAudio.play('menuSwishReverse');
-          }
+          } 
+          // else {
+          //   window.plugins.NativeAudio.play('menuSwishReverse');
+          // }
         });
     } else {
       $log.debug("Not a real device");

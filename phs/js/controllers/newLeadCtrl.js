@@ -128,7 +128,7 @@ angular.module('phsDriverApp.controllers')
       var confirmPopup = $ionicPopup.confirm({
         title: '',
         cssClass: 'confirm-title',
-        template: $rootScope.AppText.LEAD_CREATE_CONFIRM,
+        template: $rootScope.AppText.LEAD_CREATE_TITLE,
         cancelType: 'cancel-btn',
         okType: 'ok-btn-selected'
       });
