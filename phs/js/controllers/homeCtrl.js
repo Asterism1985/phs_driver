@@ -65,7 +65,12 @@ angular.module('phsDriverApp.controllers')
             }
             $log.debug("[Home] Lead Recent: ", leadRecents);
             $scope.isLoading = false;
-            $scope.leadRecents = leadRecents;
+            var count = leadRecents.length;
+            if (count > 3) {
+              $scope.leadRecents = leadRecents.slice(count-3, count);
+            } else {
+              $scope.leadRecents = leadRecents;
+            }
           }, function(error) {
             Utils.hideLoading();
           });
