@@ -3,24 +3,12 @@ angular.module('phsDriverApp.controllers')
 .controller('AppCtrl', ['$rootScope', '$scope', '$timeout', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'UserService', 'PhsServer', '$cordovaNativeAudio', function($rootScope, $scope, $timeout, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, UserService, PhsServer, $cordovaNativeAudio) {
 
     if ($rootScope.isDevice) {
-      $log.debug("prepare for sound");
-
-      $cordovaNativeAudio
-       .preloadSimple('click', 'audio/BadgeAcquisition.mp3')
-       .then(function(msg) {
-        alert(msg);
-         console.log(msg);
-         $log.debug("prepare sound successfully", msg);
-       }, function(error) {
-        $log.debug("error", error);
-         alert(error);
-       });
 
        $cordovaNativeAudio
        .preloadSimple('badge', 'audio/BadgeAcquisition.mp3')
        .then(function(msg) {
          console.log(msg);
-         $log.debug("prepare sound successfully", msg);
+         $log.debug("prepare sound badge", msg);
        }, function(error) {
         $log.debug("error", error);
        });
@@ -38,7 +26,7 @@ angular.module('phsDriverApp.controllers')
        .preloadSimple('menuSwishReverse', 'audio/MenuSwishReverse.mp3')
        .then(function(msg) {
          console.log(msg);
-         $log.debug("prepare sound successfully", msg);
+         $log.debug("prepare sound menuSwishReverse", msg);
        }, function(error) {
         $log.debug("error", error);
        });
@@ -47,7 +35,7 @@ angular.module('phsDriverApp.controllers')
        .preloadSimple('menuSwish', 'audio/MenuSwish.mp3')
        .then(function(msg) {
          console.log(msg);
-         $log.debug("prepare sound successfully", msg);
+         $log.debug("prepare sound menuSwish", msg);
        }, function(error) {
         $log.debug("error", error);
        });
@@ -56,7 +44,7 @@ angular.module('phsDriverApp.controllers')
        .preloadSimple('newLead', 'audio/NewLead.mp3')
        .then(function(msg) {
          console.log(msg);
-         $log.debug("prepare sound successfully", msg);
+         $log.debug("prepare sound newLead", msg);
        }, function(error) {
         $log.debug("error", error);
        });
