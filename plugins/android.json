@@ -10,6 +10,9 @@
         "com.synconset.imagepicker": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
+        "cordova-custom-config": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },

@@ -1,0 +1,112 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-custom-config",
+        "scope": null,
+        "escapedName": "cordova-custom-config",
+        "name": "cordova-custom-config",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/huyle/Upwork/phs_driver_app/node_modules"
+    ]
+  ],
+  "_from": "cordova-custom-config@latest",
+  "_id": "cordova-custom-config@3.0.5",
+  "_inCache": true,
+  "_location": "/cordova-custom-config",
+  "_nodeVersion": "6.7.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/cordova-custom-config-3.0.5.tgz_1476216602683_0.12824779539369047"
+  },
+  "_npmUser": {
+    "name": "davealden",
+    "email": "dave@workingedge.co.uk"
+  },
+  "_npmVersion": "3.10.3",
+  "_phantomChildren": {
+    "glob": "7.1.0",
+    "interpret": "1.0.1",
+    "rechoir": "0.6.2"
+  },
+  "_requested": {
+    "raw": "cordova-custom-config",
+    "scope": null,
+    "escapedName": "cordova-custom-config",
+    "name": "cordova-custom-config",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-custom-config/-/cordova-custom-config-3.0.5.tgz",
+  "_shasum": "1919d756457f612fb1dbf2b2850dc63cefc9647c",
+  "_shrinkwrap": null,
+  "_spec": "cordova-custom-config",
+  "_where": "/Users/huyle/Upwork/phs_driver_app/node_modules",
+  "author": {
+    "name": "Dave Alden"
+  },
+  "bugs": {
+    "url": "https://github.com/dpa99c/cordova-custom-config/issues"
+  },
+  "cordova": {
+    "id": "cordova-custom-config",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "cordova_name": "cordova-custom-config",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "elementtree": "^0.1.6",
+    "lodash": "^4.3.0",
+    "plist": "^1.2.0",
+    "shelljs": "^0.7.0",
+    "tostr": "^0.1.0",
+    "xcode": "^0.8.9"
+  },
+  "description": "Cordova/Phonegap plugin to update platform configuration files based on preferences and config-file data defined in config.xml.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "1919d756457f612fb1dbf2b2850dc63cefc9647c",
+    "tarball": "https://registry.npmjs.org/cordova-custom-config/-/cordova-custom-config-3.0.5.tgz"
+  },
+  "gitHead": "ef6622b800baeca7bfe46ae5f7e1bde521aa3724",
+  "homepage": "https://github.com/dpa99c/cordova-custom-config#readme",
+  "issue": "https://github.com/dpa99c/cordova-custom-config/issues",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova",
+    "cordova-android",
+    "cordova-ios",
+    "phonegap",
+    "config",
+    "configuration",
+    "plist",
+    "manifest"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "davealden",
+      "email": "dave@workingedge.co.uk"
+    }
+  ],
+  "name": "cordova-custom-config",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpa99c/cordova-custom-config.git"
+  },
+  "scripts": {},
+  "version": "3.0.5"
+}

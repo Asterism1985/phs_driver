@@ -13,9 +13,6 @@
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.phs.driver.android"
-        },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
@@ -35,6 +32,12 @@
             "PACKAGE_NAME": "com.phs.driver.android"
         },
         "com.synconset.imagepicker": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
+        "cordova-custom-config": {
             "PACKAGE_NAME": "com.phs.driver.android"
         }
     },

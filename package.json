@@ -30,7 +30,6 @@
   },
   "cordovaPlugins": [
     "cordova-plugin-crosswalk-webview",
-    "cordova-plugin-whitelist",
     "ionic-plugin-keyboard",
     "cordova-plugin-geolocation",
     "cordova-plugin-inappbrowser",
@@ -44,7 +43,9 @@
     {
       "locator": "https://github.com/Telerik-Verified-Plugins/ImagePicker",
       "id": "com.synconset.imagepicker"
-    }
+    },
+    "cordova-plugin-whitelist",
+    "cordova-custom-config"
   ],
   "cordovaPlatforms": [
     "ios",

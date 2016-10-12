@@ -21,9 +21,6 @@
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.phs.driver.ios"
         },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.phs.driver.ios"
-        },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.phs.driver.ios"
         },
@@ -37,6 +34,12 @@
             "PACKAGE_NAME": "com.phs.driver.ios"
         },
         "com.synconset.imagepicker": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "cordova-custom-config": {
             "PACKAGE_NAME": "com.phs.driver.ios"
         }
     },
