@@ -1,5 +1,5 @@
 angular.module('phsDriverApp.controllers')
-  .controller('LoginCtrl', ['$rootScope', '$scope', '$log', 'Utils', 'PhsServer', 'UserService', 'RequestService', 'AppConfig', function($rootScope, $scope, $log, Utils, PhsServer, UserService, RequestService, AppConfig) {
+  .controller('LoginCtrl', ['$rootScope', '$scope', '$log', 'Utils', 'PhsServer', 'UserService', 'RequestService', 'AppConfig', '$cordovaKeyboard', function($rootScope, $scope, $log, Utils, PhsServer, UserService, RequestService, AppConfig, $cordovaKeyboard) {
 
     $scope.init = function() {
       $scope.passcode = {
