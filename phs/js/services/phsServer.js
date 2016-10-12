@@ -157,7 +157,11 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTrans
   this.getAllLocationNearBy = function(location) {
     //Nearby?lat=51.600697&lgt=0.549094
     var deferred = $q.defer();
-    $http.get(path.nearBy + '?lat='+location.lat + '&lng=' + location.long).then(
+    //cheat code to test  (lat=51.600697&lng=0.549094)
+    location.lat = '51.600697';
+    location.lng = '0.549094';
+
+    $http.get(path.nearBy + '?lat='+location.lat + '&lng=' + location.lng).then(
       function(res) {
         deferred.resolve(res.data);
       },

@@ -1,5 +1,5 @@
 angular.module('phsDriverApp.controllers')
-  .controller('LoginCtrl', ['$rootScope', '$scope', '$log', 'Utils', 'PhsServer', 'UserService', 'RequestService', function($rootScope, $scope, $log, Utils, PhsServer, UserService, RequestService) {
+  .controller('LoginCtrl', ['$rootScope', '$scope', '$log', 'Utils', 'PhsServer', 'UserService', 'RequestService', 'AppConfig', function($rootScope, $scope, $log, Utils, PhsServer, UserService, RequestService, AppConfig) {
 
     $scope.init = function() {
       $scope.passcode = {
@@ -30,6 +30,7 @@ angular.module('phsDriverApp.controllers')
       .then(function(appConfigs) {
         $log.debug("AppConfig label: ", appConfigs);
         $rootScope.AppText = appConfigs;
+        AppConfig.cacheAppText(appConfigs);
         Utils.hideLoading();
         UserService.registerTimeoutSession();
         Utils.toLocation('/app/home');

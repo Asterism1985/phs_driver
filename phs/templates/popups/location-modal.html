@@ -4,7 +4,7 @@
   </ion-header-bar>
   <ion-content>
     <ion-list class="pick-location">
-      <ion-item class="item-text-wrap" ng-repeat="location in ::locationsNearby" ng-click="locationPicked()">
+      <ion-item class="item-text-wrap" ng-repeat="location in ::locationsNearby" ng-click="locationPicked(location)">
         <h6>{{location.name}}</h6>
         <span>{{location.street}} {{location.town}} {{location.country}}</span>
       </ion-item>
