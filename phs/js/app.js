@@ -28,7 +28,6 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
     $log.debug("isDevice is: ", $rootScope.isDevice);
     var currentUser = {};
     $rootScope.AppText = {};
-    Utils.showLoading();
     UserService.getCurrentUser().then(function(user){
       $log.debug('user id', user);
       $rootScope.currentUser = user;
@@ -38,10 +37,8 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
     .then(function(appText){
       $log.debug('get app text from cache');
       $rootScope.AppText = appText;
-      Utils.hideLoading();
       Utils.toLocation('/app/home');
     }, function(error) {
-      Utils.hideLoading();
     });
   });
 })

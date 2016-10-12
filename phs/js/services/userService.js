@@ -8,7 +8,11 @@ angular.module('phsDriverApp.services')
     UserService.getCurrentUser = function() {
         var deferred = $q.defer();
         $localForage.getItem(AppConfig.appKeys().currentUser).then(function(user) {
-          deferred.resolve(user);
+          if (user) {
+            deferred.resolve(user);
+          } else {
+            deferred.reject();
+          }
         });
         return deferred.promise;
       };

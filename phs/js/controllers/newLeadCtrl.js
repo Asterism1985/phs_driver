@@ -50,8 +50,8 @@ angular.module('phsDriverApp.controllers')
     // Location picked from modal
     $scope.locationPicked = function(location) {
       $scope.data = {
-        surname: location.name,
-        companyName: '',
+        surname: '',
+        companyName: location.name,
         description: location.street + ' ' + location.town,
         accountNo: location.accountNumber,
         postcode: location.postcode,
