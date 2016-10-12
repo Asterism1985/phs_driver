@@ -1,10 +1,18 @@
 <div class="upload-btn">
-  <div class="uplContainer" ngf-select="uploadFiles($files)" ng-model="files" ngf-multiple="true" ngf-keep="true" ngf-no-object-url="true">
+  <div ng-if="!isDevice" class="uplContainer" ngf-select="uploadFiles($files)" ng-model="files" ngf-multiple="true" ngf-keep="true" ngf-no-object-url="true">
     <span>{{AppText.LEAD_CREATE_UPLOAD}}</span>
     <br>
     <i class="icon ion-ios-videocam"></i>
     <i class="icon ion-camera"></i>
   </div>
+
+  <div ng-if="isDevice" class="uplContainer" ng-click="selectImageCameraRoll()">
+    <span>{{AppText.LEAD_CREATE_UPLOAD}}</span>
+    <br>
+    <i class="icon ion-ios-videocam"></i>
+    <i class="icon ion-camera"></i>
+  </div>
+
 </div>
 <div ng-if="files.length > 0" class="row row-center">
   <div class="col col-10">

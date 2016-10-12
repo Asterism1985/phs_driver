@@ -85,27 +85,6 @@ angular.module('phsDriverApp.controllers')
       $scope.showPopupInputYourLocation();
     };
 
-    $scope.uploadImage = function() {
-      // if ($rootScope.isDevice) {
-      var options = {
-        maximumImagesCount: 10,
-        width: 800,
-        height: 800,
-        quality: 80
-      };
-      $cordovaImagePicker.getPictures(options)
-        .then(function(results) {
-          for (var i = 0; i < results.length; i++) {
-            console.log('Image URI: ' + results[i]);
-          }
-        }, function(error) {
-          // error getting photos
-        });
-      // } else {
-      //   $scope.showModalUploadFile();
-      // }
-    };
-
     $scope.showModalLocationPick = function() {
       ModalService
         .init('templates/popups/location-modal.html', $scope)

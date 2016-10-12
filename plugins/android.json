@@ -7,16 +7,22 @@
         "files": {}
     },
     "installed_plugins": {
+        "com.synconset.imagepicker": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
         "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
-        "cordova-plugin-geolocation": {
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
-        "cordova-plugin-image-picker": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
+        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
         "cordova-plugin-inappbrowser": {
@@ -29,9 +35,6 @@
             "PACKAGE_NAME": "com.phs.driver.android"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.phs.driver.android"
-        },
-        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.phs.driver.android"
         }
     },

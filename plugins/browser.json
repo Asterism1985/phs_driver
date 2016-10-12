@@ -22,9 +22,6 @@
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
-        "cordova-plugin-image-picker": {
-            "PACKAGE_NAME": "com.phs.driver.android"
-        },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
@@ -32,6 +29,12 @@
             "PACKAGE_NAME": "com.phs.driver.android"
         },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
+        "com.synconset.imagepicker": {
             "PACKAGE_NAME": "com.phs.driver.android"
         }
     },

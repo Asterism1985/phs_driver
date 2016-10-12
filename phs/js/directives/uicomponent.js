@@ -13,7 +13,27 @@ angular.module('phsDriverApp.directives')
     return {
       restrict: 'E',
       templateUrl: 'templates/directives/image-slider.html',
-      controller: ['$scope', '$ionicSlideBoxDelegate', '$timeout', function($scope, $ionicSlideBoxDelegate, $timeout) {
+      controller: ['$rootScope', '$scope', '$log', '$ionicSlideBoxDelegate', '$timeout', function($rootScope, $scope, $log, $ionicSlideBoxDelegate, $timeout) {
+
+        $scope.selectImageCameraRoll = function() {
+          var options = {
+            maximumImagesCount: 5,
+            width: 400,
+            height: 400,
+            quality: 80
+          };
+          $cordovaImagePicker.getPictures(options)
+            .then(function(results) {
+              for (var i = 0; i < results.length; i++) {
+                $log.debug('Image URI: ' + results[i]);
+                $scope.files = results;
+              }
+            }, function(error) {
+              // error getting photos
+              $log.debug(error);
+            });
+        };
+
         $scope.next = function() {
           $ionicSlideBoxDelegate.next();
         };

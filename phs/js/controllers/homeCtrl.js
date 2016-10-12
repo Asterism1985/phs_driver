@@ -136,9 +136,7 @@ angular.module('phsDriverApp.controllers')
           else {
             return (badge.badgeScore - range[0].rangeMin) / (range[0].rangeMax - range[0].rangeMin + 1);
           }
-
         }
-
       };
       $scope.init();
     }
