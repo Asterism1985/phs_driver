@@ -1,5 +1,5 @@
 angular.module('phsDriverApp.controllers')
-  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$cordovaImagePicker', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', 'LocationService', 'Utils', 'PhsServer', '$cordovaNativeAudio', function($rootScope, $scope, $cordovaImagePicker, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService, LocationService, Utils, PhsServer, $cordovaNativeAudio) {
+  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', 'LocationService', 'Utils', 'PhsServer', '$cordovaNativeAudio', function($rootScope, $scope, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService, LocationService, Utils, PhsServer, $cordovaNativeAudio) {
 
     $scope.init = function() {
 

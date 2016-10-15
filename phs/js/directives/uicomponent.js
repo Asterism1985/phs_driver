@@ -13,7 +13,7 @@ angular.module('phsDriverApp.directives')
     return {
       restrict: 'E',
       templateUrl: 'templates/directives/image-slider.html',
-      controller: ['$rootScope', '$scope', '$log', '$ionicSlideBoxDelegate', '$timeout', function($rootScope, $scope, $log, $ionicSlideBoxDelegate, $timeout) {
+      controller: ['$rootScope', '$scope', '$log', '$ionicSlideBoxDelegate', '$timeout', '$cordovaImagePicker', function($rootScope, $scope, $log, $ionicSlideBoxDelegate, $timeout, $cordovaImagePicker) {
 
         $scope.selectImageCameraRoll = function() {
           var options = {
