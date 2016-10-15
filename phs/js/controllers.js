@@ -2,67 +2,65 @@ angular.module('phsDriverApp.controllers')
 
 .controller('AppCtrl', ['$rootScope', '$scope', '$timeout', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'UserService', 'PhsServer', '$cordovaNativeAudio', 'PhsLocalService', function($rootScope, $scope, $timeout, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, UserService, PhsServer, $cordovaNativeAudio, PhsLocalService) {
 
-    if ($rootScope.isDevice) {
+  if ($rootScope.isDevice) {
 
-       $cordovaNativeAudio
-       .preloadSimple('badge', 'audio/BadgeAcquisition.mp3')
-       .then(function(msg) {
-         console.log(msg);
-         $log.debug("prepare sound badge", msg);
-       }, function(error) {
+    $cordovaNativeAudio
+      .preloadComplex('badge', 'audio/BadgeAcquisition.mp3', 1, 1)
+      .then(function(msg) {
+        $log.debug("prepare sound badge", msg);
+      }, function(error) {
         $log.debug("error", error);
-       });
+      });
 
-       $cordovaNativeAudio
-       .preloadSimple('contactSound', 'audio/ContactMenuSwoop.mp3')
-       .then(function(msg) {
-         console.log(msg);
-         $log.debug("prepare sound successfully", msg);
-       }, function(error) {
+    $cordovaNativeAudio
+      .preloadComplex('contactSound', 'audio/ContactMenuSwoop.mp3', 1, 1)
+      .then(function(msg) {
+        console.log(msg);
+        $log.debug("prepare sound successfully", msg);
+      }, function(error) {
         $log.debug("error", error);
-       });
+      });
 
-       $cordovaNativeAudio
-       .preloadSimple('menuSwishReverse', 'audio/MenuSwishReverse.mp3')
-       .then(function(msg) {
-         console.log(msg);
-         $log.debug("prepare sound menuSwishReverse", msg);
-       }, function(error) {
+    $cordovaNativeAudio
+      .preloadComplex('menuSwishReverse', 'audio/MenuSwishReverse.mp3', 1, 1)
+      .then(function(msg) {
+        console.log(msg);
+        $log.debug("prepare sound menuSwishReverse", msg);
+      }, function(error) {
         $log.debug("error", error);
-       });
+      });
 
-       $cordovaNativeAudio
-       .preloadSimple('menuSwish', 'audio/MenuSwish.mp3')
-       .then(function(msg) {
-         console.log(msg);
-         $log.debug("prepare sound menuSwish", msg);
-       }, function(error) {
+    $cordovaNativeAudio
+      .preloadComplex('menuSwish', 'audio/MenuSwish.mp3', 1, 1)
+      .then(function(msg) {
+        console.log(msg);
+        $log.debug("prepare sound menuSwish", msg);
+      }, function(error) {
         $log.debug("error", error);
-       });
+      });
 
-       $cordovaNativeAudio
-       .preloadSimple('newLead', 'audio/NewLead.mp3')
-       .then(function(msg) {
-         console.log(msg);
-         $log.debug("prepare sound newLead", msg);
-       }, function(error) {
+    $cordovaNativeAudio
+      .preloadComplex('newLead', 'audio/NewLead.mp3', 1, 1)
+      .then(function(msg) {
+        console.log(msg);
+        $log.debug("prepare sound newLead", msg);
+      }, function(error) {
         $log.debug("error", error);
-       });
+      });
 
-      $scope.$watch(function() {
-          return $ionicSideMenuDelegate.getOpenRatio();
-        },
-        function(ratio) {
-          if (ratio === 1) {
-            window.plugins.NativeAudio.play('menuSwish');
-          } 
-          else {
-            window.plugins.NativeAudio.play('menuSwishReverse');
-          }
-        });
-    } else {
-      $log.debug("Not a real device");
-    }
+    $scope.$watch(function() {
+        return $ionicSideMenuDelegate.getOpenRatio();
+      },
+      function(ratio) {
+        if (ratio === 1) {
+          window.plugins.NativeAudio.play('menuSwish');
+        } else {
+          window.plugins.NativeAudio.play('menuSwishReverse');
+        }
+      });
+  } else {
+    $log.debug("Not a real device");
+  }
 
   $scope.init = function() {
     PhsServer.getContactInfos().then(function(data) {

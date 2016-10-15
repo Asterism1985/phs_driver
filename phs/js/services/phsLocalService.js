@@ -273,22 +273,40 @@ function PHSLocalService($rootScope, $log, $q, $http, Config, $cordovaFileTransf
   };
 
   this.getAllLocationNearBy = function(location) {
-    //Nearby?lat=51.600697&lgt=0.549094
-    var deferred = $q.defer();
-    //cheat code to test  (lat=51.600697&lng=0.549094)
-    location.lat = '51.600697';
-    location.lng = '0.549094';
-
-    $http.get(path.nearBy + '?lat=' + location.lat + '&lng=' + location.lng).then(
-      function(res) {
-        deferred.resolve(res.data);
-      },
-      function(error) {
-        $log.error(error);
-        deferred.reject(error);
+    return [{
+      "accountNumber": 8989234,
+      "name": "Test Customer 1",
+      "street": "Unit 2b, Main Road",
+      "town": "Newtown",
+      "county": "Newshire",
+      "postcode": "CF83 2AS",
+      "distance": {
+        "value": 19.1,
+        "unitType": "km"
       }
-    );
-    return deferred.promise;
+    }, {
+      "accountNumber": 8989235,
+      "name": "Test Customer 2",
+      "street": "2, Next Road",
+      "town": "Newtown",
+      "county": "Newshire",
+      "postcode": "CF83 2AX",
+      "distance": {
+        "value": 19.7,
+        "unitType": "km"
+      }
+    }, {
+      "accountNumber": 8989236,
+      "name": "Test Customer 3",
+      "street": "The Building, West Road",
+      "town": "Oldtown",
+      "county": "Newshire",
+      "postcode": "CF82 3TT",
+      "distance": {
+        "value": 34.1,
+        "unitType": "km"
+      }
+    }];
   };
 
   // Submit New Lead 
