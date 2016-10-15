@@ -6,6 +6,7 @@ angular.module('phsDriverApp.controllers')
 
       $ionicPlatform.on('resume', function() {
         if ($scope.isGotoLocationSetting) {
+          $scope.isGotoLocationSetting = false;
           $scope.getCurrentLocation();
         }
       });
