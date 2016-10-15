@@ -54,7 +54,7 @@ angular.module('phsDriverApp.directives')
             window.cordova.plugins.Keyboard.show();
           }
           $element[0].focus();
-        }, 100);
+        }, 1000);
       }
     };
   }])
