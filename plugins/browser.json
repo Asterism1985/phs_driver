@@ -31,13 +31,13 @@
         "cordova-plugin-file": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
-        "com.synconset.imagepicker": {
-            "PACKAGE_NAME": "com.phs.driver.android"
-        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
         "cordova-custom-config": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
+        "cordova-plugin-image-picker": {
             "PACKAGE_NAME": "com.phs.driver.android"
         }
     },

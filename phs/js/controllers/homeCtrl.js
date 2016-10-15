@@ -77,6 +77,9 @@ angular.module('phsDriverApp.controllers')
             $scope.badges = PhsLocalService.getBadges();
             initBadges($scope.badges);
             $scope.leadRecents = PhsLocalService.getLeadRecent();
+            if ($rootScope.isDevice) {
+              $cordovaNativeAudio.play('badge');
+            }
           });
 
         var initBadges = function(badges) {

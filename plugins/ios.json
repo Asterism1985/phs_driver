@@ -33,13 +33,14 @@
         "cordova-plugin-file": {
             "PACKAGE_NAME": "com.phs.driver.ios"
         },
-        "com.synconset.imagepicker": {
-            "PACKAGE_NAME": "com.phs.driver.ios"
-        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.phs.driver.ios"
         },
         "cordova-custom-config": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "cordova-plugin-image-picker": {
+            "PHOTO_LIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.phs.driver.ios"
         }
     },

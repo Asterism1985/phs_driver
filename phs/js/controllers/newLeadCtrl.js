@@ -36,8 +36,6 @@ angular.module('phsDriverApp.controllers')
               Utils.hideLoading();
               $scope.showModalLocationPick();
             });
-
-            
           }
         });
       }, function(error) {
@@ -104,6 +102,9 @@ angular.module('phsDriverApp.controllers')
             }
           }, function(error) {
             Utils.hideLoading();
+            if ($rootScope.isDevice) {
+              $cordovaNativeAudio.play('newLead');
+            }
             $log.debug("Create new lead error", error);
           })
           

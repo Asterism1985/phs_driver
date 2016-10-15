@@ -20,6 +20,10 @@ angular.module('phsDriverApp.controllers')
           if ($rootScope.isDevice) {
             $cordovaNativeAudio.play('newLead');
           }
+        }, function(error) {
+          if ($rootScope.isDevice) {
+            $cordovaNativeAudio.play('newLead');
+          }
         });
       } else {
         $log.log('You are not sure');

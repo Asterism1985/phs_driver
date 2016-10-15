@@ -14,7 +14,7 @@ angular.module('phsDriverApp.controllers')
        });
 
        $cordovaNativeAudio
-       .preloadSimple('menuSwoop', 'audio/ContactMenuSwoop.mp3')
+       .preloadSimple('contactSound', 'audio/ContactMenuSwoop.mp3')
        .then(function(msg) {
          console.log(msg);
          $log.debug("prepare sound successfully", msg);
@@ -56,9 +56,9 @@ angular.module('phsDriverApp.controllers')
           if (ratio === 1) {
             window.plugins.NativeAudio.play('menuSwish');
           } 
-          // else {
-          //   window.plugins.NativeAudio.play('menuSwishReverse');
-          // }
+          else {
+            window.plugins.NativeAudio.play('menuSwishReverse');
+          }
         });
     } else {
       $log.debug("Not a real device");
@@ -86,6 +86,13 @@ angular.module('phsDriverApp.controllers')
       Utils.hideLoading();
     });
   };
+
+  $scope.showPopOverContact = function() {
+    if ($rootScope.isDevice) {
+      $cordovaNativeAudio.play('contactSound');
+    }
+    $scope.popover.show();
+  }
 
   $ionicPopover.fromTemplateUrl('templates/popover.html', {
     scope: $scope,
