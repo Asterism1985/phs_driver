@@ -37,6 +37,9 @@
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.phs.driver.android"
         },
+        "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.phs.driver.android"
+        },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.phs.driver.android"
         }

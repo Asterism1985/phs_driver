@@ -1,8 +1,14 @@
 angular.module('phsDriverApp.controllers')
-  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', 'LocationService', 'Utils', 'PhsServer', '$cordovaNativeAudio', function($rootScope, $scope, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService, LocationService, Utils, PhsServer, $cordovaNativeAudio) {
+  .controller('NewLeadCtrl', ['$rootScope', '$scope', '$ionicModal', '$ionicPopover', '$ionicPopup', '$timeout', '$log', '$ionicSlideBoxDelegate', 'ModalService', 'LocationService', 'Utils', 'PhsServer', '$cordovaNativeAudio', 'PhsLocalService', '$ionicPlatform', function($rootScope, $scope, $ionicModal, $ionicPopover, $ionicPopup, $timeout, $log, $ionicSlideBoxDelegate, ModalService, LocationService, Utils, PhsServer, $cordovaNativeAudio, PhsLocalService, $ionicPlatform) {
 
     $scope.init = function() {
+      $scope.isGotoLocationSetting = false;
 
+      $ionicPlatform.on('resume', function() {
+        if ($scope.isGotoLocationSetting) {
+          $scope.getCurrentLocation();
+        }
+      });
       $scope.data = {
         surname: '',
         companyName: '',
@@ -13,6 +19,27 @@ angular.module('phsDriverApp.controllers')
         email: ''
       };
 
+      if (window.cordova) {
+        cordova.plugins.diagnostic.isLocationEnabled(
+          function(e) {
+            if (e) {
+              $scope.getCurrentLocation();
+            } else {
+              alert('Warning: GPS may not be enabled on the device');
+              $scope.isGotoLocationSetting = true;
+              cordova.plugins.diagnostic.switchToLocationSettings();
+
+            }
+          },
+          function(e) {
+            $log.debug("Error with diagnostic checking");
+            alert('Error ' + e);
+          }
+        );
+      }
+    };
+
+    $scope.getCurrentLocation = function() {
       Utils.showLoading("Get current location...");
 
       LocationService.getCurrentLocation().then(function(data) {
@@ -33,6 +60,9 @@ angular.module('phsDriverApp.controllers')
               $scope.showModalLocationPick();
             }, function(error) {
               $log.debug("Can not get nearby location");
+              if ($rootScope.useLocalService) {
+                $scope.locationsNearby = PhsLocalService.getAllLocationNearBy();
+              }
               Utils.hideLoading();
               $scope.showModalLocationPick();
             });
@@ -40,11 +70,14 @@ angular.module('phsDriverApp.controllers')
         });
       }, function(error) {
         $log.debug("Can not get current location");
+        if ($rootScope.useLocalService) {
+          $scope.locationsNearby = PhsLocalService.getAllLocationNearBy();
+        }
         Utils.hideLoading();
         $log.debug(error);
         $scope.showModalLocationPick();
       });
-    };
+    }
 
     // Location picked from modal
     $scope.locationPicked = function(location) {
@@ -95,7 +128,7 @@ angular.module('phsDriverApp.controllers')
         if (res) {
           $log.log('You are sure');
           Utils.showLoading();
-          PhsServer.submitNewLead($scope.data).then(function(){
+          PhsServer.submitNewLead($scope.data).then(function() {
             Utils.hideLoading();
             $scope.showPopup();
             if ($rootScope.isDevice) {
@@ -111,7 +144,7 @@ angular.module('phsDriverApp.controllers')
             }
             $log.debug("Create new lead error", error);
           })
-          
+
         } else {
           $log.log('You are not sure');
         }

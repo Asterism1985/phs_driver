@@ -42,6 +42,9 @@
         "cordova-plugin-image-picker": {
             "PHOTO_LIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
         }
     },
     "dependent_plugins": {
