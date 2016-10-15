@@ -50,8 +50,6 @@ angular.module('phsDriverApp.controllers')
           fillCircle: false
         });
 
-        
-
         PhsServer.getBadges().then(function(data) {
             $log.debug("[Home] Badges is: ", data);
             Utils.hideLoading();
@@ -67,18 +65,20 @@ angular.module('phsDriverApp.controllers')
             $scope.isLoading = false;
             var count = leadRecents.length;
             if (count > 3) {
-              $scope.leadRecents = leadRecents.slice(count-3, count);
+              $scope.leadRecents = leadRecents.slice(count - 3, count);
             } else {
               $scope.leadRecents = leadRecents;
             }
           }, function(error) {
             Utils.hideLoading();
             $scope.isLoading = false;
-            $scope.badges = PhsLocalService.getBadges();
-            initBadges($scope.badges);
-            $scope.leadRecents = PhsLocalService.getLeadRecent();
-            if ($rootScope.isDevice) {
-              $cordovaNativeAudio.play('badge');
+            if ($rootScope.useLocalService) {
+              $scope.badges = PhsLocalService.getBadges();
+              initBadges($scope.badges);
+              $scope.leadRecents = PhsLocalService.getLeadRecent();
+              if ($rootScope.isDevice) {
+                $cordovaNativeAudio.play('badge');
+              }
             }
           });
 
@@ -105,11 +105,11 @@ angular.module('phsDriverApp.controllers')
           }, 100);
 
           $timeout(function() {
-          sektor1.animateTo($scope.angleLead, 500);
-          sektor2.animateTo($scope.angleConvertedLead, 500);
-          sektor3.animateTo($scope.angleStory, 500);
-        }, 500);
-          
+            sektor1.animateTo($scope.angleLead, 500);
+            sektor2.animateTo($scope.angleConvertedLead, 500);
+            sektor3.animateTo($scope.angleStory, 500);
+          }, 500);
+
         };
 
         var calculateStarColor = function(badge) {
@@ -139,8 +139,7 @@ angular.module('phsDriverApp.controllers')
             return (badge.badgeScore - range[2].rangeMin) / (range[2].rangeMax - range[2].rangeMin + 1);
           } else if (number === 3) {
             return (badge.badgeScore - range[3].rangeMin) / (range[3].rangeMax - range[3].rangeMin + 1);
-          }
-          else {
+          } else {
             return (badge.badgeScore - range[0].rangeMin) / (range[0].rangeMax - range[0].rangeMin + 1);
           }
         }

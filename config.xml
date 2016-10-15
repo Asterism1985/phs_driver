@@ -23,6 +23,7 @@
   <allow-navigation href="data:*"/>
   <allow-navigation href="content://*/*"/>
   <allow-navigation href="file:///*/*"/>
+  <allow-navigation href="file:///data/data/*/*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>

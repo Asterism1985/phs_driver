@@ -41,6 +41,7 @@ angular.module('phsDriverApp.controllers')
       }, function(error) {
         $log.debug("Can not get current location");
         Utils.hideLoading();
+        $log.debug(error);
         $scope.showModalLocationPick();
       });
     };
@@ -102,8 +103,11 @@ angular.module('phsDriverApp.controllers')
             }
           }, function(error) {
             Utils.hideLoading();
-            if ($rootScope.isDevice) {
-              $cordovaNativeAudio.play('newLead');
+            if ($rootScope.useLocalService) {
+              $scope.showPopup();
+              if ($rootScope.isDevice) {
+                $cordovaNativeAudio.play('newLead');
+              }
             }
             $log.debug("Create new lead error", error);
           })

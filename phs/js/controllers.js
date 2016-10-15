@@ -87,11 +87,11 @@ angular.module('phsDriverApp.controllers')
     });
   };
 
-  $scope.showPopOverContact = function() {
+  $scope.showPopOverContact = function(event) {
+    $scope.popover.show(event);
     if ($rootScope.isDevice) {
       $cordovaNativeAudio.play('contactSound');
     }
-    $scope.popover.show();
   }
 
   $ionicPopover.fromTemplateUrl('templates/popover.html', {

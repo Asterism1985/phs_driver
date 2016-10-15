@@ -21,8 +21,11 @@ angular.module('phsDriverApp.controllers')
             $cordovaNativeAudio.play('newLead');
           }
         }, function(error) {
-          if ($rootScope.isDevice) {
-            $cordovaNativeAudio.play('newLead');
+          if ($rootScope.useLocalService) {
+            $scope.showPopup();
+            if ($rootScope.isDevice) {
+              $cordovaNativeAudio.play('newLead');
+            }
           }
         });
       } else {
