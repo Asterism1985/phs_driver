@@ -1,6 +1,6 @@
 angular.module('phsDriverApp.controllers')
 
-.controller('AppCtrl', ['$rootScope', '$scope', '$timeout', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'UserService', 'PhsServer', '$cordovaNativeAudio', function($rootScope, $scope, $timeout, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, UserService, PhsServer, $cordovaNativeAudio) {
+.controller('AppCtrl', ['$rootScope', '$scope', '$timeout', '$ionicModal', '$ionicPopover', '$ionicSideMenuDelegate', '$log', 'Utils', 'UserService', 'PhsServer', '$cordovaNativeAudio', 'PhsLocalService', function($rootScope, $scope, $timeout, $ionicModal, $ionicPopover, $ionicSideMenuDelegate, $log, Utils, UserService, PhsServer, $cordovaNativeAudio, PhsLocalService) {
 
     if ($rootScope.isDevice) {
 
@@ -68,6 +68,8 @@ angular.module('phsDriverApp.controllers')
     PhsServer.getContactInfos().then(function(data) {
       $scope.contactInfos = data[0];
       $log.debug("[GLOBAL] contactinfos: ", $scope.contactInfos);
+    }, function(error) {
+      $scope.contactInfos = PhsLocalService.getContactInfos()[0];
     });
   };
 

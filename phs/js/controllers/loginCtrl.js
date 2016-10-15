@@ -1,5 +1,5 @@
 angular.module('phsDriverApp.controllers')
-  .controller('LoginCtrl', ['$rootScope', '$scope', '$log', 'Utils', 'PhsServer', 'UserService', 'RequestService', 'AppConfig', '$cordovaKeyboard', function($rootScope, $scope, $log, Utils, PhsServer, UserService, RequestService, AppConfig, $cordovaKeyboard) {
+  .controller('LoginCtrl', ['$rootScope', '$scope', '$log', 'Utils', 'PhsServer', 'PhsLocalService', 'UserService', 'RequestService', 'AppConfig', function($rootScope, $scope, $log, Utils, PhsServer, PhsLocalService, UserService, RequestService, AppConfig) {
 
     $scope.init = function() {
       $scope.passcode = {
@@ -37,7 +37,10 @@ angular.module('phsDriverApp.controllers')
       }, function(error) {
         $log.debug('Login error Infos', error);
         Utils.hideLoading();
-        Utils.toast('Can\'t process your request', 2000);
+        $rootScope.currentUser = PhsLocalService.doLogin();
+        $rootScope.AppText = PhsLocalService.getAppConfigs();
+        Utils.toLocation('/app/home');
+        // Utils.toast('Can\'t process your request', 2000);
       });
     };
 

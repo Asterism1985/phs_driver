@@ -1,6 +1,6 @@
 angular.module('phsDriverApp.controllers')
-  .controller('HomeCtrl', ['$rootScope', '$scope', '$log', '$ionicPlatform', '$timeout', '$window', 'PhsServer', 'Utils', '$cordovaNativeAudio',
-    function($rootScope, $scope, $log, $ionicPlatform, $timeout, $window, PhsServer, Utils, $cordovaNativeAudio) {
+  .controller('HomeCtrl', ['$rootScope', '$scope', '$log', '$ionicPlatform', '$timeout', '$window', 'PhsServer', 'Utils', '$cordovaNativeAudio', 'PhsLocalService',
+    function($rootScope, $scope, $log, $ionicPlatform, $timeout, $window, PhsServer, Utils, $cordovaNativeAudio, PhsLocalService) {
 
       $scope.init = function() {
         $scope.isLoading = true;
@@ -73,6 +73,10 @@ angular.module('phsDriverApp.controllers')
             }
           }, function(error) {
             Utils.hideLoading();
+            $scope.isLoading = false;
+            $scope.badges = PhsLocalService.getBadges();
+            initBadges($scope.badges);
+            $scope.leadRecents = PhsLocalService.getLeadRecent();
           });
 
         var initBadges = function(badges) {
