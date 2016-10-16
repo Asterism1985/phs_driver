@@ -1,8 +1,8 @@
 
 angular.module('phsDriverApp.services')
 
-.factory('UserService', ['$window', '$log', 'PhsServer', '$localForage', 'AppConfig', '$q', 'Utils', '$timeout',
-  function($window, $log, PhsServer, $localForage, AppConfig, $q, Utils, $timeout) {
+.factory('UserService', ['$window', '$log', 'PhsServer', '$localForage', 'AppConfig', '$q', 'Utils', '$timeout', '$cordovaGoogleAnalytics',
+  function($window, $log, PhsServer, $localForage, AppConfig, $q, Utils, $timeout, $cordovaGoogleAnalytics) {
     var UserService = {};
 
     UserService.getCurrentUser = function() {
@@ -60,6 +60,7 @@ angular.module('phsDriverApp.services')
       $log.debug("Register trigger 5s to logout");
       var timeOutTimerValue = 24*60*60*1000;//1 day to logout the app. to milisecond
       // Start a timeout
+      $cordovaGoogleAnalytics.trackEvent('SessionInterval', 'time out session', 'Auto logout', timeOutTimerValue);
       var TimeOut_Thread = $timeout(function() {
         UserService.logOut().then(function(){
           $log.debug("auto call logout Service");

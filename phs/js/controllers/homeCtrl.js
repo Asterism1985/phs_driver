@@ -1,8 +1,11 @@
 angular.module('phsDriverApp.controllers')
-  .controller('HomeCtrl', ['$rootScope', '$scope', '$log', '$ionicPlatform', '$timeout', '$window', 'PhsServer', 'Utils', '$cordovaNativeAudio', 'PhsLocalService',
-    function($rootScope, $scope, $log, $ionicPlatform, $timeout, $window, PhsServer, Utils, $cordovaNativeAudio, PhsLocalService) {
+  .controller('HomeCtrl', ['$rootScope', '$scope', '$log', '$ionicPlatform', '$timeout', '$window', 'PhsServer', 'Utils', '$cordovaNativeAudio', 'PhsLocalService', '$cordovaGoogleAnalytics',
+    function($rootScope, $scope, $log, $ionicPlatform, $timeout, $window, PhsServer, Utils, $cordovaNativeAudio, PhsLocalService, $cordovaGoogleAnalytics) {
 
       $scope.init = function() {
+        if ($rootScope.isDevice) {
+          $cordovaGoogleAnalytics.trackView('Home screen');
+        }
         $scope.isLoading = true;
         //showLoading first
         Utils.showLoading();

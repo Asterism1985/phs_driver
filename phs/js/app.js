@@ -9,7 +9,7 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
     api: 'https://mobilewebapi.phs.co.uk/Salesforce.MobileServices/api' // baseURL
   })
 
-.run(function($ionicPlatform, $rootScope, UserService, $log, AppConfig, Utils, RequestService) {
+.run(function($ionicPlatform, $rootScope, UserService, $log, AppConfig, Utils, RequestService, $cordovaGoogleAnalytics) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -42,6 +42,14 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
       Utils.toLocation('/app/home');
     }, function(error) {
     });
+
+
+    //Setup google analytics
+    if (window.isDevice) {
+      $cordovaGoogleAnalytics.debugMode();
+      $cordovaGoogleAnalytics.startTrackerWithId('UA-85735750-1');
+      $cordovaGoogleAnalytics.setUserId('85735750');
+    }
   });
 })
 

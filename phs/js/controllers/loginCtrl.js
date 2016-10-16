@@ -1,7 +1,10 @@
 angular.module('phsDriverApp.controllers')
-  .controller('LoginCtrl', ['$rootScope', '$scope', '$log', 'Utils', 'PhsServer', 'PhsLocalService', 'UserService', 'RequestService', 'AppConfig', function($rootScope, $scope, $log, Utils, PhsServer, PhsLocalService, UserService, RequestService, AppConfig) {
+  .controller('LoginCtrl', ['$rootScope', '$scope', '$log', 'Utils', 'PhsServer', 'PhsLocalService', 'UserService', 'RequestService', 'AppConfig', '$cordovaGoogleAnalytics', function($rootScope, $scope, $log, Utils, PhsServer, PhsLocalService, UserService, RequestService, AppConfig, $cordovaGoogleAnalytics) {
 
     $scope.init = function() {
+      if ($rootScope.isDevice) {
+        $cordovaGoogleAnalytics.trackView('Login screen');
+      }
       $scope.passcode = {
         number1: '',
         number2: '',

@@ -1,53 +1,59 @@
 angular.module('phsDriverApp.controllers')
-.controller('NewStoryCtrl', function($scope, $ionicPopup, $rootScope, $timeout, $log, StoryService, $cordovaNativeAudio) {
-  $scope.data = {
-    title: '',
-    body: ''
-  };
-  $scope.submitStory = function() {
-    var confirmPopup = $ionicPopup.confirm({
-      title: '',
-      cssClass: 'confirm-title',
-      template: 'Are you sure you want to submit your post?',
-      cancelType: 'cancel-btn',
-      okType: 'ok-btn-selected'
-    });
-    confirmPopup.then(function(res) {
-      if (res) {
-        $log.log('You are sure');
-        StoryService.postNewStory($scope.data).then(function() {
-          $scope.showPopup();
-          if ($rootScope.isDevice) {
-            $cordovaNativeAudio.play('newLead');
-          }
-        }, function(error) {
-          if ($rootScope.useLocalService) {
-            $scope.showPopup();
-            if ($rootScope.isDevice) {
-              $cordovaNativeAudio.play('newLead');
-            }
+  .controller('NewStoryCtrl', ['$rootScope', '$scope', '$ionicPopup', '$timeout', '$log', 'StoryService', '$cordovaNativeAudio', '$cordovaGoogleAnalytics',
+    function($rootScope, $scope, $ionicPopup, $timeout, $log, StoryService, $cordovaNativeAudio, $cordovaGoogleAnalytics) {
+
+      if ($rootScope.isDevice) {
+        $cordovaGoogleAnalytics.trackView('New story screen');
+      }
+      $scope.data = {
+        title: '',
+        body: ''
+      };
+      $scope.submitStory = function() {
+        var confirmPopup = $ionicPopup.confirm({
+          title: '',
+          cssClass: 'confirm-title',
+          template: 'Are you sure you want to submit your post?',
+          cancelType: 'cancel-btn',
+          okType: 'ok-btn-selected'
+        });
+        confirmPopup.then(function(res) {
+          if (res) {
+            $log.log('You are sure');
+            StoryService.postNewStory($scope.data).then(function() {
+              $scope.showPopup();
+              if ($rootScope.isDevice) {
+                $cordovaNativeAudio.play('newLead');
+              }
+            }, function(error) {
+              if ($rootScope.useLocalService) {
+                $scope.showPopup();
+                if ($rootScope.isDevice) {
+                  $cordovaNativeAudio.play('newLead');
+                }
+              }
+            });
+          } else {
+            $log.log('You are not sure');
           }
         });
-      } else {
-        $log.log('You are not sure');
-      }
-    });
-  };
+      };
 
-  $scope.showPopup = function() {
-    $scope.data = {};
-    var myPopup = $ionicPopup.show({
-      templateUrl: 'templates/popups/story-confirmed.html',
-      scope: $scope
-    });
+      $scope.showPopup = function() {
+        $scope.data = {};
+        var myPopup = $ionicPopup.show({
+          templateUrl: 'templates/popups/story-confirmed.html',
+          scope: $scope
+        });
 
-    myPopup.then(function(res) {
-      $log.log('Tapped!', res);
-    });
+        myPopup.then(function(res) {
+          $log.log('Tapped!', res);
+        });
 
-    $timeout(function() {
-      myPopup.close();
-    }, 2000);
-  };
+        $timeout(function() {
+          myPopup.close();
+        }, 2000);
+      };
 
-});
+    }
+  ]);

@@ -1,7 +1,11 @@
 angular.module('phsDriverApp.controllers')
-  .controller('LeadStatusCtrl', ['$scope', '$log', 'Utils', 'PhsServer', function($scope, $log, Utils, PhsServer) {
+  .controller('LeadStatusCtrl', ['$rootScope', '$scope', '$log', 'Utils', 'PhsServer', '$cordovaGoogleAnalytics',
+    function($rootScope, $scope, $log, Utils, PhsServer, $cordovaGoogleAnalytics) {
 
     $scope.init = function() {
+      if ($rootScope.isDevice) {
+        $cordovaGoogleAnalytics.trackView('Lead status screen');
+      }
       $scope.isLoading = true;
       PhsServer.getLeadStatus().then(function(data){
         $scope.isLoading = false;
