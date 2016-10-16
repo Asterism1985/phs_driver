@@ -50,9 +50,13 @@ angular.module('phsDriverApp.directives')
             saveToPhotoAlbum: false,
             correctOrientation: true
           };
-
           $cordovaCamera.getPicture(options).then(function(fileURL) {
             $scope.files.push(fileURL);
+            $timeout(function() {
+              $ionicSlideBoxDelegate.slide(0);
+              $ionicSlideBoxDelegate.update();
+              $scope.$apply();
+            }, 10);
           }, function(err) {
             // error
           });
@@ -67,17 +71,13 @@ angular.module('phsDriverApp.directives')
           };
           $cordovaImagePicker.getPictures(options)
             .then(function(results) {
-              for (var i = 0; i < results.length; i++) {
-                $log.debug('Image URI: ' + results[i]);
-                $scope.files = results;
+              $scope.files = $scope.files.concat(results);
+              $timeout(function() {
+                $ionicSlideBoxDelegate.slide(0);
+                $ionicSlideBoxDelegate.update();
+                $scope.$apply();
+              }, 10);
 
-                $timeout(function() {
-                  $ionicSlideBoxDelegate.slide(0);
-                  $ionicSlideBoxDelegate.update();
-                  $scope.$apply();
-                }, 10);
-
-              }
             }, function(error) {
               // error getting photos
               $log.debug(error);
