@@ -42,6 +42,9 @@
         },
         "cordova.plugins.diagnostic": {
             "PACKAGE_NAME": "com.phs.driver.android"
+        },
+        "cordova-plugin-google-analytics": {
+            "PACKAGE_NAME": "com.phs.driver.android"
         }
     },
     "dependent_plugins": {

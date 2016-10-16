@@ -45,6 +45,9 @@
         },
         "cordova.plugins.diagnostic": {
             "PACKAGE_NAME": "com.phs.driver.ios"
+        },
+        "cordova-plugin-google-analytics": {
+            "PACKAGE_NAME": "com.phs.driver.ios"
         }
     },
     "dependent_plugins": {
