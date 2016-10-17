@@ -1,12 +1,11 @@
 <ion-view class="login-page">
-<ion-header-bar align-title="center" class="bar-balanced">
-  <h1 class="title"><img class='title-image'  src='img/logo.png' /> Login</h1>
-  <div class="buttons">
-    <button class="button button-icon button-clear ion-person" ng-click="popover.show($event)">
-     </button>
-  </div>
-</ion-header-bar>
-
+  <ion-header-bar align-title="center" class="bar-balanced">
+    <h1 class="title"><img class='title-image'  src='img/logo.png' /> Login</h1>
+    <div class="buttons">
+      <button class="button button-icon button-clear ion-person" ng-click="popover.show($event)">
+      </button>
+    </div>
+  </ion-header-bar>
   <ion-content class="padding">
     <form name="data.login">
       <div class="login-title">
@@ -22,11 +21,12 @@
         </div>
       </div>
       <div style="text-align:center; margin-top: 10px">
-      <button class="button icon-right ion-chevron-right button-balanced" ng-click="doLogin()" ng-disabled="data.login.$invalid">
-        Next
-      </button>
-    </div>
-      
+        <div style="color:red" ng-if="errorMsg">{{errorMsg}}</div>
+        <br>
+        <button class="button icon-right ion-chevron-right button-balanced" ng-click="doLogin()" ng-disabled="data.login.$invalid">
+          Next
+        </button>
+      </div>
       <div class="messageError" ng-if="showMessage" ng-bind="message">
       </div>
       <form>

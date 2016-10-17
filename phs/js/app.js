@@ -23,7 +23,7 @@ angular.module('phsDriverApp', ['ionic', 'phsDriverApp.controllers', 'phsDriverA
       StatusBar.styleDefault();
     }
 
-    $rootScope.useLocalService = true;
+    $rootScope.useLocalService = false;
 
     $rootScope.isDevice = (ionic.Platform.device().available && ionic.Platform.device().platform !== 'browser') || false;
     window.isDevice = $rootScope.isDevice;

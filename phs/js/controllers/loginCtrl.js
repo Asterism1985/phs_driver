@@ -2,6 +2,7 @@ angular.module('phsDriverApp.controllers')
   .controller('LoginCtrl', ['$rootScope', '$scope', '$log', 'Utils', 'PhsServer', 'PhsLocalService', 'UserService', 'RequestService', 'AppConfig', '$cordovaGoogleAnalytics', function($rootScope, $scope, $log, Utils, PhsServer, PhsLocalService, UserService, RequestService, AppConfig, $cordovaGoogleAnalytics) {
 
     $scope.init = function() {
+      $scope.errorMsg = null;
       if ($rootScope.isDevice) {
         $cordovaGoogleAnalytics.trackView('Login screen');
       }
@@ -22,29 +23,32 @@ angular.module('phsDriverApp.controllers')
 
       Utils.showLoading();
       PhsServer.doLogin($scope.data).then(function(user) {
-        $rootScope.currentUser = user;
-        RequestService.setToken(user.token);
-        $log.debug('User Infos', JSON.stringify(user));
-        return UserService.setCurrentUser(user);
-      })
-      .then(function() {
-        return PhsServer.getAppConfigs();
-      })
-      .then(function(appConfigs) {
-        $log.debug("AppConfig label: ", appConfigs);
-        $rootScope.AppText = appConfigs;
-        AppConfig.cacheAppText(appConfigs);
-        Utils.hideLoading();
-        UserService.registerTimeoutSession();
-        Utils.toLocation('/app/home');
-      }, function(error) {
-        $log.debug('Login error Infos', error);
-        Utils.hideLoading();
-        $rootScope.currentUser = PhsLocalService.doLogin();
-        $rootScope.AppText = PhsLocalService.getAppConfigs();
-        Utils.toLocation('/app/home');
-        // Utils.toast('Can\'t process your request', 2000);
-      });
+          $rootScope.currentUser = user;
+          RequestService.setToken(user.token);
+          $log.debug('User Infos', JSON.stringify(user));
+          return UserService.setCurrentUser(user);
+        })
+        .then(function() {
+          return PhsServer.getAppConfigs();
+        })
+        .then(function(appConfigs) {
+          $log.debug("AppConfig label: ", appConfigs);
+          $rootScope.AppText = appConfigs;
+          AppConfig.cacheAppText(appConfigs);
+          Utils.hideLoading();
+          UserService.registerTimeoutSession();
+          Utils.toLocation('/app/home');
+        }, function(error) {
+          $scope.errorMsg = "Connect problem with server.";
+          $log.debug('Login error Infos', error);
+          Utils.hideLoading();
+          //Utils.toast('Can\'t process your request', 2000);
+          if ($rootScope.useLocalService) {
+            $rootScope.currentUser = PhsLocalService.doLogin();
+            $rootScope.AppText = PhsLocalService.getAppConfigs();
+            Utils.toLocation('/app/home');
+          }
+        });
     };
 
     $scope.init();

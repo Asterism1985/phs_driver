@@ -14,7 +14,7 @@ angular.module('phsDriverApp.controllers')
           $scope.stories = data;
         }, function(error) {
           $log.debug("can not get story recent");
-          alert("error");
+          alert("Can not get story list, server problem!.");
           Utils.hideLoading();
         });
       };
