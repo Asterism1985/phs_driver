@@ -21,9 +21,9 @@ angular.module('phsDriverApp.directives')
 
           $ionicActionSheet.show({
             buttons: [{
-              text: 'Take Picture'
+              text: 'Take a picture'
             }, {
-              text: 'Select from galery'
+              text: 'Select from gallery'
             }],
             titleText: 'Please select',
             buttonClicked: function(index) {
@@ -39,13 +39,13 @@ angular.module('phsDriverApp.directives')
 
         $scope.takePicture = function() {
           var options = {
-            quality: 50,
+            quality: 80,
             destinationType: Camera.DestinationType.FILE_URI,
             sourceType: Camera.PictureSourceType.CAMERA,
-            allowEdit: true,
+            allowEdit: false,
             encodingType: Camera.EncodingType.JPEG,
-            targetWidth: 100,
-            targetHeight: 100,
+            targetWidth: 300,
+            targetHeight: 400,
             popoverOptions: CameraPopoverOptions,
             saveToPhotoAlbum: false,
             correctOrientation: true
@@ -65,9 +65,9 @@ angular.module('phsDriverApp.directives')
         $scope.selectImageCameraRoll = function() {
           var options = {
             maximumImagesCount: 5,
-            width: 400,
+            width: 300,
             height: 400,
-            quality: 80
+            quality: 100
           };
           $cordovaImagePicker.getPictures(options)
             .then(function(results) {
