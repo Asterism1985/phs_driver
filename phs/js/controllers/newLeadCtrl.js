@@ -138,6 +138,7 @@ angular.module('phsDriverApp.controllers')
               $scope.showPopup();
               if ($rootScope.isDevice) {
                 $cordovaNativeAudio.play('newLead');
+                $cordovaGoogleAnalytics.trackEvent('Create New Lead', 'Create New Lead', 'Create New Lead', true);
               }
             }, function(error) {
               Utils.hideLoading();
@@ -145,6 +146,7 @@ angular.module('phsDriverApp.controllers')
                 $scope.showPopup();
                 if ($rootScope.isDevice) {
                   $cordovaNativeAudio.play('newLead');
+                  $cordovaGoogleAnalytics.trackEvent('Create New Lead', 'Create New Lead', 'Create New Lead', false);
                 }
               }
               $log.debug("Create new lead error", error);

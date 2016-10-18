@@ -42,6 +42,9 @@ angular.module('phsDriverApp.controllers')
           $scope.errorMsg = "Connect problem with server.";
           $log.debug('Login error Infos', error);
           Utils.hideLoading();
+          if ($rootScope.isDevice) {
+            $cordovaGoogleAnalytics.trackEvent('Login', 'Login Fail', employeeNumber, false);
+          }
           //Utils.toast('Can\'t process your request', 2000);
           if ($rootScope.useLocalService) {
             $rootScope.currentUser = PhsLocalService.doLogin();

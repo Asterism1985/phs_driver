@@ -67,18 +67,21 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTrans
     );
     return deferred.promise;
   };
-  this.doLogout = function() {
+  this.doLogout = function(token) {
     $log.debug('logout call');
+    var data = {
+      token: token
+    }
     var deferred = $q.defer();
-    // $http.post(path.logout).then(
-    //   function(res) {
+    $http.post(path.logout, data).then(
+      function(res) {
         deferred.resolve(true);
-    //   },
-    //   function(error) {
-    //     $log.error(error);
-    //     deferred.reject(error);
-    //   }
-    // );
+      },
+      function(error) {
+        $log.error(error);
+        deferred.reject(error);
+      }
+    );
     return deferred.promise;
   };
 
@@ -161,7 +164,7 @@ function PHSDriverService($rootScope, $log, $q, $http, Config, $cordovaFileTrans
     location.lat = '51.600697';
     location.lng = '0.549094';
 
-    $http.get(path.nearBy + '?lat='+location.lat + '&lng=' + location.lng).then(
+    $http.get(path.nearBy + '?lat=' + location.lat + '&lng=' + location.lng).then(
       function(res) {
         deferred.resolve(res.data);
       },

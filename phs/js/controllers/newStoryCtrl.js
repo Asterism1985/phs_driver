@@ -24,8 +24,12 @@ angular.module('phsDriverApp.controllers')
               $scope.showPopup();
               if ($rootScope.isDevice) {
                 $cordovaNativeAudio.play('newLead');
+                $cordovaGoogleAnalytics.trackEvent('Create New Story', 'Create New Lead', 'successfully', true);
               }
             }, function(error) {
+              if ($rootScope.isDevice) {
+                $cordovaGoogleAnalytics.trackEvent('Create New Story', 'Create New Lead', 'Fail', false);
+              }
               if ($rootScope.useLocalService) {
                 $scope.showPopup();
                 if ($rootScope.isDevice) {
